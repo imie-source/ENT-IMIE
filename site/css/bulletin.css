@@ -1,0 +1,59 @@
+/* Bande du haut commune à toutes les autres pages */
+
+/* remplissage gris sur toute la page */
+body {
+background-color: #CCD4D9;
+height: 450px;}
+
+/* partie contenu 
+remplissage blanc, 
+ajustement mise en page */
+#main {
+width: 1000px;
+margin: auto;
+text-align: center;
+background-color: white;
+}
+
+/* titre */
+h1.titre {
+width: 100%;
+text-align: center;
+color: black;
+font-family:Century Gothic, serif;
+font-size: 40px;
+margin-top: 2px;
+font-weight: normal; }
+
+/* Nom et prénom en caractère gras */
+div#NP {
+text-align: left;
+color: black;
+font-family: Century Gothic, serif;
+font-size: 18px;
+font-weight: bold; }
+
+/* Parties informations status */
+div.statut {
+text-align: left;
+color: black;
+font-family: Century Gothic, serif;
+font-size: 18px;}
+
+/* en-tête (logo,nom,status) */	
+header#bandeau {
+height:20%;
+background-color: #55D2E5;
+border-bottom: 5px solid darkgrey;
+}
+
+
+/* logo IMIE en-haut à gauche 
+bordures, coins, effet ombrage */
+#logo {
+background-color: white;
+margin-right: 750px;
+-moz-border-radius:0px;
+-webkit-border-radius:0px;
+border-radius:0px;
+box-shadow: 4px 4px 4px #555;
