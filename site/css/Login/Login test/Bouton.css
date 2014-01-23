@@ -1,0 +1,41 @@
+ .bouton{
+	font-family: Arial, Helvetica, sans-serif; 		/*police d'écriture*/
+    font-size: 20px;	/*taille de la police*/
+    width: 115px;		
+    height: 40px;
+    padding-top: -10px; /*permet le centrage vertical*/
+    text-align: center;
+	margin : auto;
+    color: White;
+    background: #7CBFF3;
+	border-radius: 8px;
+	webkit-touch-callout: none;
+	webkit-user-select: none;
+	khtml-user-select: none;
+	moz-user-select: none;
+	ms-user-select: none;
+	user-select: none;						
+							
+}
+
+.bouton:hover{
+    color: White;
+    background: #60b3f0;
+	webkit-touch-callout: none;
+	webkit-user-select: none;
+	khtml-user-select: none;
+	moz-user-select: none;
+	ms-user-select: none;
+	user-select: none;		
+	 }
+
+.bouton:active{
+    color: White;
+    background: #7CBFF3;
+	webkit-touch-callout: none;
+	webkit-user-select: none;
+	khtml-user-select: none;
+	moz-user-select: none;
+	ms-user-select: none;
+	user-select: none;		
+}
