@@ -8,8 +8,8 @@
 		<div>
 			<img src="../img/logo.jpg" />
 		</div>
-		<!-- définir le fichier php dans l'attribut action pour traiter le formulaire-->
-		<form method="post" action="menu.php"> 
+		
+		<form action="#" method="post"> 
 		
 			<div>Identifiant</div>
 			
@@ -19,8 +19,12 @@
 			
 			<input style="display:block" type="password" name="pass" />
 			
-			<input style="display:block" type="submit" value="Connexion" />
+			<input style="display:block" type="submit" value="Connexion" name="formCo" />
 			
 		</form>
+		
+		<?php include('connexion.php');
+		connexion(); ?>
+		
 	</body>
 </html>
