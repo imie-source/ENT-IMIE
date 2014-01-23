@@ -1,0 +1,32 @@
+body {
+	font-family: Century Gothic, serif;
+	background-color : #56686b;
+	font-size : 20px;
+	text-align : center;
+	}
+
+.groove { 
+	
+	
+	border-style : groove;
+	width: 170px;
+	position : relative;
+	background-color : #7CBFF3;
+	padding-top : 100px;
+	padding-left : 100px;
+	padding-bottom : 100px;
+	padding-right : 100px;
+	left : 50%;
+	
+	margin-top: 100px;
+	margin-left: -190px;
+
+
+	
+	}
+#inputtext {	
+	height : 20px;
+	display : block;
+	margin : auto;
+	
+	}

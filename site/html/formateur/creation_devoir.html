@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Création de devoirs</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../css/cssDefault.css"> -->
+  </head>
+  <body>
+	<header>
+		<div>
+			<a href="menu.html"><img src="../img/logo.jpg" alt="retour au menu principal"/></a>
+		</div>
+		<!-- Les infos profs seront définies en php-->
+		<div>'Serge Dupond'</div> <!--Clic : menu pour déconnexion-->
+		<div>'Développement JAVA'</div>
+		<div>'Responsable pédagogique'</div>
+	</header>
+	<div>
+		
+		<h1>Création d'un devoir</h1>
+		
+		<ul>
+			<!-- toutes les infos matières et classes affichées dépendent du prof -->
+			<form id="validation" action="saisie_notes.html">
+				<li>
+					<input type="button" value="Date"/> <!--ouvre un popup pour rentrer la date 		proprement-->
+				</li>
+				<li>
+					<select form="validation">
+						<option>Classe</option>
+						<option value="classe1">Classe #1</option>
+						<option value="classe2">Classe #2</option>
+						<option value="classe3">Classe #3</option>
+						<option value="classe4">Classe #4</option>
+					</select>
+				</li>
+				<li>
+					<select form="validation">
+						<option>Matières</option>
+						<option value="matiere1">Matiere #1</option>
+						<option value="matiere2">Matiere #2</option>
+					</select>
+				</li>
+				
+				<li>
+					<input type="text" placeholder="Entrez l'intitulé du devoir..."/>
+				</li>
+				<li>
+					<input type="submit" value="Valider"/><!-- afficher un pop-up pour confirmer la création du devoir
+															avec récapitulatif des infos (matière, classe, intitulé) -->
+				</li>
+			</form>
+		</ul>
+		
+	</div>
+  </body>
+</html>

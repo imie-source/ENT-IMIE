@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Bulletin 'periode'</title><!--periode générée par php-->
+    <!-- <link rel="stylesheet" type="text/css" href="../css/cssDefault.css"> -->
+  </head>
+  <body>
+	<header>
+		<div>
+			<a href="menu.html"><img src="../img/logo.jpg" alt="retour au menu principal"/></a>
+		</div>
+		<!-- Les infos élève seront définies en php-->
+		<div>'Gudule Durand'</div><!--Clic : menu pour déconnexion-->
+		<div>'ITStart, Rennes'</div>
+		<div>Session '2013-2014'</div>
+	</header>
+	<div>
+	
+		<!-- menu déroulant à générer en fonction du nombre de sessions qu'à connu l'élève 
+		renvoie à la même page avec les infos de la session choisie -->
+		<ul>
+			<li><a href="bulletin.html">Session 2013/2014</a></li>
+			<li><a href="bulletin.html">Session 2012/2013</a></li>
+			<li><a href="bulletin.html">Session 2011/2012</a></li>
+		</ul>
+		
+		<!-- bulletin central : comprend tous les trimestres de l'année-->
+		<div>
+			<!-- si année en cours afficher en premier le trimestre en cours ou en antichronologique -->
+			<table>
+				<caption>'Trimestre 2'</caption>
+				<thead>
+					<tr>
+						<th>Moy. trimestre</th>
+						<th>Devoir</th>
+						<th>Note</th>
+						<th>Moyenne de la classe</th>
+						<th>Moyenne de l'élève</th>
+						<th>Commentaire</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Développpement</th> <!-- domaine -->
+						<th></th>
+						<th></th>
+						<th>12</th>
+						<th>16</th>
+						<th>Très assidu ce trimestre.</th>
+					</tr>
+					<tr>
+						<th><a href="matiere.html">JAVA</a></th> <!-- matière -->
+						<th>QCM #1</th>
+						<th>18</th>
+						<th>13</th>
+						<th></th>
+						<th>Bon devoir</th>
+					</tr>
+					<tr>
+						<th></th>
+						<th>Programme #1</th>
+						<th>14</th>
+						<th>15</th>
+						<th></th>
+						<th>Quelques erreurs.</th>
+					</tr>
+					
+					<tr>
+						<th><a href="matiere.html">C++</a></th> <!-- matière -->
+						<th>Le pendu</th>
+						<th>12</th>
+						<th>12.7</th>
+						<th></th>
+						<th>Des oublis</th>
+					</tr>
+					
+					<tr>
+						<th>Système</th> <!-- domaine -->
+						<th></th>
+						<th></th>
+						<th>12</th>
+						<th>16</th>
+						<th>Très assidu ce trimestre.</th>
+					</tr>
+					<tr>
+						<th><a href="matiere.html">Windows</a></th> <!-- matière -->
+						<th>QCM #1</th>
+						<th>18</th>
+						<th>13</th>
+						<th></th>
+						<th>Bon devoir</th>
+					</tr>
+					<tr>
+						<th></th>
+						<th>Cas d'étude</th>
+						<th>14</th>
+						<th>15</th>
+						<th></th>
+						<th>Quelques erreurs.</th>
+					</tr>
+					
+					<tr>
+						<th><a href="matiere.html">Linux</a></th> <!-- matière -->
+						<th>QCM #2</th>
+						<th>12</th>
+						<th>12.7</th>
+						<th></th>
+						<th>Des oublis</th>
+					</tr>
+				
+				</tbody>			
+			</table>
+			
+			<!-- un autre trimestre -->
+			<table>
+				<caption>'Trimestre 1'</caption>
+				<thead>
+					<tr>
+						<!-- affiche la moyenne du trimestre de l'élève -->
+						<th>Moy. trimestre</th>
+						<th>Devoir</th>
+						<th>Note</th>
+						<th>Moyenne de la classe</th>
+						<th>Moyenne de l'élève</th>
+						<th>Commentaire</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th>Développpement</th>
+						<th></th>
+						<th></th>
+						<th>12</th>
+						<th>16</th>
+						<th>Très assidu ce trimestre.</th>
+					</tr>
+					<tr>
+						<th>JAVA</th>
+						<th>QCM #1</th>
+						<th>18</th>
+						<th>13</th>
+						<th></th>
+						<th>Bon devoir</th>
+					</tr>
+					<tr>
+						<th></th>
+						<th>Programme #1</th>
+						<th>14</th>
+						<th>15</th>
+						<th></th>
+						<th>Quelques erreurs.</th>
+					</tr>
+					
+					<tr>
+						<th>C++</th>
+						<th>Le pendu</th>
+						<th>12</th>
+						<th>12.7</th>
+						<th></th>
+						<th>Des oublis</th>
+					</tr>
+					
+					<tr>
+						<th>Système</th>
+						<th></th>
+						<th></th>
+						<th>12</th>
+						<th>16</th>
+						<th>Très assidu ce trimestre.</th>
+					</tr>
+					<tr>
+						<th>Windows</th>
+						<th>QCM #1</th>
+						<th>18</th>
+						<th>13</th>
+						<th></th>
+						<th>Bon devoir</th>
+					</tr>
+					<tr>
+						<th></th>
+						<th>Cas d'étude</th>
+						<th>14</th>
+						<th>15</th>
+						<th></th>
+						<th>Quelques erreurs.</th>
+					</tr>
+					
+					<tr>
+						<th>Linux</th>
+						<th>QCM #2</th>
+						<th>12</th>
+						<th>12.7</th>
+						<th></th>
+						<th>Des oublis</th>
+					</tr>
+				
+				</tbody>			
+			</table>	
+		
+		</div>
+		
+	</div>
+	
+	<aside>
+		
+		<div> <!-- Moyenne annuelle de l'élève -->
+			<div>
+			Moy.
+			</div>
+			<div>
+			12,5
+			</div>
+		</div>
+		
+		<div>
+			<div>
+			Classe
+			</div>
+			<div>
+			11,5
+			</div>
+		</div>
+		
+		<div>
+		Radar en php
+		</div>
+		
+		<div>
+		Un autre truc sympa en php ;-)
+		</div>
+		
+	</aside>
+  </body>
+</html>

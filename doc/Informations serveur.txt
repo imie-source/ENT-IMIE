@@ -1,0 +1,14 @@
+Debian 7
+dépot 10.3.0.1
+
+
+
+adresse : 10.3.6.49 /16
+
+Compte :root - root
+	gael - gael
+	administrateur - administrateur
+
+Tous les mots de passes autres demandé : root
+
+Fichier ENT : /home/administrateur/ENT

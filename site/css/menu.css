@@ -1,0 +1,94 @@
+/* 
+feuille de menu.css 
+Côté Formateurs
+*/
+body {
+background-color: #CCD4D9;
+height: 450px;}
+
+#main {
+width: 1000px;
+margin: auto;
+text-align: center;
+background-color: white;
+}
+
+h1.titre {
+width: 100%;
+text-align: center;
+color: black;
+font-family: Arial, serif;
+font-size: 40px;
+margin-top: 2px;
+font-weight: normal; }
+
+div#NP {
+text-align: left;
+color: black;
+font-family: Arial, serif;
+font-size: 18px;
+font-weight: bold; }
+
+div.statut {
+text-align: left;
+color: black;
+font-family: Arial, serif;
+font-size: 18px;}
+	
+header#bandeau {
+height:20%;
+background-color: #55D2E5;
+border-bottom: 5px solid darkgrey;
+}
+
+#logo {
+background-color: white;
+margin-right: 750px;
+-moz-border-radius:0px;
+-webkit-border-radius:0px;
+border-radius:0px;
+}
+
+img {
+background-color:#E4EFFF;
+border:1px solid #9FC6FF;
+padding:5px;
+-moz-border-radius:15px;
+-webkit-border-radius:15px;
+border-radius:15px;
+box-shadow: 8px 8px 8px #555;}
+
+ul {
+height: 435px;
+background-color: white;
+padding: 20px;
+margin: 80px;
+list-style-type:none; }
+
+li {
+float:left;
+margin-left:80px;
+background-color:white;  }
+
+/* mise en place des icônes avec les titres*/
+ul li a {
+display:block;
+float:left;   
+width:150px;
+line-height:27px; 
+font-family: Arial, serif;
+font-size: 18px;
+color: black;
+text-decoration:none;
+text-align:center; 
+}
+
+/* effet de couleur et ombrage qd on passe la souris */
+ul li img:hover {
+background-color:#7CBFF3;
+border:1px solid #D1E6F6;
+padding:5px;
+-moz-border-radius:15px;
+-webkit-border-radius:15px;
+border-radius:15px;
+}  

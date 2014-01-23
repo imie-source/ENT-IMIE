@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>'JAVA'</title><!-- indiquer le nom de la matière sélectionnée -->
+    <!-- <link rel="stylesheet" type="text/css" href="../css/cssDefault.css"> -->
+  </head>
+  <body>
+	<header>
+		<div>
+			<a href="menu.html"><img src="../img/logo.jpg" alt="retour au menu principal"/></a>
+		</div>
+		<!-- Les infos élève seront définies en php-->
+		<div>'Gudule Durand'</div><!--Clic : menu pour déconnexion-->
+		<div>'ITStart, Rennes'</div>
+		<div>Session '2013-2014'</div>
+	</header>
+	<div>
+	
+		<h1>'JAVA'</h1>
+		
+		<div>
+			<!-- retourne le bulletin de la période en cours -->
+			<a href="bulletin.html">Revenir au bulletin</a>
+		</div>
+		
+		<!-- menu déroulant à générer en fonction du nombre de sessions qu'à connu l'élève 
+		renvoie à la même page avec les infos de la session choisie -->
+		<ul>
+			<li><a href="matiere.html">Session 2013/2014</a></li>
+			<li><a href="matiere.html">Session 2012/2013</a></li>
+			<li><a href="matiere.html">Session 2011/2012</a></li>
+		</ul>
+		
+		<!-- tous les devoirs de l'année sont affichés dans un ordre antichronologique -->
+		<div>
+			<h3>QCM #1</h3>
+			
+			<div>
+				<div>note</div>
+				<div>18</div>
+			</div>
+			
+			<div>
+				<div>moy. classe</div>
+				<div>13</div>
+			</div>
+			
+			<div>
+				<p>
+				Superbe devoir, tu t'es surpassé.
+				</p>
+				<div>
+					<form action="../media/corrige.pdf">
+						<input type="submit" value="Correction" />
+					</form>
+					<form action="../media/sujet.pdf">
+						<input type="submit" value="Sujet" />
+					</form>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div>
+			<h3>Programme #1</h3>
+			
+			<div>
+				<div>note</div>
+				<div>14</div>
+			</div>
+			
+			<div>
+				<div>moy. classe</div>
+				<div>15</div>
+			</div>
+			
+			<div>
+				<p>
+				Superbe devoir, tu t'es surpassé.
+				</p>
+				<div>
+					<form action="../media/corrige.pdf">
+						<input type="submit" value="Correction" />
+					</form>
+					<form action="../media/sujet.pdf">
+						<input type="submit" value="Sujet" />
+					</form>
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
+	<aside>
+		<div> <!-- Moyenne annuelle de l'élève dans la matière-->
+			<div>
+			Moy.
+			</div>
+			<div>
+			12,5
+			</div>
+		</div>
+		
+		<div>
+			<div>
+			Classe
+			</div>
+			<div>
+			11,5
+			</div>
+		</div>
+		
+		<div>
+		Radar en php
+		</div>
+		
+		<div>
+		Un autre truc sympa en php ;-)
+		</div>
+	</aside>
+  </body>
+</html>

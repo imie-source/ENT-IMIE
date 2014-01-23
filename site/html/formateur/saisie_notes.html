@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Saisie/correction des notes</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../css/cssDefault.css"> -->
+  </head>
+  <body>
+	<header>
+		<div>
+			<a href="menu.html"><img src="../img/logo.jpg" alt="retour au menu principal"/></a>
+		</div>
+		<!-- Les infos profs seront définies en php-->
+		<div>'Serge Dupond'</div> <!--Clic : menu pour déconnexion-->
+		<div>'Développement JAVA'</div>
+		<div>'Responsable pédagogique'</div>
+	</header>
+	<div>
+	
+		<div> <!-- bloc haut de page -->
+			<div>
+			'Date du devoir'
+			</div>
+			<form>
+				<div> <!-- bloc télécharger le sujet -->
+					<div>
+					Télécharger le sujet
+					</div>
+					<input style="display:block" type="file"/>
+				</div>
+				<div> <!-- bloc télécharger le corriger -->
+					<div>
+					Télécharger le corriger
+					</div>
+					<input style="display:block" type="file"/>
+				</div>
+				<input style="display:block" type="submit" value="Envoyer"/>
+			</form>
+			<div>
+			'Nom du devoir'
+			</div>
+		</div>
+		
+		<div>!! Pour élève absent au devoir, indiquer abs comme note !!</div>
+		
+		<form action="menu.html">
+		<table>
+			<thead> <!-- en-tête du tableau (première ligne) -->
+				<tr>
+					<th>Élève </th>
+					<th>Notes</th>
+					<th>Commentaires</th>
+				</tr>
+			</thead>
+			<tbody> <!-- corps du tableau -->
+					<!-- Le tableau doit être rempli par le professeur connecté
+					si les notes sont déjà existantes (arrivée depuis liste_devoirs_classe)
+					elles doivent apparaître dans les cellules ainsi que les commentaires -->
+				<tr>
+					<th>Michel Dupond</th>
+					<th><input type="text"/></th>
+					<th><input type="text"/></th>
+				</tr>
+				<tr>
+					<th>Sandra Martin</th>
+					<th><input type="text"/></th>
+					<th><input type="text"/></th>
+				</tr>
+				<tr>
+					<th>Eric Dupond</th>
+					<th><input type="text"/></th>
+					<th><input type="text"/></th>
+				</tr>
+			
+			</tbody>
+		</table>
+		
+		<div>
+			<!-- supprimer le devoir de la base de donnée avec les notes et commentaires afférants -->
+			<input style="display:block" type="submit" value="Supprimer le devoir"/>
+			<!-- vérifier que toutes les notes sont renseignées avant de valider, vérifier qu'il
+			n'y a pas de caractères interdits -->
+			<input style="display:block" type="submit" value="Valider"/>
+		</div>
+		</form>
+		
+	</div>
+  </body>
+</html>

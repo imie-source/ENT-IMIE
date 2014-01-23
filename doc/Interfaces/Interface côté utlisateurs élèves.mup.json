@@ -1,0 +1,192 @@
+{
+  "title": "Interface côté utlisateurs élèves",
+  "id": 1,
+  "formatVersion": 2,
+  "ideas": {
+    "1": {
+      "title": "Login",
+      "id": 2,
+      "ideas": {
+        "1": {
+          "title": "Page d'accueil",
+          "id": 3,
+          "ideas": {
+            "1": {
+              "title": "Notes",
+              "id": 4,
+              "ideas": {
+                "4": {
+                  "title": "Bulletin période en cours",
+                  "id": 12,
+                  "attr": {
+                    "style": {
+                      "background": "#FF8C00"
+                    }
+                  },
+                  "ideas": {
+                    "1": {
+                      "title": "Consultation par matière",
+                      "id": 8,
+                      "attr": {
+                        "style": {
+                          "background": "#8FBC8F"
+                        }
+                      },
+                      "ideas": {
+                        "1": {
+                          "title": "Matière 1",
+                          "id": 15,
+                          "attr": {
+                            "style": {
+                              "background": "#8FBC8F"
+                            }
+                          },
+                          "ideas": {
+                            "1": {
+                              "title": "Matière 1",
+                              "id": 18,
+                              "attr": {
+                                "style": {
+                                  "background": "#FF8C00"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "2": {
+                          "title": "Matière 2",
+                          "id": 16,
+                          "attr": {
+                            "style": {
+                              "background": "#8FBC8F"
+                            }
+                          }
+                        },
+                        "3": {
+                          "title": "Matière n",
+                          "id": 17,
+                          "attr": {
+                            "style": {
+                              "background": "#8FBC8F"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "2": {
+                      "title": "Bulletin précédent",
+                      "id": 13,
+                      "attr": {
+                        "style": {
+                          "background": "#8FBC8F"
+                        }
+                      },
+                      "ideas": {
+                        "1": {
+                          "title": "Bulletin n-1",
+                          "id": 14,
+                          "attr": {
+                            "style": {
+                              "background": "#FF8C00"
+                            }
+                          },
+                          "ideas": {
+                            "1": {
+                              "title": "Consultation par matière (n-1)",
+                              "attr": {
+                                "style": {
+                                  "background": "#8FBC8F"
+                                },
+                                "collapsed": true
+                              },
+                              "ideas": {
+                                "1": {
+                                  "title": "Matière 1 (n-1)",
+                                  "attr": {
+                                    "style": {
+                                      "background": "#8FBC8F"
+                                    }
+                                  },
+                                  "ideas": {
+                                    "1": {
+                                      "title": "Matière 1 (n-1)",
+                                      "attr": {
+                                        "style": {
+                                          "background": "#FF8C00"
+                                        }
+                                      },
+                                      "id": 21
+                                    }
+                                  },
+                                  "id": 20
+                                },
+                                "2": {
+                                  "title": "Matière 2 (n-1)",
+                                  "attr": {
+                                    "style": {
+                                      "background": "#8FBC8F"
+                                    }
+                                  },
+                                  "id": 22
+                                },
+                                "3": {
+                                  "title": "Matière n (n-1)",
+                                  "attr": {
+                                    "style": {
+                                      "background": "#8FBC8F"
+                                    }
+                                  },
+                                  "id": 23
+                                }
+                              },
+                              "id": 19
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "attr": {
+                "style": {
+                  "background": "#8FBC8F"
+                }
+              }
+            },
+            "2": {
+              "title": "Rubrique 2",
+              "id": 5,
+              "attr": {
+                "style": {
+                  "background": "#8FBC8F"
+                }
+              },
+              "ideas": {}
+            },
+            "3": {
+              "title": "Rubrique 3",
+              "id": 6,
+              "attr": {
+                "style": {
+                  "background": "#8FBC8F"
+                }
+              }
+            }
+          },
+          "attr": {
+            "style": {
+              "background": "#FF8C00"
+            }
+          }
+        }
+      },
+      "attr": {
+        "style": {
+          "background": "#FF8C00"
+        }
+      }
+    }
+  },
+  "links": []
+}

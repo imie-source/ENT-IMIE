@@ -1,0 +1,31 @@
+<html>
+<head>
+			<title>Accueil</title>
+			
+			<link rel="stylesheet" typePreview post="text/css" href="demos.css">
+			<link rel="stylesheet" type="text/css" href="jquery-ui.css">
+			<script src="../js/jquery-1.5.1.js"></script>
+			<script src="../js/jquery.ui.core.js"></script>
+			<script src="../js/jquery.ui.widget.js"></script>
+			<script src="../js/jquery.ui.datepicker.js"></script>
+		
+<script>
+	$(function() {
+		$( "#datepicker" ).datepicker();
+		$( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd");
+	});
+</script>
+ 
+</head>
+ 
+<body>
+ 
+<div style="width:500px; height:auto; font-size:small;">
+	<div class="demo">
+				<p>Date :<input type="text" id="datepicker">
+				</p>
+	</div>
+</div>
+
+</body>
+</html>
