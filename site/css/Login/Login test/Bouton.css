@@ -1,5 +1,5 @@
  .bouton{
-	font-family: Century Gothic; 		/*police d'écriture*/
+	font-family: Arial, Helvetica, sans-serif; 		/*police d'écriture*/
     font-size: 20px;	/*taille de la police*/
     width: 115px;		
     height: 40px;
@@ -7,16 +7,8 @@
     text-align: center;
 	margin : auto;
     color: White;
-    background: #444;
-	background: -webkit-linear-gradient( #48b9c7, #48a0c3);   /*permet la compatibilité */
-    background:    -moz-linear-gradient( #48b9c7, #48a0c3);
-    background:     -ms-linear-gradient( #48b9c7, #48a0c3);
-    background:      -o-linear-gradient( #48b9c7, #48a0c3);
-    background:         linear-gradient( #48b9c7, #48a0c3);
+    background: #7CBFF3;
 	border-radius: 8px;
-	text-shadow: 0px 1px 0px rgba( 255, 255, 255, 0.2);
-	box-shadow: 	0 0 5px rgba( 0, 0, 0, 0.5),
-						0 -1px 0 rgba( 255, 255, 255, 0.4);
 	webkit-touch-callout: none;
 	webkit-user-select: none;
 	khtml-user-select: none;
@@ -28,12 +20,7 @@
 
 .bouton:hover{
     color: White;
-    background: #48b9c7;
-    background: -webkit-linear-gradient( #00b1ff, #7CBFF3);
-    background:    -moz-linear-gradient( #00b1ff, #7CBFF3);
-    background:     -ms-linear-gradient( #00b1ff, #7CBFF3);
-    background:      -o-linear-gradient( #00b1ff, #7CBFF3);
-    background:         linear-gradient( #00b1ff, #7CBFF3);
+    background: #60b3f0;
 	webkit-touch-callout: none;
 	webkit-user-select: none;
 	khtml-user-select: none;
@@ -44,14 +31,7 @@
 
 .bouton:active{
     color: White;
-    background: #444;
-    background: -webkit-linear-gradient( #48b9c7, #48a0c3);
-    background:    -moz-linear-gradient( #48b9c7, #48a0c3);
-    background:     -ms-linear-gradient( #48b9c7, #48a0c3);
-    background:      -o-linear-gradient( #48b9c7, #48a0c3);
-    background:         linear-gradient( #48b9c7, #48a0c3);
-    box-shadow: 1px 1px 10px black inset, 
-                 0 1px 0 rgba( 255, 255, 255, 0.4);
+    background: #7CBFF3;
 	webkit-touch-callout: none;
 	webkit-user-select: none;
 	khtml-user-select: none;
