@@ -5,7 +5,8 @@
 $db = mysql_connect("localhost", "root", "");
 mysql_select_db("imie");
 $requete =  mysql_query ("SELECT idMatiere, nomMatiere FROM matiere; ");
-$ligne1 =  mysql_query ("SELECT note.idMatiere, avg(note), intitule, commentaire FROM note, devoir WHERE note.idDevoir=devoir.idDevoir; ");
+$ligne1 =  mysql_query ("SELECT matiere.nomMatiere, avg(note), intitule FROM eleve, matiere, note, devoir WHERE note.idDevoir=devoir.idDevoir AND note.idMatiere=matiere.idMatiere AND note.idEleve=eleve.idEleve AND eleve.idEleve='1'; ");
+$ligne1p1 = mysql_query ("SELECT avg(note, commentaire,
 $moyenne1 = mysql_query ("SELECT avg(note) ");
 $resultat=''
 ?>
@@ -45,7 +46,10 @@ $resultat=''
             {
             ?>
                 <tr>
-                    <td><?php echo $resultat['matiere'];?></td>
+                    <td><?php echo $resultat['nomMatiere'];?></td>
+					<td><?php echo $resultat['avg(note)'];?></td>
+					<td><?php echo $resultat['intitule'];?></td>
+					<td><?php echo $resultat['commentaire'];?></td>
                 </tr>
             <?php
             } //fin de la boucle, le tableau contient toute la BDD
