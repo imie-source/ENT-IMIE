@@ -31,7 +31,8 @@
 						
 					/*if ($utilisateur = > "1000")	{
 						header('location: formateur/menu.php');
-					}	else	{*/						header('location: menu.php');										    } else {
+					}	else	{*/					
+					header('location: menu.php');										  
 				    } else {
 						echo '<script type="text/javascript" language="javascript">alert(\'ID ou mp incorrect\');</script>';                    }
  
