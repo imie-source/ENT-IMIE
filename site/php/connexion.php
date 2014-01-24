@@ -31,17 +31,14 @@
 						
 					/*if ($utilisateur = > "1000")	{
 						header('location: formateur/menu.php');
-					}	else	{*/
-						header('location: menu.php');
+					}	else	{*/						header('location: menu.php');										    } else {
 				    } else {
-                        echo '<script type="text/javascript" language="javascript">alert(\'ID ou mp incorrect\');</script>';
-                    }
+						echo '<script type="text/javascript" language="javascript">alert(\'ID ou mp incorrect\');</script>';                    }
  
                 } else {
-                    echo 'Ce pseudo n\'existe pas dans notre base.';
-                }
+						echo '<script type="text/javascript" language="javascript">alert(\'ID ou mp incorrect\');</script>';                }
             } else {
-                echo 'Vous devez remplir tous les champs !';
+                echo '<script type="text/javascript" language="javascript">alert(\'Veuillez remplir les deux champs.\');</script>';
             }
         }
     }
