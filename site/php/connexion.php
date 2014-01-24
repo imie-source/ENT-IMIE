@@ -34,10 +34,10 @@
 					}	else	{*/					
 					header('location: menu.php');										  
 				    } else {
-						echo '<script type="text/javascript" language="javascript">alert(\'ID ou mp incorrect\');</script>';                    }
+						echo '<script type="text/javascript" language="javascript">alert(\'Identifiant ou Mot de Passe incorrect\');</script>';                    }
  
                 } else {
-						echo '<script type="text/javascript" language="javascript">alert(\'ID ou mp incorrect\');</script>';                }
+						echo '<script type="text/javascript" language="javascript">alert(\'Identifiant ou Mot de Passe incorrect\');</script>';                }
             } else {
                 echo '<script type="text/javascript" language="javascript">alert(\'Veuillez remplir les deux champs.\');</script>';
             }
