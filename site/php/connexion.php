@@ -33,15 +33,16 @@
 						header('location: formateur/menu.php');
 					}	else	{*/
 						header('location: menu.php');
+						
 				    } else {
-                        echo '<script type="text/javascript" language="javascript">alert(\'ID ou mp incorrect.\');</script>';
+                        echo '<script type="text/javascript" language="javascript">alert(\'Identifiant ou mot de passe incorrect.\');</script>';
                     }
  
                 } else {
-                    echo 'Ce pseudo n\'existe pas dans notre base.';
+                   echo '<script type="text/javascript" language="javascript">alert(\'Identifiant ou mot de passeincorrect.\');</script>';
                 }
             } else {
-                echo 'Vous devez remplir tous les champs !';
+                echo '<script type="text/javascript" language="javascript">alert(\'Veuillez remplir les deux champs.\');</script>';
             }
         }
     }
