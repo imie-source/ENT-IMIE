@@ -1,3 +1,5 @@
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -15,16 +17,17 @@
 			</div>
 			
 			<!-- Les infos élève seront définies en php-->
-			<?php /*
-					echo $nom $prenom
-					echo $adresse
-					echo ITStart, Rennes
-					echo Session 2013-2014
-			*/ ?>
-			<div id="NP">Gudule Durand</div>
-			<div class="statut">gudule.fd@hjh.cc</div>
-			<div class="statut">ITStart, Rennes</div>
-			<div class="statut">Session 2013-2014</div>
-			<?php /* echo $infoConnexion */ ?>
+			<?php 
+					echo "<div id=\"NP\">". $_SESSION['prenom']. " " .$_SESSION['nom']. "</div>" ;
+					
+			if ($_SESSION['statut'] == "stagiaire")	{		
+					echo "<div class=\"statut\">".$_SESSION['cursus']. ", ". $_SESSION['centreFormation']."</div>";
+					echo "<div class=\"statut\"> Session ".$_SESSION['session']. "</div>";
+			} else {
+					echo "<div class=\"statut\">" .$_SESSION['statutParticulier']. "</div>";
+					echo "<div class=\"statut\">" .$_SESSION['matiere']. "</div>";
+			}
+			 ?>
+			
 		</header>
 	<div>
