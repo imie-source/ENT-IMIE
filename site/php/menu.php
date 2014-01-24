@@ -1,10 +1,9 @@
 <?php
-
-	include("../html/header.html");
-
-	$statut="stagiaire";//faire un test qui renvoie stagiaire ou formateur
 	
-	include("../html/".$statut."/menu.html");
+	include("../html/header.html");
+	
+	include("../html/".$_SESSION['statut']."/menu.html");
+	phpinfo();
 	include("../html/footer.html");
 
 
