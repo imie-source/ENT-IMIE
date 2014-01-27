@@ -22,14 +22,14 @@
 				
 				<!-- Les infos élève seront définies en php-->
 				<?php 
-						echo "<div id=\"NP\">". $_SESSION['prenom']. " " .$_SESSION['nom']. "</div>" ;
+						echo "<div id=\"NP\"><a href=\"#\">". $_SESSION['prenom']. " " .$_SESSION['nom']. "</a></div>\n" ;
 						
 				if ($_SESSION['statut'] == "stagiaire")	{		
-						echo "<div class=\"statut\">".$_SESSION['cursus']. ", ". $_SESSION['centreFormation']."</div>";
-						echo "<div class=\"statut\"> Session ".$_SESSION['session']. "</div>";
+						echo "\t\t\t\t<div class=\"statut\">".$_SESSION['cursus']. ", ". $_SESSION['centreFormation']."</div>\n";
+						echo "\t\t\t\t<div class=\"statut\"> Session ".$_SESSION['session']. "</div>\n";
 				} else {
-						echo "<div class=\"statut\">" .$_SESSION['statutParticulier']. "</div>";
-						echo "<div class=\"statut\">" .$_SESSION['matiere']. "</div>";
+						echo "\t\t\t\t<div class=\"statut\">" .$_SESSION['statutParticulier']. "</div>\n";
+						echo "\t\t\t\t<div class=\"statut\">" .$_SESSION['matiere']. "</div>\n";
 				}
 				 ?>
 				
