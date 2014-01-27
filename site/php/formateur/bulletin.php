@@ -5,9 +5,9 @@
 $db = mysql_connect("localhost", "root", "");
 mysql_select_db("imie");
 $requete =  mysql_query ("SELECT idMatiere, nomMatiere FROM matiere; ");
-$ligne1 =  mysql_query ("SELECT matiere.nomMatiere, avg(note), intitule FROM eleve, matiere, note, devoir WHERE note.idDevoir=devoir.idDevoir AND note.idMatiere=matiere.idMatiere AND note.idEleve=eleve.idEleve AND eleve.idEleve='1'; ");
+$ligne1 =  mysql_query ("SELECT  matiere.nomMatiere, avg(note), commentaire FROM eleve, matiere, note, devoir WHERE note.idDevoir=devoir.idDevoir AND note.idMatiere=matiere.idMatiere AND note.idEleve=eleve.idEleve AND eleve.idEleve='3'; ");
 $ligne1p1 = mysql_query ("SELECT avg(note), commentaire FROM note, matiere, classe WHERE idClasse='1'; ");
-$moyenne1 = mysql_query ("SELECT avg(note) ");
+$moyenne1 = mysql_query ("SELECT avg(note); ");
 
 ?>
 
@@ -39,38 +39,7 @@ $moyenne1 = mysql_query ("SELECT avg(note) ");
                 <tr>
                     <td>Matière</td>
                 </tr>
-            <?php //On affiche les lignes du tableau une à une à l'aide d'une boucle
-			if($resultat === FALSE) {
-            die(mysql_error()); // pour voir les erreurs
-            }
-            while($resultat = mysql_fetch_array($ligne1))
-            {
-            ?>
-                <tr>
-                    <td><?php echo $resultat['nomMatiere'];?></td>
-					<td><?php echo $resultat['avg(note)'];?></td>
-					<td><?php echo $resultat['intitule'];?></td>
-					<td><?php echo $resultat['commentaire'];?></td>
-                </tr>
-            <?php
-            } //fin de la boucle, le tableau contient toute la BDD
-            mysql_close(); //deconnection de mysql
-            ?>
-			<?php //On affiche les lignes du tableau une à une à l'aide d'une boucle
-			if($resultat === FALSE) {
-            die(mysql_error()); // pour voir les erreurs
-            }
-            while($resultat = mysql_fetch_array($ligne1p1))
-            {
-            ?>
-                <tr>
-                    <td><?php echo $resultat['avg(note)'];?></td>
-					<td><?php echo $resultat['commentaire'];?></td>
-                </tr>
-            <?php
-            } //fin de la boucle, le tableau contient toute la BDD
-            mysql_close(); //deconnection de mysql
-            ?>
+
 			</thead>
         </table>
 		<!-- liste déroulante des élèves de la classe à valider-->
