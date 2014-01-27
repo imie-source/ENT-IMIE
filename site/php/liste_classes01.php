@@ -1,6 +1,9 @@
 <?php
 	
+	include("fonctions/fctRenvoieUneListe.php");
+	
 	$titrePage="Sélection de la classe";
+	$listeClasses=["ITStart Rennes 01","CDPN Rennes","DL-ITS Rennes"];
 	
 	include("../html/header.html");
 	

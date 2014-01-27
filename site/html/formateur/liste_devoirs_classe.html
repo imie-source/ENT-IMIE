@@ -3,15 +3,8 @@
 		<h1><?php echo $classe ?></h1>
 		
 		<!--Affiche les devoirs créés par le prof pour cette classe dans un ordre antichronologique-->
-		<ul>
-			<li>
-				<a href="../php/saisie_notes.php">Devoir #1</a>
-			</li>
-			<li>
-				<a href="../php/saisie_notes.php">Devoir #2</a>
-			</li>
-			<li>
-				<a href="../php/saisie_notes.php">Devoir #3</a>
-			</li>
-		</ul>
+
+<?php
+	renvoieUneListe($listeDevoirs,"../php/saisie_notes.php?devoir=");
+?>
 		
