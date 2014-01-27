@@ -6,33 +6,21 @@
   
 		<meta charset="UTF-8">
 		<title><?php echo $titrePage ?></title>
-		<link rel="stylesheet" type="text/css" href="../css/menu.css" />  
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/knacss.css" media="all" />		
 		<?php /*echo $style02; */ ?> <!-- second style css a afficher selon les pages -->
 		
 	</head>
 	
 	<body>
 	
-		<div id="main">
+		<div class="grid center mw960p">
 		
-			<header id="bandeau">
-				<div>
-					<a href="menu.php"><img id="logo" src="../img/logo.jpg" alt="retour au menu principal"/></a>
-				</div>
-				
-				<!-- Les infos élève seront définies en php-->
-				<?php 
-						echo "<div id=\"NP\"><a href=\"#\">". $_SESSION['prenom']. " " .$_SESSION['nom']. "</a></div>\n" ;
-						
-				if ($_SESSION['statut'] == "stagiaire")	{		
-						echo "\t\t\t\t<div class=\"statut\">".$_SESSION['cursus']. ", ". $_SESSION['centreFormation']."</div>\n";
-						echo "\t\t\t\t<div class=\"statut\"> Session ".$_SESSION['session']. "</div>\n";
-				} else {
-						echo "\t\t\t\t<div class=\"statut\">" .$_SESSION['statutParticulier']. "</div>\n";
-						echo "\t\t\t\t<div class=\"statut\">" .$_SESSION['matiere']. "</div>\n";
-				}
-				 ?>
-				
+			<header class="line mbs">
+				<a href="menu.php" class="mod"><img id="logo" src="../img/logo.jpg" alt="retour au menu principal"/></a>
+		
+				<a href="#" class="mod" id="parametre">Paramètres/déconnexion</a>				
 			</header>
 	
-			<div>
+			<div id="main">
+			<br />
