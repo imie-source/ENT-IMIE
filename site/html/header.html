@@ -2,32 +2,36 @@
 ?>
 <!DOCTYPE html>
 <html>
-  <head>
+	<head>
   
-    <meta charset="UTF-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="../css/menu.css" />  
-	<?php /*echo $style02; */ ?> <!-- second style css a afficher selon les pages -->
-  </head>
-  <body>
-	<div id="main">
-		<header id="bandeau">
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/menu.css" />  
+		<?php /*echo $style02; */ ?> <!-- second style css a afficher selon les pages -->
+		
+	</head>
+	
+	<body>
+	
+		<div id="main">
+			<header id="bandeau">
+				<div>
+					<a href="menu.php"><img id="logo" src="../img/logo.jpg" alt="retour au menu principal"/></a>
+				</div>
+				
+				<!-- Les infos élève seront définies en php-->
+				<?php 
+						echo "<div id=\"NP\">". $_SESSION['prenom']. " " .$_SESSION['nom']. "</div>" ;
+						
+				if ($_SESSION['statut'] == "stagiaire")	{		
+						echo "<div class=\"statut\">".$_SESSION['cursus']. ", ". $_SESSION['centreFormation']."</div>";
+						echo "<div class=\"statut\"> Session ".$_SESSION['session']. "</div>";
+				} else {
+						echo "<div class=\"statut\">" .$_SESSION['statutParticulier']. "</div>";
+						echo "<div class=\"statut\">" .$_SESSION['matiere']. "</div>";
+				}
+				 ?>
+				
+			</header>
+	
 			<div>
-				<a href="menu.php"><img id="logo" src="../img/logo.jpg" alt="retour au menu principal"/></a>
-			</div>
-			
-			<!-- Les infos élève seront définies en php-->
-			<?php 
-					echo "<div id=\"NP\">". $_SESSION['prenom']. " " .$_SESSION['nom']. "</div>" ;
-					
-			if ($_SESSION['statut'] == "stagiaire")	{		
-					echo "<div class=\"statut\">".$_SESSION['cursus']. ", ". $_SESSION['centreFormation']."</div>";
-					echo "<div class=\"statut\"> Session ".$_SESSION['session']. "</div>";
-			} else {
-					echo "<div class=\"statut\">" .$_SESSION['statutParticulier']. "</div>";
-					echo "<div class=\"statut\">" .$_SESSION['matiere']. "</div>";
-			}
-			 ?>
-			
-		</header>
-	<div>
