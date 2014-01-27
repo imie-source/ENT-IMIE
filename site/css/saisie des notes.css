@@ -1,9 +1,8 @@
 /* 
-    Feuille css pour le bulletin
-    Tableau
+	feuille css saisie des notes
 */
 
-/* Propriétés du tableau */
+/* PropriÃˆtÃˆs du tableau */
 table {
 display: table;
 border-spacing: 2px;
@@ -83,4 +82,4 @@ background-color: white;
 /* lignes bleues */
 #customers tr.alt th {
 background-color: #D1E6F6;
-}                                                                                                                                                                                                                                                                  
+}                                                                                                                                                                                                                                                                  	
