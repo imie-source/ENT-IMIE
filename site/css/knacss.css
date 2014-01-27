@@ -84,6 +84,7 @@ h1, .h1-like {
 	margin: 0.6563em 0 0 0;
 	font-size: 2.2857em; /* equiv 32px */
 	line-height: 1.3126;
+	text-align: center;
 }
 h2, .h2-like {
 	margin: 0.75em 0 0 0;
