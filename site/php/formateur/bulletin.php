@@ -4,6 +4,10 @@
 /* Connect to the MySQL database */
 $db = mysql_connect("localhost", "root", "");
 mysql_select_db("imie");
+$requete =  mysql_query ("SELECT idMatiere, nomMatiere FROM matiere; ");
+$ligne1 =  mysql_query ("SELECT  matiere.nomMatiere, avg(note), commentaire FROM eleve, matiere, note, devoir WHERE note.idDevoir=devoir.idDevoir AND note.idMatiere=matiere.idMatiere AND note.idEleve=eleve.idEleve AND eleve.idEleve='3'; ");
+$ligne1p1 = mysql_query ("SELECT avg(note), commentaire FROM note, matiere, classe WHERE idClasse='1'; ");
+$moyenne1 = mysql_query ("SELECT avg(note); ");
 
 ?>
 
@@ -30,21 +34,14 @@ mysql_select_db("imie");
 		</div>
 		
 		<h1>'ITStart - Rennes'</h1> <!-- afficher la classe sélectionnée précédemment -->
-		<?php
-//Requête, exécution et création du jeu d'enregistrement
-$requete = "SELECT idMatiere, nomMatiere FROM matiere; ";
-
-while($matiere = mysql_fetch_array($requete))
-
- {
-            ?>
+		<table>
+		<thead>
                 <tr>
-                    <th><?php echo $matiere['nomMatiere'];?></th>
+                    <td>Matière</td>
                 </tr>
-            <?php
-            } //fin de la boucle, le tableau contient toute la BDD
-            mysql_close(); //deconnection de mysql
-            ?>
+
+			</thead>
+        </table>
 		<!-- liste déroulante des élèves de la classe à valider-->
 		<form action="bulletin.html">
 			<select>
