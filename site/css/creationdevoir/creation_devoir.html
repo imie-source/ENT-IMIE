@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Création de devoirs</title>
+    <link rel="stylesheet" type="text/css" href="creationdevoir.css">
+    <link rel="stylesheet" type="text/css" href="boutondevoir.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+	<header>
+		<div>
+			<a href="menu.html"><img src="../img/logo.jpg" alt="retour au menu principal"/></a>
+		</div>
+		<!-- Les infos profs seront définies en php-->
+		<div>'Serge Dupond'</div> <!--Clic : menu pour déconnexion-->
+		<div>'Développement JAVA'</div>
+		<div>'Responsable pédagogique'</div>
+	</header>
+	<div>
+		
+		<h1>Création d'un devoir</h1>
+		
+		<ul>
+			<!-- toutes les infos matières et classes affichées dépendent du prof -->
+			<form id="validation" action="saisie_notes.html">
+				
+					<input class = "espace" type="button" value="Date"/> <!--ouvre un popup pour rentrer la date 		proprement-->
+				
+				<li class="custom-dropdown custom-dropdown--white, espace"> 
+					<select  class="custom-dropdown__select custom-dropdown__select--white" form="validation">
+						<option>Classe</option>
+						<option value="classe1">Classe #1</option>
+						<option value="classe2">Classe #2</option>
+						<option value="classe3">Classe #3</option>
+						<option value="classe4">Classe #4</option>
+					</select>
+				</li>
+				<li class="custom-dropdown custom-dropdown--white, espace">
+					<select class="custom-dropdown__select custom-dropdown__select--white" form="validation">
+						<option>Matières</option>
+						<option value="matiere1">Matiere #1</option>
+						<option value="matiere2">Matiere #2</option>
+					</select>
+				</li>
+				
+			
+					<input id ="inputtext" type="text" placeholder="Entrez l'intitulé du devoir..."/>
+				
+				
+					<input class = "bouton" type="submit" value="Valider"/><!-- afficher un pop-up pour confirmer la création du devoir
+															avec récapitulatif des infos (matière, classe, intitulé) -->
+				
+			</form>
+		</ul>
+		
+	</div>
+  </body>
+</html>

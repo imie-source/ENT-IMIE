@@ -1,12 +1,12 @@
  .bouton{
 	font-family: Arial, Helvetica, sans-serif; 		/*police d'écriture*/
-    font-size: 20px;	/*taille de la police*/
-    width: 115px;		/* Longueur */
-    height: 40px;		/* hauteur */
+    font-size: 15px;	/*taille de la police*/
+    width: 80px;		/* Longueur */
+    height: 30px;		/* hauteur */
     padding-top: -10px; /*permet le centrage vertical*/
     text-align: center;		/* centrer le texte */
 	margin : auto;			/* centrer le texte dans le bouton */
-    color: White;			/* couleur du texte */
+    color: #222;			/* couleur du texte */
     background: #7CBFF3;		/* couleur de fond */
 	border-radius: 8px;			/* bordure arrondi */
 	webkit-touch-callout: none;	/* Adaptabilité autre navigateur */
@@ -20,7 +20,7 @@
 }
 
 .bouton:hover{			/* Quand la souris passe sur le bouton */
-    color: White;
+    color: #222;
     background: #60b3f0;		/* Couleur de fond */
 	webkit-touch-callout: none;
 	webkit-user-select: none;
@@ -32,7 +32,7 @@
 	 }
 
 .bouton:active{		/* Quand on clique sur le bouton */
-    color: White;
+    color: #222;
     background: #7CBFF3;
 	webkit-touch-callout: none;
 	webkit-user-select: none;
