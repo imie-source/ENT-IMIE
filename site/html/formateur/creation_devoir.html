@@ -1,57 +1,113 @@
 <!DOCTYPE html>
+<?php
+
+	/* Connect to the MySQL database */
+	$db = mysql_connect("localhost", "root", "");
+	mysql_select_db("imie");
+
+?>
+
 <html>
+
   <head>
-    <meta charset="UTF-8">
-    <title>Création de devoirs</title>
-    <!-- <link rel="stylesheet" type="text/css" href="../css/cssDefault.css"> -->
+  
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/> 
+		<title>Cr&eacute;ation de devoirs</title>
+		<!-- <link rel="stylesheet" type="text/css" href="../css/cssDefault.css"> -->
+	
   </head>
   <body>
-	<header>
-		<div>
-			<a href="menu.html"><img src="../img/logo.jpg" alt="retour au menu principal"/></a>
-		</div>
-		<!-- Les infos profs seront définies en php-->
-		<div>'Serge Dupond'</div> <!--Clic : menu pour déconnexion-->
-		<div>'Développement JAVA'</div>
-		<div>'Responsable pédagogique'</div>
-	</header>
+
 	<div>
 		
-		<h1>Création d'un devoir</h1>
+		<h1>Cr&eacute;ation d'un devoir</h1> 
+
+			<ul>
+				<!-- toutes les infos mati�res et classes affich�es d�pendent du prof -->
+				<form action="test.php" method="POST" >
+					
+				<!--ouvre un popup pour rentrer la date proprement-->
+				<li>
+				<link rel="stylesheet" typePreview post="text/css" href="../css/calendrier/demos.css">
+				<link rel="stylesheet" type="text/css" href="../css/calendrier/jquery-ui.css">
+				<script src="../css/js/jquery-1.5.1.js"></script>
+				<script src="../css/js/jquery.ui.core.js"></script>
+				<script src="../css/js/jquery.ui.widget.js"></script>
+				<script src="../css/js/jquery.ui.datepicker.js"></script>
 		
-		<ul>
-			<!-- toutes les infos matières et classes affichées dépendent du prof -->
-			<form id="validation" action="saisie_notes.html">
-				<li>
-					<input type="button" value="Date"/> <!--ouvre un popup pour rentrer la date 		proprement-->
+				<script>
+					$(function() {
+					$( "#datepicker" ).datepicker();
+					$( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd");
+					});
+				</script>
+
+				<div style="width:500px; height:auto; font-size:small;">
+				<div class="demo">
+					<p>Date :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="date" type="text" id="datepicker" placeholder="Entrez la date du devoir...">
+					</p>
+				</div>
+				</div>
+
 				</li>
-				<li>
-					<select form="validation">
-						<option>Classe</option>
-						<option value="classe1">Classe #1</option>
-						<option value="classe2">Classe #2</option>
-						<option value="classe3">Classe #3</option>
-						<option value="classe4">Classe #4</option>
-					</select>
-				</li>
-				<li>
-					<select form="validation">
-						<option>Matières</option>
-						<option value="matiere1">Matiere #1</option>
-						<option value="matiere2">Matiere #2</option>
-					</select>
-				</li>
-				
-				<li>
-					<input type="text" placeholder="Entrez l'intitulé du devoir..."/>
-				</li>
-				<li>
-					<input type="submit" value="Valider"/><!-- afficher un pop-up pour confirmer la création du devoir
-															avec récapitulatif des infos (matière, classe, intitulé) -->
-				</li>
-			</form>
-		</ul>
-		
-	</div>
-  </body>
+
+					<li>Mati&agrave;re :
+						<SELECT NAME="matiere">
+						<?php
+						//Requète, exécution et création du jeu d'enregistrement
+						$requete = "SELECT idMatiere, nomMatiere FROM matiere ; ";
+						$result  = mysql_query($requete,$db);
+						$matieres = mysql_fetch_array($result);	
+
+						//Boucle sur la liste
+						while ($matieres!=FALSE)
+							{
+							$mat=$matieres['nomMatiere'];
+							$matiere=$matieres['idMatiere'];
+						?>
+							<OPTION VALUE="<?php echo $matiere; ?>"><?php echo $mat; ?>
+						<?php
+							$matieres=mysql_fetch_array($result);
+							}
+						?>
+						</SELECT>
+						<br/>
+						<br/>
+
+					</li>
+							<li>Classe :&nbsp;&nbsp;
+								<SELECT NAME="classe">
+								<?php
+									//Requète, exécution et création du jeu d'enregistrement
+								$requete = "SELECT idClasse, cursus FROM classe; ";
+								$result  = mysql_query($requete,$db);
+								$classes = mysql_fetch_array($result);	
+
+									   //Boucle sur la liste
+								while ($classes!=FALSE)
+									{
+										$classe=$classes['cursus'];
+										$class=$classes['idClasse'];
+								?>
+										<OPTION VALUE="<?php echo $class; ?>"><?php echo $classe; ?>
+									<?php
+										$classes=mysql_fetch_array($result);
+									}
+									?>
+								</SELECT>
+			<br/>
+							</li>
+							<br/>
+								<li>
+									Intitul&eacute; :&nbsp;&nbsp;&nbsp;<input type="text" name="devoir" placeholder="Entrez l'intitul� du devoir..."/>
+								</li>
+
+			<br/>
+								<input type="submit" value="Valider"/><!-- afficher un pop-up pour confirmer la cr�ation du devoir
+																		avec récapitulatif des infos (mati�re, classe, intitul�) -->
+							</li>
+				</form>
+			</ul>
+		</div>
+	</body>
 </html>
