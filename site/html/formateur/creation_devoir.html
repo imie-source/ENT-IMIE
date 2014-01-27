@@ -13,6 +13,9 @@
   
 		<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/> 
 		<title>Cr&eacute;ation de devoirs</title>
+		<link rel="stylesheet" type="text/css" href="../css/creationdevoir/creationdevoir.css">
+		<link rel="stylesheet" type="text/css" href="../css/creationdevoir/boutondevoir.css">
+		<link rel="stylesheet" type="text/css" href="../css/style.css">
 		<!-- <link rel="stylesheet" type="text/css" href="../css/cssDefault.css"> -->
 	
   </head>
@@ -51,8 +54,8 @@
 
 				</li>
 
-					<li>Mati&agrave;re :
-						<SELECT NAME="matiere">
+					<li class="custom-dropdown custom-dropdown--white, espace">Mati&agrave;re :
+						<SELECT NAME="matiere" class="custom-dropdown__select custom-dropdown__select--white">
 						<?php
 						//RequÃ¨te, exÃ©cution et crÃ©ation du jeu d'enregistrement
 						$requete = "SELECT idMatiere, nomMatiere FROM matiere ; ";
@@ -71,12 +74,10 @@
 							}
 						?>
 						</SELECT>
-						<br/>
-						<br/>
 
 					</li>
-							<li>Classe :&nbsp;&nbsp;
-								<SELECT NAME="classe">
+							<li class="custom-dropdown custom-dropdown--white, espace">Classe :&nbsp;&nbsp;
+								<SELECT class="custom-dropdown__select custom-dropdown__select--white"  NAME="classe">
 								<?php
 									//RequÃ¨te, exÃ©cution et crÃ©ation du jeu d'enregistrement
 								$requete = "SELECT idClasse, cursus FROM classe; ";
@@ -95,17 +96,17 @@
 									}
 									?>
 								</SELECT>
-			<br/>
+			
 							</li>
-							<br/>
-								<li>
-									Intitul&eacute; :&nbsp;&nbsp;&nbsp;<input type="text" name="devoir" placeholder="Entrez l'intitulé du devoir..."/>
-								</li>
+						
+								
+									Intitul&eacute; :&nbsp;&nbsp;&nbsp;<input type="text"  id ="inputtext" name="devoir" placeholder="Entrez l'intitul&eacute; du devoir..."/>
+								
 
-			<br/>
-								<input type="submit" value="Valider"/><!-- afficher un pop-up pour confirmer la création du devoir
+			
+								<input type="submit" value="Valider" class = "bouton"/><!-- afficher un pop-up pour confirmer la création du devoir
 																		avec rÃ©capitulatif des infos (matière, classe, intitulé) -->
-							</li>
+							
 				</form>
 			</ul>
 		</div>
