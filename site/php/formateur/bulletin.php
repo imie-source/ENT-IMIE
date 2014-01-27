@@ -6,7 +6,7 @@ $db = mysql_connect("localhost", "root", "");
 mysql_select_db("imie");
 $requete =  mysql_query ("SELECT idMatiere, nomMatiere FROM matiere; ");
 $ligne1 =  mysql_query ("SELECT matiere.nomMatiere, avg(note), intitule FROM eleve, matiere, note, devoir WHERE note.idDevoir=devoir.idDevoir AND note.idMatiere=matiere.idMatiere AND note.idEleve=eleve.idEleve AND eleve.idEleve='1'; ");
-$ligne1p1 = mysql_query ("SELECT avg(note), commentaire FROM note, matiere WHERE idClasse='1'; ");
+$ligne1p1 = mysql_query ("SELECT avg(note), commentaire FROM note, matiere, classe WHERE idClasse='1'; ");
 $moyenne1 = mysql_query ("SELECT avg(note) ");
 
 ?>

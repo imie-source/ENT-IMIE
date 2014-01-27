@@ -1,4 +1,12 @@
 <!DOCTYPE html>
+<?php
+
+/* Connect to the MySQL database */
+$db = mysql_connect("localhost", "root", "");
+mysql_select_db("imie");
+
+?>
+
 <html>
   <head>
     <meta charset="UTF-8">
@@ -22,7 +30,21 @@
 		</div>
 		
 		<h1>'ITStart - Rennes'</h1> <!-- afficher la classe sélectionnée précédemment -->
-		
+		<?php
+//Requête, exécution et création du jeu d'enregistrement
+$requete = "SELECT idMatiere, nomMatiere FROM matiere; ";
+
+while($matiere = mysql_fetch_array($requete))
+
+ {
+            ?>
+                <tr>
+                    <th><?php echo $matiere['nomMatiere'];?></th>
+                </tr>
+            <?php
+            } //fin de la boucle, le tableau contient toute la BDD
+            mysql_close(); //deconnection de mysql
+            ?>
 		<!-- liste déroulante des élèves de la classe à valider-->
 		<form action="bulletin.html">
 			<select>

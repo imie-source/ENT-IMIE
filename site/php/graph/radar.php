@@ -14,7 +14,7 @@ $db = mysql_connect("localhost", "root", "");
 mysql_select_db("imie");
  
  /* Build the query that will returns the data to graph */
-$requete = "SELECT moyenne FROM moyenneclasse WHERE matiere='matiere1' AND classe='classe1'";
+$requete = "SELECT moyenne FROM moyenneeleve WHERE matiere='matiere1' AND eleve='eleve1'";
 $result  = mysql_query($requete,$db) or die (mysql_error());
 $moyenne1="";
 
@@ -25,7 +25,7 @@ while($row=mysql_fetch_array($result))
 	}
  
    /* Build the query that will returns the data to graph */
-$requete = "SELECT moyenne FROM moyenneclasse WHERE matiere='matiere2' AND classe='classe2'";
+$requete = "SELECT moyenne FROM moyenneeleve WHERE matiere='matiere2' AND eleve='eleve2'";
 $result  = mysql_query($requete,$db) or die (mysql_error());
 $moyenne2="";
 
@@ -36,7 +36,7 @@ while($row=mysql_fetch_array($result))
 	}
 	
   /* Build the query that will returns the data to graph */
-$requete = "SELECT moyenne FROM moyenneclasse WHERE matiere='matiere3' AND classe='classe3'";
+$requete = "SELECT moyenne FROM moyenneeleve WHERE matiere='matiere3' AND eleve='eleve3'";
 $result  = mysql_query($requete,$db) or die (mysql_error());
 $moyenne3="";
 
@@ -47,7 +47,7 @@ while($row=mysql_fetch_array($result))
 	}
 	
 /* Build the query that will returns the data to graph */
-$requete = "SELECT moyenne FROM moyenneclasse WHERE matiere='matiere4' AND classe='classe4'";
+$requete = "SELECT moyenne FROM moyenneeleve WHERE matiere='matiere4' AND eleve='eleve4'";
 $result  = mysql_query($requete,$db) or die (mysql_error());
 $moyenne4="";
 while($row=mysql_fetch_array($result))
@@ -57,7 +57,7 @@ while($row=mysql_fetch_array($result))
 	}
 	
 /* Build the query that will returns the data to graph */
-$requete = "SELECT moyenne FROM moyenneclasse WHERE matiere='matiere5' AND classe='classe5'";
+$requete = "SELECT moyenne FROM moyenneeleve WHERE matiere='matiere5' AND eleve='eleve5'";
 $result  = mysql_query($requete,$db) or die (mysql_error());
 $moyenne5="";
 while($row=mysql_fetch_array($result))
@@ -67,7 +67,7 @@ while($row=mysql_fetch_array($result))
 	}
 	
 /* Build the query that will returns the data to graph */
-$requete = "SELECT moyenne FROM moyenneclasse WHERE matiere='matiere6' AND classe='classe6'";
+$requete = "SELECT moyenne FROM moyenneeleve WHERE matiere='matiere6' AND eleve='eleve6'";
 $result  = mysql_query($requete,$db) or die (mysql_error());
 $moyenne6="";
 while($row=mysql_fetch_array($result))
@@ -77,7 +77,7 @@ while($row=mysql_fetch_array($result))
 	}
 	
 /* Build the query that will returns the data to graph */
-$requete = "SELECT moyenne FROM moyenneeleve WHERE matiere='matiere1' AND eleve='eleve1'";
+$requete = "SELECT moyenne FROM moyenneclasse WHERE matiere='matiere1' AND classe='classe1'";
 $result  = mysql_query($requete,$db) or die (mysql_error());
 $moyenne7="";
 while($row=mysql_fetch_array($result))
@@ -87,7 +87,7 @@ while($row=mysql_fetch_array($result))
 	}
 	
 /* Build the query that will returns the data to graph */
-$requete = "SELECT moyenne FROM moyenneeleve WHERE matiere='matiere2' AND eleve='eleve2'";
+$requete = "SELECT moyenne FROM moyenneclasse WHERE matiere='matiere2' AND classe='classe2'";
 $result  = mysql_query($requete,$db) or die (mysql_error());
 $moyenne8="";
 while($row=mysql_fetch_array($result))
@@ -97,7 +97,7 @@ while($row=mysql_fetch_array($result))
 	}
 	
 /* Build the query that will returns the data to graph */
-$requete = "SELECT moyenne FROM moyenneeleve WHERE matiere='matiere3' AND eleve='eleve3'";
+$requete = "SELECT moyenne FROM moyenneclasse WHERE matiere='matiere3' AND classe='classe3'";
 $result  = mysql_query($requete,$db) or die (mysql_error());
 $moyenne9="";
 while($row=mysql_fetch_array($result))
@@ -107,7 +107,7 @@ while($row=mysql_fetch_array($result))
 	}
 	
 /* Build the query that will returns the data to graph */
-$requete = "SELECT moyenne FROM moyenneeleve WHERE matiere='matiere4' AND eleve='eleve4'";
+$requete = "SELECT moyenne FROM moyenneclasse WHERE matiere='matiere4' AND classe='classe4'";
 $result  = mysql_query($requete,$db) or die (mysql_error());
 $moyenne10="";
 while($row=mysql_fetch_array($result))
@@ -117,7 +117,7 @@ while($row=mysql_fetch_array($result))
 	}
 
 /* Build the query that will returns the data to graph */
-$requete = "SELECT moyenne FROM moyenneeleve WHERE matiere='matiere5' AND eleve='eleve5'";
+$requete = "SELECT moyenne FROM moyenneclasse WHERE matiere='matiere5' AND classe='classe5'";
 $result  = mysql_query($requete,$db) or die (mysql_error());
 $moyenne11="";
 while($row=mysql_fetch_array($result))
@@ -127,7 +127,7 @@ while($row=mysql_fetch_array($result))
 	}
 
 /* Build the query that will returns the data to graph */
-$requete = "SELECT moyenne FROM moyenneeleve WHERE matiere='matiere6' AND eleve='eleve6'";
+$requete = "SELECT moyenne FROM moyenneclasse WHERE matiere='matiere6' AND classe='classe6'";
 $result  = mysql_query($requete,$db) or die (mysql_error());
 $moyenne12="";
 while($row=mysql_fetch_array($result))
