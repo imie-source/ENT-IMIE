@@ -1,17 +1,29 @@
+/* GENERAL */
+
 a {
-color: #7CBFF3;
-text-decoration: none;
+	color: #7CBFF3;
+	text-decoration: none;
 }
 
 a:hover {
-color: #CCD4D9;
-text-decoration: none;
+	color: #CCD4D9;
+	text-decoration: none;
 }
 
 /* HEADER */
 
 #parametre {
-font-size: 0.9em;}
+	font-size: 0.9em;}
 
 #main {
-background: white;}
+	background: white;}
+
+/* MENU */
+
+#menu {
+	text-align:center;
+}
+
+#menu li {
+	text-align:center
+}
