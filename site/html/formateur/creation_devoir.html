@@ -1,12 +1,4 @@
 <!DOCTYPE html>
-<?php
-
-	/* Connect to the MySQL database */
-	$db = mysql_connect("localhost", "root", "");
-	mysql_select_db("imie");
-
-?>
-
 <html>
 
   <head>
@@ -23,7 +15,6 @@
 
 	<div>
 		
-		<h1>Cr&eacute;ation d'un devoir</h1> 
 
 			<ul>
 				<!-- toutes les infos mati�res et classes affich�es d�pendent du prof -->
@@ -47,14 +38,14 @@
 
 				<div style="width:500px; height:auto; font-size:small;">
 				<div class="demo">
-					<p>Date :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="date" type="text" id="datepicker" placeholder="Entrez la date du devoir...">
-					</p>
+				<input name="date" type="text" id="datepicker" placeholder="Entrez la date du devoir...">
+				
 				</div>
 				</div>
 
 				</li>
 
-					<li class="custom-dropdown custom-dropdown--white, espace">Mati&agrave;re :
+					<li class="custom-dropdown custom-dropdown--white, espace">
 						<SELECT NAME="matiere" class="custom-dropdown__select custom-dropdown__select--white">
 						<?php
 						//Requète, exécution et création du jeu d'enregistrement
@@ -76,7 +67,7 @@
 						</SELECT>
 
 					</li>
-							<li class="custom-dropdown custom-dropdown--white, espace">Classe :&nbsp;&nbsp;
+							<li class="custom-dropdown custom-dropdown--white, espace">
 								<SELECT class="custom-dropdown__select custom-dropdown__select--white"  NAME="classe">
 								<?php
 									//Requète, exécution et création du jeu d'enregistrement
@@ -100,7 +91,7 @@
 							</li>
 						
 								
-									Intitul&eacute; :&nbsp;&nbsp;&nbsp;<input type="text"  id ="inputtext" name="devoir" placeholder="Entrez l'intitul&eacute; du devoir..."/>
+								<input type="text"  id ="inputtext" name="devoir" placeholder="Entrez l'intitul&eacute; du devoir..."/>
 								
 
 			
