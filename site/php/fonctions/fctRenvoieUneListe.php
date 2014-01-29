@@ -9,7 +9,8 @@ function renvoieUneListe ($tableauBDD, $urlQuery) {
 		//Créé la liste
 		echo "<ul>\n";
 		//Boucle pour dérouler tous les éléments du tableau
-		for ($i=0; $i<count($tableauBDD); $i++){
+		$nbElements=count($tableauBDD);
+		for ($i=0; $i<$nbElements; $i++){
 			//un élément de la liste
 			echo "\t<li>\n";
 			//renvoie quelque chose comme : <a href="../php/page?classe=test"</a>
