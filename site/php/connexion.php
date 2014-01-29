@@ -1,4 +1,5 @@
 <?php
+
 session_start ();
 	function connexion()	{
 		$msgErreur ='<script type="text/javascript" language="javascript">alert(\'Identifiant ou Mot de Passe incorrect\');</script>';
@@ -37,7 +38,7 @@ session_start ();
 					echo $msgErreur;
 					die();
 			}
-			$statut = 'formateur';
+			$statut = 'stagiaire';
 			switch ($statut)	{
 				case "formateur":
 								$_SESSION['nom']="Coudé";
