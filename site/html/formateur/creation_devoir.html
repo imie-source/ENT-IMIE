@@ -1,20 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-  <head>
-  
-		<meta http-equiv="Content-type" content="text/html; charset=UTF-8"/> 
-		<title>Cr&eacute;ation de devoirs</title>
-		<link rel="stylesheet" type="text/css" href="../css/creationdevoir/creationdevoir.css">
-		<link rel="stylesheet" type="text/css" href="../css/creationdevoir/boutondevoir.css">
-		<link rel="stylesheet" type="text/css" href="../css/style.css">
-		<!-- <link rel="stylesheet" type="text/css" href="../css/cssDefault.css"> -->
-	
-  </head>
-  <body>
-
-	<div>
-		
 
 			<ul>
 				<!-- toutes les infos matières et classes affichées dépendent du prof -->
@@ -22,84 +5,53 @@
 					
 				<!--ouvre un popup pour rentrer la date proprement-->
 				<li>
-				<link rel="stylesheet" typePreview post="text/css" href="../css/calendrier/demos.css">
-				<link rel="stylesheet" type="text/css" href="../css/calendrier/jquery-ui.css">
-				<script src="../css/js/jquery-1.5.1.js"></script>
-				<script src="../css/js/jquery.ui.core.js"></script>
-				<script src="../css/js/jquery.ui.widget.js"></script>
-				<script src="../css/js/jquery.ui.datepicker.js"></script>
-		
-				<script>
-					$(function() {
-					$( "#datepicker" ).datepicker();
-					$( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd");
-					});
-				</script>
+					<link rel="stylesheet" typePreview post="text/css" href="../css/calendrier/demos.css">
+					<link rel="stylesheet" type="text/css" href="../css/calendrier/jquery-ui.css">
+					<script src="../css/js/jquery-1.5.1.js"></script>
+					<script src="../css/js/jquery.ui.core.js"></script>
+					<script src="../css/js/jquery.ui.widget.js"></script>
+					<script src="../css/js/jquery.ui.datepicker.js"></script>
+			
+					<script>
+						$(function() {
+						$( "#datepicker" ).datepicker();
+						$( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd");
+						});
+					</script>
 
-				<div style="width:500px; height:auto; font-size:small;">
-				<div class="demo">
-				<input name="date" type="text" id="datepicker" placeholder="Entrez la date du devoir...">
-				
-				</div>
-				</div>
+					<div style="width:500px; height:auto; font-size:small;">
+					
+						<div class="demo">
+							<input name="date" type="text" id="datepicker" placeholder="Entrez la date du devoir...">
+						</div>
+					
+					</div>
 
 				</li>
 
-					<li class="custom-dropdown custom-dropdown--white, espace">
-						<SELECT NAME="matiere" class="custom-dropdown__select custom-dropdown__select--white">
-						<?php
-						//RequÃ¨te, exÃ©cution et crÃ©ation du jeu d'enregistrement
-						$requete = "SELECT idMatiere, nomMatiere FROM matiere ; ";
-						$result  = mysql_query($requete,$db);
-						$matieres = mysql_fetch_array($result);	
-
-						//Boucle sur la liste
-						while ($matieres!=FALSE)
-							{
-							$mat=$matieres['nomMatiere'];
-							$matiere=$matieres['idMatiere'];
-						?>
-							<OPTION VALUE="<?php echo $matiere; ?>"><?php echo $mat; ?>
-						<?php
-							$matieres=mysql_fetch_array($result);
-							}
-						?>
-						</SELECT>
-
-					</li>
-							<li class="custom-dropdown custom-dropdown--white, espace">
-								<SELECT class="custom-dropdown__select custom-dropdown__select--white"  NAME="classe">
-								<?php
-									//RequÃ¨te, exÃ©cution et crÃ©ation du jeu d'enregistrement
-								$requete = "SELECT idClasse, cursus FROM classe; ";
-								$result  = mysql_query($requete,$db);
-								$classes = mysql_fetch_array($result);	
-
-									   //Boucle sur la liste
-								while ($classes!=FALSE)
-									{
-										$classe=$classes['cursus'];
-										$class=$classes['idClasse'];
-								?>
-										<OPTION VALUE="<?php echo $class; ?>"><?php echo $classe; ?>
-									<?php
-										$classes=mysql_fetch_array($result);
-									}
-									?>
-								</SELECT>
-			
-							</li>
+				<li class="custom-dropdown custom-dropdown--white, espace">
+					<select name="matiere" >
+					<?php
+						listeOption($matieres);
+					?>
+					</select>
+				</li>
+				
+				<li class="custom-dropdown custom-dropdown--white, espace">
+					<select name="classe">
+					<?php
+						listeOption($classes);
+					?>
+					</select>
+				</li>
 						
 								
-								<input type="text"  id ="inputtext" name="devoir" placeholder="Entrez l'intitul&eacute; du devoir..."/>
-								
-
-			
-								<input type="submit" value="Valider" class = "bouton"/><!-- afficher un pop-up pour confirmer la création du devoir
+				<input type="text"  name="devoir" placeholder="Entrez l'intitul&eacute; du devoir..."/>
+				
+				<input type="submit" value="Valider" /><!-- afficher un pop-up pour confirmer la création du devoir
 																		avec rÃ©capitulatif des infos (matière, classe, intitulé) -->
 							
 				</form>
+				
 			</ul>
-		</div>
-	</body>
-</html>
+		

@@ -1,4 +1,9 @@
 <?php
+
+	include "fonctions/fctListeOption.php";
+	
+	$classes=['ITStart','CDPN','DL'];
+	$matieres=['JAVA','PHP','SQL'];
 	
 	$titrePage="Creation de Devoir";
 	
