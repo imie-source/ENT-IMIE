@@ -21,7 +21,6 @@ a:hover {
 /* BOUTON */
 .bouton{
 	font-family: Arial, Helvetica, sans-serif; 		/*police d'écriture*/
-    font-size: 20px;	/*taille de la police*/
     padding-top: -10px; /*permet le centrage vertical*/
     text-align: center;		/* centrer le texte */
 	margin : auto;			/* centrer le texte dans le bouton */
@@ -66,11 +65,13 @@ a:hover {
 .btnl {
 	width: 115px;		/* Longueur */
     height: 40px;		/* hauteur */
+	font-size: 1em;	/*taille de la police*/
 }
 
 .btnm { 				
 	width: 80px;		/* Longueur */
     height: 30px;		/* hauteur */
+	font-size: 0.8em;	/*taille de la police*/
 }
 
 /* MENU */
