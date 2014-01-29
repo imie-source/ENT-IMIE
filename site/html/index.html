@@ -1,25 +1,27 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-			<link rel="stylesheet" type="text/css" href="../css/Login/Bouton.css" />
-			<link rel="stylesheet" type="text/css" href="../css/Login/login.css" />
+			<link rel="stylesheet" type="text/css" href="../css/style.css" />
+			<link rel="stylesheet" href="../css/knacss.css" media="all" />	
 		<title>Login</title>
-		<!-- <link rel="stylesheet" type="text/css" href="feuille-de-styles.css"> -->
+
 	</head>
 	<body>
-		<div>
+		<div class="center mw960p">
+		
+		<header class="line mbs">
 			<img src="../img/logo.jpg" />
-		</div>
+		</header>
 		
-		<form class= "groove" action="#" method="post"> 
+		<form class= "w33 center txtcenter bigger ptl pbl" id="main" action="#" method="post"> 
 		
-			<div>Identifiant</div>
+			<div class="mbs">Identifiant</div>
 			
-			<input id= "inputtext"  style="display:block" type="text" name="pseudo" />
+			<input class="center" style="display:block" type="text" name="pseudo" />
 			<br / >
-			<div>Mot de passe</div>
+			<div class="mbs">Mot de passe</div>
 			
-			<input id= "inputtext" style="display:block" type="password" name="pass" />
+			<input class="center" style="display:block" type="password" name="pass" />
 			<br / >
 			<input class= "bouton"style="display:block" type="submit" value="Connexion" name="formCo" />
 			
@@ -29,6 +31,7 @@
 		connexion();
 		?>
 		
+		</div>
 		
 	</body>
 </html>
