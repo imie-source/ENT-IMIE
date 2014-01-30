@@ -28,8 +28,8 @@
 		foreach ($tableauEleve as $value){
 			echo "<tr>\n";
 			echo "\t<th>" . $value . "</th>\n";
-			echo "\t<th><input type=\"text\"/></th>\n";
-			echo "\t<th><input type=\"text\"/></th>\n";
+			echo "\t<th><input type=\"text\"/ name=\"note\"></th>\n";
+			echo "\t<th><input type=\"text\" name=\"com\" /></th>\n";
 			echo "</tr>\n";
 		}
 	}
