@@ -1,4 +1,11 @@
 		<div> <!-- bloc haut de page -->
+			<script type="text/javascript">
+				function verificationNotes () {
+					if(document.bulletin.1.value!=""){
+						alert('super');
+					}
+				}
+			</script>
 			<div>
 			<?php echo $devoir['date']; ?>
 			</div>
@@ -24,7 +31,7 @@
 		
 		<div>!! Pour élève absent au devoir, indiquer abs comme note !!</div>
 		
-		<form action="saisie_notes.php" method="get">
+		<form action="saisie_notes.php" onsubmit="verificationNotes()" method="get" name="bulletin">
 		<table>
 			<thead> <!-- en-tête du tableau (première ligne) -->
 				<tr>
@@ -47,10 +54,7 @@
 			<input style="display:block" type="submit" value="Supprimer le devoir" />
 			<!-- vérifier que toutes les notes sont renseignées avant de valider, vérifier qu'il
 			n'y a pas de caractères interdits -->
-			<button style="display:block">Valider</button>
+			<input style="display:block" type="submit" value="Valider"/>
 		</div>
 		</form>
 		
-	</div>
-  </body>
-</html>
