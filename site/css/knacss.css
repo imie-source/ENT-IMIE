@@ -593,40 +593,45 @@ caption {
 	font-style: italic;	
 }
 table { 
-	border: 1px solid #ccc;
+	border: 1px solid white;
 }
 tr > * + * {
-	border-left: 1px solid #ccc;
+	border-left: 1px solid white;
 }
 th,
 td {
 	padding: .3em .8em;
 	text-align: left;
-	border-bottom: 1px solid #ccc;
+	border-bottom: 1px solid white;
 }
 td {
-	color: #333;
+	color: white;
 }
 
 /* alternate tables */
 .alternate { border: 0; }
 .alternate tbody { 
-	border: 1px solid #ccc; 
+	border: 1px solid white; 
+	background: white;    /* changement de couleur */
 }
-.alternate thead tr > * + * {
-	border-left: 0;
+.alternate thead tr {	  /* caractères * + * retirés après tr */
+	border-left: 0;		 
+	background: #7CBFF3;  /* background rajouté */
 }
 .alternate tbody tr > * + * {
-	border-left: 1px solid #ccc;
+	border-left: 1px solid white;
+	
 }
 
 /* alternate-vert tables */
 .alternate-vert { 
 	border: 0;
-	border-right: 1px solid #ccc;
+	border-right: 1px solid white;
+	background: #D1E6F6;   /* background rajouté */
 }
 .alternate-vert tr > :first-child {
 	border-bottom: 0;
+	
 }
 .alternate-vert tr > * + * {
 	border-top: 1px solid #ccc;
@@ -634,13 +639,13 @@ td {
 
 /* striped tables */
 .striped tbody tr:nth-child(odd) {
-	background: #eee;
+	background: #ccc;
 	background: rgba(0, 0, 0, .05);
 }
 
 /* striped-vert tables */
 .striped-vert tr > :first-child {
-	background: #eee;
+	background: #ccc;
 	background: rgba(0, 0, 0, .05);
 }
 /* ----------------------------- */
