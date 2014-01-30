@@ -10,6 +10,7 @@
 				$devoir['matiere']=$_POST['matiere'];
 				$devoir['classe']=$_POST['classe'];
 				$devoir['devoir']=$_POST['devoir'];
+				$eleves = ["Michel", "françis", "marion", "antoine", "Gudule"];
 				break;
 			case 'saisie_notes.php':
 				//renvoyer les notes dans la BDD
@@ -28,14 +29,13 @@
 		foreach ($tableauEleve as $value){
 			echo "<tr>\n";
 			echo "\t<th>" . $value . "</th>\n";
-			echo "\t<th><input type=\"text\"/ name=\"note\"></th>\n";
+			echo "\t<th><input type=\"text\"/ name=\"note\" id=\"n".$value." required></th>\n";
 			echo "\t<th><input type=\"text\" name=\"com\" /></th>\n";
 			echo "</tr>\n";
 		}
 	}
 	
 	$titrePage = "Saisie des notes";
-	$eleves = ["Michel", "françis", "marion", "antoine", "Gudule"];
 	
 	include("../html/header.html");
 	include("../html/formateur/saisie_notes.html");
