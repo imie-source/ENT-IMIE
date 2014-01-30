@@ -4,13 +4,14 @@
 				<form action="saisie_notes.php" method="post">
 					
 				<!--ouvre un popup pour rentrer la date proprement-->
-				<li>
-					<link rel="stylesheet" typePreview post="text/css" href="../css/calendrier/demos.css">
-					<link rel="stylesheet" type="text/css" href="../css/calendrier/jquery-ui.css">
-					<script src="../css/js/jquery-1.5.1.js"></script>
-					<script src="../css/js/jquery.ui.core.js"></script>
-					<script src="../css/js/jquery.ui.widget.js"></script>
-					<script src="../css/js/jquery.ui.datepicker.js"></script>
+				
+					<link rel="stylesheet" typePreview post="text/css" href="../../css/calendrier/demos.css">
+					<link rel="stylesheet" type="text/css" href="../../css/calendrier/jquery-ui.css">
+					<link rel="stylesheet" type="text/css" href="../../css/style.css">
+					<script src="../../css/calendrier/js/jquery-1.5.1.js"></script>
+					<script src="../../css/calendrier/js/jquery.ui.core.js"></script>
+					<script src="../../css/calendrier/js/jquery.ui.widget.js"></script>
+					<script src="../../css/calendrier/js/jquery.ui.datepicker.js"></script>
 			
 					<script>
 						$(function() {
@@ -27,10 +28,10 @@
 					
 					</div>
 
-				</li>
+				
 
 				<li class="custom-dropdown custom-dropdown--white, espace">
-					<select name="matiere">
+					<select class="custom-dropdown__select custom-dropdown__select--white" name="matiere">
 					<?php
 						listeOption($matieres);
 					?>
@@ -38,7 +39,7 @@
 				</li>
 				
 				<li class="custom-dropdown custom-dropdown--white, espace">
-					<select name="classe">
+					<select class="custom-dropdown__select custom-dropdown__select--white" name="classe">
 					<?php
 						listeOption($classes);
 					?>
@@ -46,9 +47,9 @@
 				</li>
 						
 								
-				<input type="text"  name="devoir" placeholder="Entrez l'intitul&eacute; du devoir..."/ required >
+				<input id = "inputtext" type="text"  name="devoir" placeholder="Entrez l'intitul&eacute; du devoir..."/ required >
 				
-				<input type="submit" value="Valider" /><!-- afficher un pop-up pour confirmer la création du devoir
+				<input class ="bouton btnm" type="submit" value="Valider" /><!-- afficher un pop-up pour confirmer la création du devoir
 																		avec rÃ©capitulatif des infos (matière, classe, intitulé) -->
 							
 				</form>

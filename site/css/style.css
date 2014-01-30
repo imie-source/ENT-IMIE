@@ -62,6 +62,12 @@ a:hover {
 }
 
 /* choix de la taille du bouton */
+.btnxl {
+	width: 200px;		/* Longueur */
+    height: 40px;		/* hauteur */
+	font-size: 1em;	/*taille de la police*/
+}
+
 .btnl {
 	width: 115px;		/* Longueur */
     height: 40px;		/* hauteur */
@@ -82,4 +88,90 @@ a:hover {
 
 #menu li {
 	text-align:center
+}
+
+/* INPUT TEXTE */
+
+#inputtext {	 						/* Cadre de saisie de texte */
+	height : 20px;					/* Hauteur */	
+	margin : auto;					/* marge automatique */
+	margin-right : 20px;
+	margin-left : 20px;
+	}
+
+/* LISTE DEROULANTE */
+
+.espace {
+margin-right : 30px;
+}
+
+.custom-dropdown__select{	/* Police et marges */
+    font-size: 15px; /* taille police */
+    padding: 10px; /* Espace interieur liste (apparence) */
+    margin: 0; /* Enleve les marges par défaut */
+	font-family : Arial, Helvetica, sans-serif;
+}
+
+.custom-dropdown__select--white {	/* Fond et couleur texte */
+    background-color: #7CBFF3;
+    color: #222;    
+}
+
+@supports (pointer-events: none) and
+      ((-webkit-appearance: none) or
+      (-moz-appearance: none) or
+      (appearance: none)) {
+
+    .custom-dropdown {		/*Fleche */
+        position: relative;		/* Fleche plus petite */
+        display: inline-block;	/* Fleche collée à la liste */
+        vertical-align: middle; /* A pas toucher pour l'instant */
+    }
+
+    .custom-dropdown__select {	/* Fleche et bordure */
+        padding-right: 60px; /* Espace avant fleche pour afficher titre*/
+        border: 0;				/* Aucune bordure */
+        border-radius: 3px;	/* Bord arrondi */
+        -webkit-appearance: none;	/* Adaptabilité */
+        -moz-appearance: none;		/* enleve la fleche standard */
+        appearance: none;    
+    }
+
+    .custom-dropdown::before,	/* Contenu */
+    .custom-dropdown::after {
+        content: "";				/* Contenu */
+        position: absolute;		/* Position fleche après */
+        pointer-events: none;
+    }
+
+    .custom-dropdown::after { /*  Affichage fleche  */
+        content: "\25BC";		/* Affiche la fleche*/
+        height: 20px;				/* hauteur */
+        font-size: 10px;			/* taille de la fleche */
+        line-height: 1;				/* position par rapport a son petit carré*/
+        right: 13px;				/* Position de la fleche par rapport au carré */
+        top: 50%;					/* centrer top */
+		margin-top: -5px;		/* deplacer la fleche verticalement */
+    }
+
+    .custom-dropdown::before { /*  boite affichage texte */
+        width: 35px;			/* Longueur de la zone où sera le texte*/
+        right: 0;
+		top: 0; 
+		bottom: 0;
+        border-radius: 0 3px 3px 0; /* bord arrondi */
+    }
+
+
+    .custom-dropdown--white::before {	/* Fond fleche */
+    background-color: #7CBFF3;		/* couleur fond fleche */
+    border-left: 1px solid rgba(0,0,0,.1);	/* afficher petit trait a gauche de la fleche */
+    }
+
+    /* FF only temp fix */
+    @-moz-document url-prefix() { /* Mozilla*/
+        .custom-dropdown__select              { padding-right: .9em }
+        .custom-dropdown--large .custom-dropdown__select { padding-right: 1.3em }
+        .custom-dropdown--small .custom-dropdown__select { padding-right: .5em }
+    }
 }
