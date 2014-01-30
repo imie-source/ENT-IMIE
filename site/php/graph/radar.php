@@ -1,10 +1,10 @@
 <?php
 
 /* pChart library inclusions */
-include("C:/Program Files/EasyPHP-DevServer-13.1VC9/data/localweb/scripts/pChart/class/pData.class.php");
-include("C:/Program Files/EasyPHP-DevServer-13.1VC9/data/localweb/scripts/pChart/class/pDraw.class.php");
-include("C:/Program Files/EasyPHP-DevServer-13.1VC9/data/localweb/scripts/pChart/class/pRadar.class.php");
-include("C:/Program Files/EasyPHP-DevServer-13.1VC9/data/localweb/scripts/pChart/class/pImage.class.php");
+include("Library/class/pData.class.php");
+include("Library/class/pDraw.class.php");
+include("Library/class/pRadar.class.php");
+include("Library/class/pImage.class.php");
  
  /* Create the pData object */
 $MyData = new pData();  

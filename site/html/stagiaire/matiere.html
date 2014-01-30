@@ -1,23 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>'JAVA'</title><!-- indiquer le nom de la matière sélectionnée -->
-    <!-- <link rel="stylesheet" type="text/css" href="../css/cssDefault.css"> -->
-  </head>
-  <body>
-	<header>
-		<div>
-			<a href="menu.html"><img src="../img/logo.jpg" alt="retour au menu principal"/></a>
-		</div>
-		<!-- Les infos élève seront définies en php-->
-		<div>'Gudule Durand'</div><!--Clic : menu pour déconnexion-->
-		<div>'ITStart, Rennes'</div>
-		<div>Session '2013-2014'</div>
-	</header>
 	<div>
 	
-		<h1>'JAVA'</h1>
+		<?php echo $titreMatiere; ?>
 		
 		<div>
 			<!-- retourne le bulletin de la période en cours -->
@@ -34,21 +17,21 @@
 		
 		<!-- tous les devoirs de l'année sont affichés dans un ordre antichronologique -->
 		<div>
-			<h3>QCM #1</h3>
+		<?php echo	$devoir;?>
 			
 			<div>
 				<div>note</div>
-				<div>18</div>
+		<?php	echo $noteDevoir; ?>
 			</div>
 			
 			<div>
 				<div>moy. classe</div>
-				<div>13</div>
+		<?php	echo $moyenneDevoir;	 ?>
 			</div>
 			
 			<div>
 				<p>
-				Superbe devoir, tu t'es surpassé.
+		<?php echo $commentaireDevoir; ?>
 				</p>
 				<div>
 					<form action="../media/corrige.pdf">
@@ -63,21 +46,22 @@
 		</div>
 		
 		<div>
-			<h3>Programme #1</h3>
+		
+		<?php echo	$devoir;?>
 			
 			<div>
 				<div>note</div>
-				<div>14</div>
+		<?php	echo $noteDevoir; ?>
 			</div>
 			
 			<div>
 				<div>moy. classe</div>
-				<div>15</div>
+		<?php	echo $moyenneDevoir; ?>
 			</div>
 			
 			<div>
 				<p>
-				Superbe devoir, tu t'es surpassé.
+		<?php	echo $commentaireDevoir; ?>
 				</p>
 				<div>
 					<form action="../media/corrige.pdf">
@@ -98,7 +82,7 @@
 			Moy.
 			</div>
 			<div>
-			12,5
+	<?php	$moyenneEleve; ?>
 			</div>
 		</div>
 		
@@ -107,17 +91,14 @@
 			Classe
 			</div>
 			<div>
-			11,5
+	<?php	$moyenneClasse;?>
 			</div>
 		</div>
 		
 		<div>
-		Radar en php
+		<img src="../php/graph/drawradar.png" >
 		</div>
 		
-		<div>
-		Un autre truc sympa en php ;-)
-		</div>
 	</aside>
   </body>
 </html>
