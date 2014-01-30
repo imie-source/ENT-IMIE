@@ -1,7 +1,7 @@
 
 			<ul>
 				<!-- toutes les infos matières et classes affichées dépendent du prof -->
-				<form action="test.php" method="POST" >
+				<form action="saisie_notes.php" method="post">
 					
 				<!--ouvre un popup pour rentrer la date proprement-->
 				<li>
@@ -22,7 +22,7 @@
 					<div style="width:500px; height:auto; font-size:small;">
 					
 						<div class="demo">
-							<input name="date" type="text" id="datepicker" placeholder="Entrez la date du devoir...">
+							<input name="date" type="text" id="datepicker" placeholder="Entrez la date du devoir..." required >
 						</div>
 					
 					</div>
@@ -30,7 +30,7 @@
 				</li>
 
 				<li class="custom-dropdown custom-dropdown--white, espace">
-					<select name="matiere" >
+					<select name="matiere">
 					<?php
 						listeOption($matieres);
 					?>
@@ -46,7 +46,7 @@
 				</li>
 						
 								
-				<input type="text"  name="devoir" placeholder="Entrez l'intitul&eacute; du devoir..."/>
+				<input type="text"  name="devoir" placeholder="Entrez l'intitul&eacute; du devoir..."/ required >
 				
 				<input type="submit" value="Valider" /><!-- afficher un pop-up pour confirmer la création du devoir
 																		avec rÃ©capitulatif des infos (matière, classe, intitulé) -->
