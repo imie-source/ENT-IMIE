@@ -3,10 +3,17 @@
 				function verificationNotes () {
 					var notes=document.getElementsByClassName("note");
 					for(var i=0; i<notes.length; i++){
-						alert(notes[i].value);
 						if ((notes[i].value!="abs" && isNaN(notes[i].value)) || (notes[i].value<0 || notes[i].value>20)){
-							notes[i].value="xxx";
+							notes[i].value="!corriger!";
+							var erreur=true;
 						}
+					}
+					if(erreur==true) {
+						alert('Les notes doivent être comprises entre 0 et 20, indiquez abs pour les absents');
+						return false;
+					
+					} else {
+						return true;
 					}
 				}
 			</script>
@@ -35,7 +42,7 @@
 		
 		<div>!! Pour élève absent au devoir, indiquer abs comme note !!</div>
 		
-		<form action="#" onsubmit="verificationNotes()" method="get" name="bulletin">
+		<form action="#" onsubmit="return verificationNotes()" method="get">
 		<table>
 			<thead> <!-- en-tête du tableau (première ligne) -->
 				<tr>

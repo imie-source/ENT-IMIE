@@ -12,17 +12,33 @@
 				$devoir['devoir']=$_POST['devoir'];
 				$eleves= array (
 					1=>"Michel",
-					2=>"françis",
+					2=>"francis",
 					3=>"marion",
-					4=>"antoine",
+					4=>"éric",
 					5=>"Gudule"
 				);
 				break;
 			case 'saisie_notes.php':
 				//renvoyer les notes dans la BDD
+								
 				//ouvre le menu
+				include('/menu.php');
 				die ();
 				break;
+			case 'liste_devoirs_classe.php':
+				//charger la BDD
+				$devoir['date']='2014-07-14';
+				$devoir['devoir']='QCM Linux';
+				$eleves= array (
+					1=>"Michel",
+					2=>"francis",
+					3=>"marion",
+					4=>"el niño",
+					5=>"Gudule"
+				);
+				break;
+			default:
+				echo 'Vous venez d\'où au juste ?';
 		}
 	}
 	
@@ -34,7 +50,7 @@
 	function tableauSaisie($tableauEleve){
 		foreach ($tableauEleve as $key=>$value){
 			echo "<tr>\n";
-			echo "\t<th>" . $value . "</th>\n";
+			echo utf8_encode("\t<th>" . $value . "</th>\n");
 			echo "\t<input name=\"ideleve\" type=\"hidden\" value=\"".$key."\"/>\n";
 			echo "\t<th><input type=\"text\" class=\"note\" name=\"note\" required/></th>\n";
 			echo "\t<th><input type=\"text\" name=\"com\" /></th>\n";
