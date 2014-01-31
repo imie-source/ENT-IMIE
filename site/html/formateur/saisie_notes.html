@@ -1,8 +1,9 @@
 		<div> <!-- bloc haut de page -->
 			<script type="text/javascript">
 				function verificationNotes () {
-					if(document.bulletin.1.value!=""){
-						alert('super');
+					var notes=document.getElementsByClassName("note");
+					for(var i=0; i<notes.length; i++){
+						alert(notes[i].value);
 					}
 				}
 			</script>
