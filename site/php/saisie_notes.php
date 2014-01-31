@@ -35,6 +35,7 @@
 		foreach ($tableauEleve as $key=>$value){
 			echo "<tr>\n";
 			echo "\t<th>" . $value . "</th>\n";
+			echo "\t<input name=\"ideleve\" type=\"hidden\" value=\"".$key."\"/>\n";
 			echo "\t<th><input type=\"text\" class=\"note\" name=\"note\" required/></th>\n";
 			echo "\t<th><input type=\"text\" name=\"com\" /></th>\n";
 			echo "</tr>\n";
