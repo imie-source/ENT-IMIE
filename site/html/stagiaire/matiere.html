@@ -1,3 +1,4 @@
+	
 	<div>
 	
 		<?php echo $titreMatiere; ?>
@@ -16,84 +17,10 @@
 		</ul>
 		
 		<!-- tous les devoirs de l'année sont affichés dans un ordre antichronologique -->
-		<div>
-		<?php echo	$devoir;?>
-			
-			<div>
-				<div>note</div>
-		<?php	echo $noteDevoir; ?>
-			</div>
-			
-			<div>
-				<div>moy. classe</div>
-		<?php	echo $moyenneDevoir;	 ?>
-			</div>
-			
-			<div>
-				<p>
-		<?php echo $commentaireDevoir; ?>
-				</p>
-				<div>
-					<form action="../media/corrige.pdf">
-						<input type="submit" value="Correction" />
-					</form>
-					<form action="../media/sujet.pdf">
-						<input type="submit" value="Sujet" />
-					</form>
-				</div>
-			</div>
-			
-		</div>
 		
-		<div>
+	<?php $tableauBDD; ?>
+	
 		
-		<?php echo	$devoir;?>
-			
-			<div>
-				<div>note</div>
-		<?php	echo $noteDevoir; ?>
-			</div>
-			
-			<div>
-				<div>moy. classe</div>
-		<?php	echo $moyenneDevoir; ?>
-			</div>
-			
-			<div>
-				<p>
-		<?php	echo $commentaireDevoir; ?>
-				</p>
-				<div>
-					<form action="../media/corrige.pdf">
-						<input type="submit" value="Correction" />
-					</form>
-					<form action="../media/sujet.pdf">
-						<input type="submit" value="Sujet" />
-					</form>
-				</div>
-			</div>
-			
-		</div>
-		
-	</div>
-	<aside>
-		<div> <!-- Moyenne annuelle de l'élève dans la matière-->
-			<div>
-			Moy.
-			</div>
-			<div>
-	<?php	$moyenneEleve; ?>
-			</div>
-		</div>
-		
-		<div>
-			<div>
-			Classe
-			</div>
-			<div>
-	<?php	$moyenneClasse;?>
-			</div>
-		</div>
 		
 		<div>
 		<img src="../php/graph/drawradar.png" >

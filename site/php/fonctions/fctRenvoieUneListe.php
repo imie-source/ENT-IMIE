@@ -5,7 +5,7 @@
 			ex : renvoieUneListe($monTableau, "../php/page?classe=");
 */
 
-function renvoieUneListe ($tableauBDD, $urlQuery) {
+function renvoieUneListe ($tableauBDD) {
 		//Créé la liste
 		echo "<ul>\n";
 		//Boucle pour dérouler tous les éléments du tableau
