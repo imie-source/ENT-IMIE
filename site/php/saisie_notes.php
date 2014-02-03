@@ -1,4 +1,11 @@
 <?php
+
+	/*
+		notesTab(idEleve,note,commentaire) prend 3 arguments et renvoie un
+		tableau qui les lie entre eux
+	*/
+	function notesTab(idEleve, note,commentaire){
+	}
 	
 	//défini l'appelle de la page
 	if(isset($_SERVER["HTTP_REFERER"])) { 				//si vient d'une autre page 
@@ -23,6 +30,7 @@
 								
 				//ouvre le menu
 				include('/menu.php');
+				phpinfo();
 				die ();
 				break;
 			case 'liste_devoirs_classe.php':
@@ -48,13 +56,15 @@
 		et deux cellules de saisie de texte.
 	*/
 	function tableauSaisie($tableauEleve){
+		$cpt=0;
 		foreach ($tableauEleve as $key=>$value){
 			echo "<tr>\n";
 			echo utf8_encode("\t<th>" . $value . "</th>\n");
-			echo "\t<input name=\"ideleve\" type=\"hidden\" value=\"".$key."\"/>\n";
-			echo "\t<th><input type=\"text\" class=\"note\" name=\"note\" required/></th>\n";
-			echo "\t<th><input type=\"text\" name=\"com\" /></th>\n";
+			echo "\t<input name=\"ideleve".$cpt."\" type=\"hidden\" value=\"".$key."\"/>\n";
+			echo "\t<th><input type=\"text\" class=\"note\" name=\"note".$cpt."\" required/></th>\n";
+			echo "\t<th><input type=\"text\" name=\"com".$cpt."\" /></th>\n";
 			echo "</tr>\n";
+			$cpt++;
 		}
 	}
 	
