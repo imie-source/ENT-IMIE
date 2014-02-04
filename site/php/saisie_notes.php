@@ -3,9 +3,10 @@
 	/*
 		notesTab(idEleve,note,commentaire) prend 3 arguments et renvoie un
 		tableau qui les lie entre eux
-	*/
+	
 	function notesTab(idEleve, note,commentaire){
 	}
+	*/
 	
 	//défini l'appelle de la page
 	if(isset($_SERVER["HTTP_REFERER"])) { 				//si vient d'une autre page 
