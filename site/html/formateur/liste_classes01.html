@@ -3,14 +3,6 @@
 				<!--afficher les classes dans lesquelles le prof enseigne pour l'année en cours
 					il faut que l'on puisse distinguer facilement les classes-->
 					
-<ul id = "menu">
-	<div>
-		<a href="../php/divste_devoirs_classe.php?classe=ITStart Rennes 01">ITStart Rennes 01</a>
-	</div>
-	<div>
-		<a href="../php/divste_devoirs_classe.php?classe=CDPN Rennes">CDPN Rennes</a>
-	</div>
-	<div>
-		<a href="../php/divste_devoirs_classe.php?classe=DL-ITS Rennes">DL-ITS Rennes</a>
-	</div>
-</ul>	
+<?php renvoieUneListe($listeClasses, '../php/liste_devoirs_classe.php?classe='); ?>
+				
+	
