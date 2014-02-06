@@ -3,12 +3,20 @@ dépot 10.3.0.1
 
 
 
-adresse : 10.3.6.49 /16
+adresse : 10.3.0.245 /16
 
 Compte :root - root
 	gael - gael
-	administrateur - administrateur
+	damien - motdepasse
+	admin - motdepasse
 
 Tous les mots de passes autres demandé : root
 
-Fichier ENT : /home/administrateur/ENT
+Fichier ENT : /home/admin/ENT
+
+
+-------------
+Sauvegarde 
+1 fois par semaine 
+1 archive par an.
+-------------
