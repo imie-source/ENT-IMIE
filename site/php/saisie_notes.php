@@ -26,15 +26,17 @@
 					5=>"Gudule"
 				);
 				break;
+				
 			case 'saisie_notes.php':
 				//Détermine le nombre de $_POST['ideleve**'] existants
 				$c=$_POST['countEleves'];
 				//renvoyer les notes dans la table notes
 				for($i=0; $i<$c; ++$i){
 					$notes[]=[$_POST['ideleve'.$i], $_POST['note'.$i], $_POST['com'.$i]];
-				}				
+				}
 				//ouvre le menu
-				header('Location : menu.php');
+				header('Location: menu.php');
+				
 				/* //affichage pour test (commenter la ligne précédente
 				for($i=0; $i<$c; ++$i){
 					echo 'id : '.$notes[$i][0].'<br />';
@@ -42,6 +44,7 @@
 					echo 'commentaire : '.$notes[$i][2].'<br />';
 				} */		
 				break;
+				
 			case 'liste_devoirs_classe.php':
 				//charger la BDD
 				$devoir['date']='2014-07-14';
@@ -54,9 +57,12 @@
 					5=>"Gudule"
 				);
 				break;
+				
 			default:
-				echo 'Vous venez d\'où au juste ?';
+				die ('Vous venez d\'où au juste ?');
 		}
+	} else {
+		die ('Vous venez d\'où au juste ?');
 	}
 	
 	/*
