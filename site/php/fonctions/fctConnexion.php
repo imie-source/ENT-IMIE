@@ -40,7 +40,7 @@ function connexion()	{
 				echo $msgErreur;
 				die();
 		}
-		$statut = 'stagiaire';
+		$statut = 'formateur';
 		switch ($statut)	{
 			case "formateur":
 							$_SESSION['nom']="Coudé";

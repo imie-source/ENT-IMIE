@@ -175,3 +175,8 @@ margin-right : 30px;
         .custom-dropdown--small .custom-dropdown__select { padding-right: .5em }
     }
 }
+
+/* FOOTER */
+.droitAuteur {
+	color:gray;
+}
