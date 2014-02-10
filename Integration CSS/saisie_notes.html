@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+  
+		<meta charset="UTF-8">
+		<title>Saisie des notes</title>
+		<link rel="stylesheet" type="text/css" href="../css/style.css" />
+		<link rel="stylesheet" href="../css/knacss.css" media="all" />		
+		 <!-- second style css a afficher selon les pages -->
+		
+	</head>
+	
+	<body>
+	
+		<div class="center mw960p">
+		
+			<header class="line mbs">
+				<a href="menu.php" class="mod"><img id="logo" src="../img/logo.jpg" alt="retour au menu principal"/></a>
+		
+				<a href="#" class="mod" id="parametre">Paramètres/déconnexion</a>				
+			</header>
+	
+			<div id="main">		
+				<div class="grid"> <!-- bloc haut de page -->
+					<script src="../js/fctVerificationNotes.js"></script>
+					<div class="grid4 clear line row">
+						<div >
+						2014-02-13			
+						</div>
+						<div>
+							<form >
+								<div class="txtcenter"> <!-- bloc télécharger le sujet -->
+									<div>
+									Télécharger le sujet
+									</div>
+									<input style="display:block" type="file" class="bouton"/>
+								</div>
+						</div>
+						<div>
+								<div class="txtcenter"> <!-- bloc télécharger le corriger -->
+									<div>
+									Télécharger le corriger
+									</div>
+									<input style="display:block" type="file" class="bouton"/>
+								</div>
+						</div>
+						<div class="right">
+							<input style="display:block" type="submit" value="Envoyer" class="bouton right btnm"/>
+							</form>
+						</div>
+						<div class="mt2 mb2">
+						Machin			
+						</div>
+					</div>
+				</div>
+				
+				<div id="warning">!! Pour élève absent au devoir, indiquer abs comme note !!</div>
+				
+				<form action="#" onsubmit="return verificationNotes()" method="post">
+					<table class="mt3 table alternate">
+						<thead class="alternate"> <!-- en-tête du tableau (première ligne) -->
+							<tr>
+								<th>Élève </th>
+								<th>Notes</th>
+								<th>Commentaires</th>
+							</tr>
+						</thead>
+						<tbody class="alternate"> <!-- corps du tableau -->
+								<!-- Le tableau doit être rempli par le professeur connecté
+								si les notes sont déjà existantes (arrivée depuis liste_devoirs_classe)
+								elles doivent apparaître dans les cellules ainsi que les commentaires -->
+							<tr>
+								<th>Michel</th>
+								<input name="ideleve0" type="hidden" value="1"/>
+								<th><input type="text" class="note" name="note0" required/></th>
+								<th><input type="text" name="com0" /></th>
+							</tr>
+							
+							<tr class="alternate-vert">
+								<th>francis</th>
+								<input name="ideleve1" type="hidden" value="2"/>
+								<th><input type="text" class="note" name="note1" required/></th>
+								<th><input type="text" name="com1" /></th>
+							</tr>
+							
+							<tr>
+								<th>marion</th>
+								<input name="ideleve2" type="hidden" value="3"/>
+								<th><input type="text" class="note" name="note2" required/></th>
+								<th><input type="text" name="com2" /></th>
+							</tr>
+							
+							<tr class="alternate-vert">
+								<th>éric</th>
+								<input name="ideleve3" type="hidden" value="4"/>
+								<th><input type="text" class="note" name="note3" required/></th>
+								<th><input type="text" name="com3" /></th>
+							</tr>
+							
+							<tr>
+								<th>Gudule</th>
+								<input name="ideleve4" type="hidden" value="5"/>
+								<th><input type="text" class="note" name="note4" required/></th>
+								<th><input type="text" name="com4" /></th>
+							</tr>
+					
+						<input name="countEleves" type="hidden" value="5"/>
+						
+						</tbody>
+					</table>
+				
+					<div>
+						<!-- supprimer le devoir de la base de donnée avec les notes et commentaires afférants -->
+						<input style="display:block" type="submit" value="Supprimer le devoir" class="bouton left btnxl"/>
+						<!-- vérifier que toutes les notes sont renseignées avant de valider, vérifier qu'il
+						n'y a pas de caractères interdits -->
+						<input style="display:block" type="submit" value="Valider" class="bouton right btnl"/>
+					</div>
+				</form>
+					
+			</div>
+			
+		</div>
+		
+	</body>
+	
+</html>
