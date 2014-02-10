@@ -1,5 +1,8 @@
 <?php
 
+	include('/fonctions/fctConnexion.php');
+	autorisationPage('formateur');
+
 	/*
 		notesTab(idEleve,note,commentaire) prend 3 arguments et renvoie un
 		tableau qui les lie entre eux
@@ -8,7 +11,7 @@
 	}
 	*/
 	
-	//défini l'appelle de la page
+	//dÃ©fini l'appelle de la page
 	if(isset($_SERVER["HTTP_REFERER"])) { 				//si vient d'une autre page 
 		$origin=explode('/',$_SERVER["HTTP_REFERER"]);	
 		switch ($origin[4]) {							//test par rapport au nom de la page d'origine
@@ -22,13 +25,13 @@
 					1=>"Michel",
 					2=>"francis",
 					3=>"marion",
-					4=>"éric",
+					4=>"Ã©ric",
 					5=>"Gudule"
 				);
 				break;
 				
 			case 'saisie_notes.php':
-				//Détermine le nombre de $_POST['ideleve**'] existants
+				//DÃ©termine le nombre de $_POST['ideleve**'] existants
 				$c=$_POST['countEleves'];
 				//renvoyer les notes dans la table notes
 				for($i=0; $i<$c; ++$i){
@@ -37,7 +40,7 @@
 				//ouvre le menu
 				header('Location: menu.php');
 				
-				/* //affichage pour test (commenter la ligne précédente
+				/* //affichage pour test (commenter la ligne prÃ©cÃ©dente
 				for($i=0; $i<$c; ++$i){
 					echo 'id : '.$notes[$i][0].'<br />';
 					echo 'note : '.$notes[$i][1].'<br />';
@@ -53,21 +56,21 @@
 					1=>"Michel",
 					2=>"francis",
 					3=>"marion",
-					4=>"el niño",
+					4=>"el niÃ±o",
 					5=>"Gudule"
 				);
 				break;
 				
 			default:
-				die ('Vous venez d\'où au juste ?');
+				die ('Vous venez d\'oÃ¹ au juste ?');
 		}
 	} else {
-		die ('Vous venez d\'où au juste ?');
+		die ('Vous venez d\'oÃ¹ au juste ?');
 	}
 	
 	/*
-		Fonction qui prend un tableau en entrée et renvoie une ligne
-		de tableau html avec une cellule qui est l'élément du tableau
+		Fonction qui prend un tableau en entrÃ©e et renvoie une ligne
+		de tableau html avec une cellule qui est l'Ã©lÃ©ment du tableau
 		et deux cellules de saisie de texte.
 	*/
 	function tableauSaisie($tableauEleve){

@@ -1,5 +1,7 @@
 <?php
-
+	include('/fonctions/fctConnexion.php');
+	autorisationPage('formateur');
+	
 	include("fonctions/fctRenvoieUneListe.php");
 	
 	$classe=$_GET['classe'];
