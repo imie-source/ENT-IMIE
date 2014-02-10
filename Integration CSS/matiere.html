@@ -1,0 +1,31 @@
+	
+	<div>
+	
+		<?php echo $titreMatiere; ?>
+		
+		<div>
+			<!-- retourne le bulletin de la période en cours -->
+			<a href="bulletin.html">Revenir au bulletin</a>
+		</div>
+		
+		<!-- menu déroulant à générer en fonction du nombre de sessions qu'à connu l'élève 
+		renvoie à la même page avec les infos de la session choisie -->
+		<ul class = unstyled>
+			<li class = "bigger mbm txtcenter"><a href="matiere.html">Session 2013/2014</a></li>
+			<li class = "bigger mbm txtcenter"><a href="matiere.html">Session 2012/2013</a></li>
+			<li class = "bigger mbm txtcenter"><a href="matiere.html">Session 2011/2012</a></li>
+		</ul>
+		
+		<!-- tous les devoirs de l'année sont affichés dans un ordre antichronologique -->
+		
+	<?php $tableauBDD; ?>
+	
+		
+		
+		<div>
+		<img src="../php/graph/drawradar.png" >
+		</div>
+		
+	</aside>
+  </body>
+</html>
