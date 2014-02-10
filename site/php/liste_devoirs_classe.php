@@ -4,7 +4,8 @@
 	
 	$classe=$_GET['classe'];
 	$titrePage="Liste des devoirs de ".$classe;
-	$listeDevoirs=["Quizz Linux","TP creation de comptes","QCM Windows"];
+	$tabDevoirs=["Quizz Linux","TP creation de comptes","QCM Windows"];
+	$listeDevoirs=renvoieUneListe($tabDevoirs, 'saisie_notes.php?devoir=');
 	
 	include("../html/header.html");
 	
