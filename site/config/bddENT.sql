@@ -111,7 +111,7 @@ CREATE TABLE codePostal (
 CREATE TABLE ville (
 	idVille INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
 	nomVille VARCHAR(45) NOT NULL,
-	codePostal_idCodePostal INTEGER NOT NULL,
+	codePostal_idCodePostal INTEGER UNSIGNED NOT NULL,
 	PRIMARY KEY (idVille),
 	FOREIGN KEY (codePostal_idCodePostal) REFERENCES codePostal (idCodePostal)
 );
