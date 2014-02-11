@@ -1,6 +1,6 @@
 <?php
-	
-	session_start();
+	include('/fonctions/fonctions.inc.php');
+	include('/fonctions/fctConnexion.php');
 	
 	$titrePage="Menu";
 	

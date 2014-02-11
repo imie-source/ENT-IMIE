@@ -1,8 +1,7 @@
 <?php
+	include('/fonctions/fonctions.inc.php');
 	include('/fonctions/fctConnexion.php');
 	autorisationPage('formateur');
-	
-	include("fonctions/fctRenvoieUneListe.php");
 	
 	$titrePage="Sélection de la classe";
 	$tabClasses=["ITStart Rennes 01","CDPN Rennes","DL-ITS Rennes"];

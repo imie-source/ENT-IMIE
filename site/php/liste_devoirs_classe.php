@@ -1,8 +1,7 @@
 <?php
+	include('/fonctions/fonctions.inc.php');
 	include('/fonctions/fctConnexion.php');
 	autorisationPage('formateur');
-	
-	include("fonctions/fctRenvoieUneListe.php");
 	
 	$classe=$_GET['classe'];
 	$titrePage="Liste des devoirs de ".$classe;
