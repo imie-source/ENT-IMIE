@@ -12,8 +12,9 @@
 	*/
 	
 	//défini l'appelle de la page
-	if(isset($_SERVER["HTTP_REFERER"])) { 				//si vient d'une autre page 
-		$origin=explode('/',$_SERVER["HTTP_REFERER"]);	
+	if(isset($_SERVER["HTTP_REFERER"])) {			//si vient d'une autre page 
+		$origin=explode('?',$_SERVER["HTTP_REFERER"]);
+		$origin=explode('/',$origin[0]);
 		switch ($origin[4]) {							//test par rapport au nom de la page d'origine
 			case 'creation_devoir.php':
 				//renvoyer les posts dans la BDD
