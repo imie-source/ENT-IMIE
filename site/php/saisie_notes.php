@@ -75,19 +75,22 @@
 	*/
 	function tableauSaisie($tableauEleve){
 		$cpt=0;
+		$result='';
 		foreach ($tableauEleve as $key=>$value){
-			echo "<tr>\n";
-			echo utf8_encode("\t<th>" . $value . "</th>\n");
-			echo "\t<input name=\"ideleve".$cpt."\" type=\"hidden\" value=\"".$key."\"/>\n";
-			echo "\t<th><input type=\"text\" class=\"note\" name=\"note".$cpt."\" required/></th>\n";
-			echo "\t<th><input type=\"text\" name=\"com".$cpt."\" /></th>\n";
-			echo "</tr>\n";
+			$result.= "<tr>\n";
+			$result.= utf8_encode("\t<th>" . $value . "</th>\n");
+			$result.="\t<input name=\"ideleve".$cpt."\" type=\"hidden\" value=\"".$key."\"/>\n";
+			$result.= "\t<th><input type=\"text\" class=\"note\" name=\"note".$cpt."\" required/></th>\n";
+			$result.= "\t<th><input type=\"text\" name=\"com".$cpt."\" /></th>\n";
+			$result.= "</tr>\n";
 			$cpt++;
 		}
-		echo "\t<input name=\"countEleves\" type=\"hidden\" value=\"".$cpt."\"/>\n";
+		$result.= "\t<input name=\"countEleves\" type=\"hidden\" value=\"".$cpt."\"/>\n";
+		return $result;
 	}
 	
 	$titrePage = "Saisie des notes";
+	$tabNotes=tableauSaisie($eleves);
 	
 	include("../html/header.html");
 	include("../html/formateur/saisie_notes.html");

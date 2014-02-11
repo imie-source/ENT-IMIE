@@ -1,33 +1,38 @@
-		<div> <!-- bloc haut de page -->
-			<script src="../js/fctVerificationNotes.js"></script>
-			<div>
-			<?php echo $devoir['date']; ?>
-			</div>
-			<form>
-				<div> <!-- bloc télécharger le sujet -->
-					<div>
-					Télécharger le sujet
-					</div>
-					<input style="display:block" type="file"/>
-				</div>
-				<div> <!-- bloc télécharger le corriger -->
-					<div>
-					Télécharger le corriger
-					</div>
-					<input style="display:block" type="file"/>
-				</div>
-				<input style="display:block" type="submit" value="Envoyer"/>
-			</form>
-			<div>
-			<?php echo $devoir['devoir']; ?>
-			</div>
-		</div>
+		<script src="../js/fctVerificationNotes.js"></script>
 		
-		<div>!! Pour élève absent au devoir, indiquer abs comme note !!</div>
+		<form>
+		
+			<div class="flex flex-h pt2 mb2">
+					<div class="mlm">
+					<?php echo $devoir['date']; ?>
+					</div>
+					
+					<div class="mlm"> <!-- nécessaire pour grid cf. knacss -->		
+						<p class="txtcenter">
+						Télécharger le sujet
+						</p>
+						<input style="display:block" type="file"/>
+					</div>
+					
+					<div class="mlm"> <!-- bloc télécharger le corriger -->
+						<p class="txtcenter">
+						Télécharger le corriger
+						</p>
+						<input style="display:block" type="file"/>
+					</div>
+				
+				<div  id="titreDevoir" class="mlm">
+					<?php echo $devoir['devoir']; ?>
+				</div>
+				
+			</div>
+		</form>
+		
+		<div id="warning">!! Pour élève absent au devoir, indiquer abs comme note !!</div>
 		
 		<form action="#" onsubmit="return verificationNotes()" method="post">
-		<table>
-			<thead> <!-- en-tête du tableau (première ligne) -->
+		<table class="mt3 table striped alternate" summary="">
+			<thead class="alternate"> <!-- en-tête du tableau (première ligne) -->
 				<tr>
 					<th>Élève </th>
 					<th>Notes</th>
@@ -38,17 +43,17 @@
 					<!-- Le tableau doit être rempli par le professeur connecté
 					si les notes sont déjà existantes (arrivée depuis liste_devoirs_classe)
 					elles doivent apparaître dans les cellules ainsi que les commentaires -->
-				<?php tableauSaisie($eleves); ?>
+				<?php echo $tabNotes; ?>
 			
 			</tbody>
 		</table>
 		
 		<div>
 			<!-- supprimer le devoir de la base de donnée avec les notes et commentaires afférants -->
-			<input style="display:block" type="submit" value="Supprimer le devoir" />
+			<input style="display:block" type="submit" value="Supprimer le devoir" class="bouton left btnxl"/>
 			<!-- vérifier que toutes les notes sont renseignées avant de valider, vérifier qu'il
 			n'y a pas de caractères interdits -->
-			<input style="display:block" type="submit" value="Valider"/>
+			<input style="display:block" type="submit" value="Valider" class="bouton right btnl"/>
 		</div>
 		</form>
 		
