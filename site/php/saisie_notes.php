@@ -78,7 +78,7 @@
 		$result='';
 		foreach ($tableauEleve as $key=>$value){
 			$result.= "<tr>\n";
-			$result.= utf8_encode("\t<th>" . $value . "</th>\n");
+			$result.="\t<th>" . $value . "</th>\n";
 			$result.="\t<input name=\"ideleve".$cpt."\" type=\"hidden\" value=\"".$key."\"/>\n";
 			$result.= "\t<th><input type=\"text\" class=\"note\" name=\"note".$cpt."\" required/></th>\n";
 			$result.= "\t<th><input type=\"text\" name=\"com".$cpt."\" /></th>\n";
