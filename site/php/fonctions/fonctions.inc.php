@@ -34,4 +34,23 @@ function renvoieUneListe ($tableauBDD, $urlQuery) {
 		$result.='</ul>';
 		return $result;
 	}
+	
+/**
+	*listeOption qui prend pour argument un tableau et renvoie les éléments
+	*de ce tableau dans une suite de <option> avec pour value l'élément du
+	*tableau
+	*	ex : listeOption($tableau);
+	*		--> <option value="valeur01">Valeur 01</option>
+	*			<option value="valeur02">Valeur 02</option>
+	*@param array $tableau
+	*@return string Suite d'instructions en HTLM de type <option>
+*/
+
+function listeOption ($tableau) {
+	$result='';
+	foreach($tableau as $value){
+		$result.='<option value="'.$value.'">'.$value."</option>\n";
+	}
+	return $result;
+	}
 ?>
