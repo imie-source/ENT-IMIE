@@ -26,7 +26,7 @@ if(isset($_POST["formCo"])){
    // Sinon si tout les champs sont remplis alors on regarde si le nom de compte rentré existe bien dans la base de données.
    else{
       
-      $sql = "SELECT login FROM utilisateur WHERE login = '".$_POST["login"]."' ";
+      $sql = "SELECT login FROM utilisateur WHERE login = '".$_POST["pseudo"]."' ";
       
       $req = mysql_query($sql);
       
@@ -34,7 +34,7 @@ if(isset($_POST["formCo"])){
       if($sql){
          
          // On sélectionne toute les données de l'utilisateur dans la base de données.   
-         $sql = "SELECT * FROM utilisateur WHERE login = '".$_POST["login"]."' ";
+         $sql = "SELECT * FROM utilisateur WHERE login = '".$_POST["pseudo"]."' ";
       
          $req = mysql_query($sql);
          
