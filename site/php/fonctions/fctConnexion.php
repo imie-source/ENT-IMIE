@@ -51,9 +51,9 @@ if(isset($_POST["formCo"])){
                
                $connexionMSG = "Connexion au site réussie. Vous êtes désormais connecté !";
               
-               $_SESSION["login"] = $_POST["login"];
+               $_SESSION["login"] = $_POST["pseudo"];
                $_SESSION["pass"] = $_POST["pass"];
-			$sql = mysql_query("SELECT statut.libelleStatut FROM utilisateur_has_statut, utilisateur, statut WHERE Utilisateur.idUtilisateur = utilisateur_idUtilisateur AND statut_idStatut = statut.idStatut AND login = '".$_POST["login"]."' ");
+			$sql = mysql_query("SELECT statut.libelleStatut FROM utilisateur_has_statut, utilisateur, statut WHERE Utilisateur.idUtilisateur = utilisateur_idUtilisateur AND statut_idStatut = statut.idStatut AND login = '".$_POST["pseudo"]."' ");
 			$req = mysql_fetch_array($sql);
 
 	switch($req["libelleStatut"])	{

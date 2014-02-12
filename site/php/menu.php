@@ -1,7 +1,8 @@
 <?php
-	include('/fonctions/fonctions.inc.php');
-	include('/fonctions/fctConnexion.php');
+	session_start();
 	
+	include('/fonctions/fonctions.inc.php');
+
 	$titrePage="Menu";
 	
 	include("../html/header.html");
