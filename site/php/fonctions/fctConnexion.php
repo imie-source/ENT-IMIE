@@ -1,72 +1,125 @@
+
 <?php
 
-session_start();
-
 function connexion()	{
-	
-	$msgErreur ='<script type="text/javascript" language="javascript">alert(\'Identifiant ou Mot de Passe incorrect\');</script>';
-	
-	// Si le formulaire a été envoyer
-	if(isset($_POST['formCo']))	{
-	
-		//Si le pseudo et le mot de passe a été rentrer
-		if(!empty($_POST['pseudo']) && !empty($_POST['pass']))	{
 		
-			//Requête pour récupérer le pseudo
-			/*$requete= ("SELECT nom, prenom, email FROM eleve WHERE email = '" .$_POST['pseudo']. "' ");
-			$result= mysql_query ($requete, $db);
-			//Si on a un résultat
-			if(mysql_num_rows($requete) == 1)	{
-				$utilisateur = mysql_fetch_object($requete, $result);*/
-					if (($_POST['pseudo'] == "Gudule") && ($_POST['pass'] == "1234"))		{
-				
-					//On vérifie le mot de passe
-					/*if(md5($_POST['pass']) == $pseudo ->nomEleve ||  $pseudo ->nomformateur)	{ */
-					
-						//Connexion réussi
-						//Lancement de la séssion
-					
-						
-						
-					/*if ($utilisateur = > "1000")	{
-						header('location: formateur/menu.php');
-					}	else	{*/					
-															  
-					} else {
-						echo $msgErreur;
-						die();
-					}           							                         
-		} else {
-				echo $msgErreur;
-				die();
-		}
-		$statut = 'formateur';
-		switch ($statut)	{
-			case "formateur":
-							$_SESSION['nom']="Coudé";
-							$_SESSION['prenom']="Serge";
-							$_SESSION['matiere']="Dev";
-							$_SESSION['statutParticulier']="Formateur";			
-							$_SESSION['statut']="formateur";
+	include ("../config/connexionBDD.php");	
+	$msgErreur ='<script type="text/javascript" language="javascript">alert(\'Identifiant ou Mot de Passe incorrect\');</script>';
 
-							header('location: menu.php');
-				break;
-			case "stagiaire":
-							$_SESSION['nom']="Durand";
-							$_SESSION['prenom']="Gudule";
-							$_SESSION['statut']="stagiaire";								
-							$_SESSION['centreFormation']="Rennes";
-							$_SESSION['session']="2013";
-							$_SESSION['cursus']="IT START";
-							
-							header('location: menu.php');
-				break;
-			default:
-				echo "Qui êtes vous ??";
-			
+// On met les variables utilisés du script PHP à FALSE.
+
+
+$connexionOK = FALSE;
+
+// On regarde si l'utilisateur a bien utilisé le module de connexion pour traiter les données.
+if(isset($_POST["formCo"])){
+   
+   // On regarde si tout les champs sont remplis. Sinon on lui affiche un message d'erreur.   
+	if(empty($_POST['pseudo']) && empty($_POST['pass']))	{
+      
+      $error = TRUE;
+      
+      echo "$msgErreur";
+      
+   }
+   
+   // Sinon si tout les champs sont remplis alors on regarde si le nom de compte rentré existe bien dans la base de données.
+   else{
+      
+      $sql = "SELECT login FROM utilisateur WHERE login = '".$_POST["login"]."' ";
+      
+      $req = mysql_query($sql);
+      
+      // Si oui, on continue le script...      
+      if($sql){
+         
+         // On sélectionne toute les données de l'utilisateur dans la base de données.   
+         $sql = "SELECT * FROM utilisateur WHERE login = '".$_POST["login"]."' ";
+      
+         $req = mysql_query($sql);
+         
+         // Si la requête SQL c'est bien passé...      
+         if($sql){
+         
+            // On récupère toute les données de l'utilisateur dans la base de données.
+            $donnees = mysql_fetch_assoc($req);
+            
+            // Si le mot de passe entré à la même valeur que celui de la base de données, on l'autorise a se connecter...         
+            if($_POST["pass"] == $donnees["mp"]){
+            
+               $connexionOK = TRUE;
+               
+               $connexionMSG = "Connexion au site réussie. Vous êtes désormais connecté !";
+              
+               $_SESSION["login"] = $_POST["login"];
+               $_SESSION["pass"] = $_POST["pass"];
+			$sql = mysql_query("SELECT statut.libelleStatut FROM utilisateur_has_statut, utilisateur, statut WHERE Utilisateur.idUtilisateur = utilisateur_idUtilisateur AND statut_idStatut = statut.idStatut AND login = '".$_POST["login"]."' ");
+			$req = mysql_fetch_array($sql);
+
+	switch($req["libelleStatut"])	{
+				case "formateur":
+								$_SESSION['nom']="Coudé";
+								$_SESSION['prenom']="Serge";
+								$_SESSION['matiere']="Dev";
+								$_SESSION['statutParticulier']="Formateur";			
+								$_SESSION['statut']="formateur";
+
+								header('location: menu.php');
+					break;
+				case "stagiaire":
+								$_SESSION['nom']="Durand";
+								$_SESSION['prenom']="Gudule";
+								$_SESSION['statut']="stagiaire";								
+								$_SESSION['centreFormation']="Rennes";
+								$_SESSION['session']="2013";
+								$_SESSION['cursus']="IT START";
+								
+								header('location: menu.php');
+					break;
+				default:
+					echo "Qui êtes vous ??";
+				
+			}
 		}
-	}
-}
+    }
+            
+            // Sinon on lui affiche un message d'erreur.
+            else{
+            
+               $error = TRUE;
+            
+               
+            
+            }
+         
+         }
+         
+         // Sinon on lui affiche un message d'erreur.      
+         else{
+         
+            $error = TRUE;
+         
+            echo "$msgErreur";
+         
+         }
+      
+      }
+      
+      // Sinon on lui affiche un message d'erreur.      
+      }else{
+         
+         $error = TRUE;
+         
+         echo "$msgErreur";
+         
+      }
+   
+   }
+   
+
+
+
+
 
 function autorisationPage($statutAutorise) {
 	
@@ -74,7 +127,7 @@ function autorisationPage($statutAutorise) {
 		if($statutAutorise!=$_SESSION['statut']) {
 			$retourAccueil='<!DOCTYPE html>
 							<html>
-							<h1>Vous n\'avez pas accès à cette page</h1>
+							<p>Vous n\'avez pas accès à cette page</p>
 							<p><a href="index.php">Retour à l\'accueil</a></p>
 							</html>';
 			die($retourAccueil);
@@ -86,3 +139,4 @@ function autorisationPage($statutAutorise) {
 }
 
 ?>
+
