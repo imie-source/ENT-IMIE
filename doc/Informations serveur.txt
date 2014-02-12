@@ -5,14 +5,23 @@ dépot 10.3.0.1
 
 adresse : 10.3.0.245 /16
 
-Compte :root - root
-	gael - gael
-	damien - motdepasse
-	admin - motdepasse
+Compte debian :	root - root
+		admin - admin
+		gael - gael
+		damien - motdepasse
 
+PHPmyadmin :	ENT - ent
+
+		
 Tous les mots de passes autres demandé : root
 
 Fichier ENT : /home/admin/ENT
+
+Version soft
+	
+	mysql 5.5.31-0+wheezy1
+	Apache 2.2.22
+	phpmyadmin 3.4.11.1
 
 
 -------------
