@@ -1,5 +1,5 @@
 <?php
-	include('/fonctions/fctConnexion.php');
+	include('fonctions/fonctions.inc.php');
 	autorisationPage('formateur');
 	
 	$titrePage="Devoirs";

@@ -1,7 +1,6 @@
 <?php
-	include('/fonctions/fctConnexion.php');
-	autorisationPage('formateur');
 	include('fonctions/fonctions.inc.php');
+	autorisationPage('formateur');
 	
 	$classes=['ITStart','CDPN','DL'];
 	$matieres=['JAVA','PHP','SQL'];

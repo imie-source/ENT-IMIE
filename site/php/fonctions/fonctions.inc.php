@@ -3,7 +3,8 @@
 /* Indique au serveur php de renvoyer de l'utf8 */
 header( 'content-type: text/html; charset=utf-8' );
 
-
+/* Inclusion des fonctions utiles à la connexion à la base de donnée */
+include('connexion.inc.php');
 
 /**
 	*renvoieUneListe renvoie une liste html

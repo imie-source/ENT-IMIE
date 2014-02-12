@@ -1,6 +1,5 @@
 <?php
 	include('/fonctions/fonctions.inc.php');
-	include('/fonctions/fctConnexion.php');
 	autorisationPage('formateur');
 	
 	$titrePage="Sélection de la classe";
