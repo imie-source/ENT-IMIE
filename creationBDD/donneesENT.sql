@@ -1,23 +1,46 @@
-/*Structure deuxieme partie de la table typeVoie*/
+/*Structure deuxieme partie de la table typeVoie */
 
-INSERT INTO typeVoie (idTypeVoie, typeVoie) VALUES
-(1, 'rue'),
-(2, 'avenue'),
-(3, 'boulevard'),
-(4, 'bourg'),
-(5, 'impasse'),
-(6, 'chemin'),
-(7, 'square'),
-(8, 'route',),
-(9, 'allée',);
-
-
-
-/*Structure deuxieme partie de la table statut*/
+INSERT INTO typeVoie (typeVoie) VALUES
+('rue'),
+('avenue'),
+('boulevard'),
+('bourg'),
+('impasse'),
+('chemin'),
+('square'),
+('route',),
+('allée',);
 
 
-INSERT INTO statut (idStatut, libelleStatut) VALUES
-(1, 'administrateur'),
-(2, 'stagiaire'),
-(3, 'formateur'),
-(4, 'invité');
+
+/*Structure deuxieme partie de la table statut */
+
+
+INSERT INTO statut (libelleStatut) VALUES
+('administrateur'),
+('stagiaire'),
+('formateur'),
+('invité');
+
+
+
+/*Structure deuxieme partie de la table matiere */
+
+
+INSERT INTO matiere (nomMatiere) VALUES
+('IT START'),
+('T2SI'),
+('Développeur Logiciel'),
+('R.I.S.R'),
+('WM&D'),
+('Chef de Projet Numérique');
+
+
+
+/*Structure deuxieme partie de la table domaine */
+
+
+INSERT INTO domaine (nomDomaine) VALUES
+('Rennes'),
+('Angers'),
+('Nantes');
