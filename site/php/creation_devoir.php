@@ -2,12 +2,15 @@
 	include('fonctions.inc.php');
 	autorisationPage('formateur');
 	
-	$classes=['ITStart','CDPN','DL'];
+	$tabClasses=request(GET_CLASSE_UTILISATEUR, $_SESSION['id']);
+	
+	
 	$matieres=['JAVA','PHP','SQL'];
 	
 	$titrePage="Creation de Devoir";
-	$listeMatieres=listeOption($matieres);
-	$listeClasses=listeOption($classes);
+	/*$listeMatieres=listeOption($matieres);*/
+	/* $listeClasses=listeOption($tabClasses[0]['libelleCursus']); */
+	die($tabClasses[0]['libelleCursus']);
 	
 	include("../html/header.html");
 	
