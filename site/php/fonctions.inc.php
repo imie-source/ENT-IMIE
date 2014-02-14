@@ -107,10 +107,24 @@ function request($requete, $id0, $id1=0 ,$id2=0 , $id3=0){
 		$v='id'.$i;
 		$sql.=$tabRequete[$i].${$v};
 	}
-	/* $sql=eval("echo $sql"); */
-	$result=$cnx->query($sql);
-	$tabRes=$result->fetchAll(PDO::FETCH_ASSOC);
+
+	$type=explode(" ",$sql);
+	$type=strtoupper(array_shift($type));
 	
+	switch($type){
+		case 'SELECT':
+			$result=$cnx->query($sql);
+			break;
+		case 'INSERT':
+			$result=$cnx->exec($sql);
+			break;
+		default:
+			return erreur(ERREUR_REQUETE);
+	}
+	
+	/* $result=$cnx->query($sql); */
+	$tabRes=$result->fetchAll(PDO::FETCH_ASSOC);
+	die($tabRes[0]['libelleCursus']);
 	if($tabRes!=false){
 		return $tabRes;
 	} else {
