@@ -88,19 +88,28 @@ function erreur($typeErreur){
 /**
 	*request prend comme argument la constante qui définie sa requête ainsi que les id nécessaires à celle-ci
 	*
-	*Les requêtes sont stockées dans requetes.inc.php
+	*Les différentes requêtes sont stockées et documentées dans requetes.inc.php.
+	*La fonction renvoie un tableau associatif ou une erreur
 	*
-	*
+	*@param string $requete Constante définie dans requetes.inc.php
+	*@param integer $id0 Un id
+	*@return mixed Retourne un tableau associatif si tout va bien
 */
 function request($requete, $id0, $id1=0 ,$id2=0 , $id3=0){
+	
 	//Connexion à la BDD
 	$cnx = cnxBase ();
 	// S'il y a un problème de connexion on renvoie l'erreur
 	if (is_string($cnx)) {
 		erreur(ERREUR_CONNEXION_BDD);
 	}
+	
+	/* PREPARATION DE LA REQUETE */
+	
+	//Récupération des éléments entre les ID dans un tableau
 	$tabRequete=explode('~',$requete);
 	
+	//Insertion des ID dans la requête
 	$sql='';
 	$c=count($tabRequete)-1;
 	for($i=0; $i<$c; $i++){
@@ -108,9 +117,13 @@ function request($requete, $id0, $id1=0 ,$id2=0 , $id3=0){
 		$sql.=$tabRequete[$i].${$v};
 	}
 
+	//Récupération du premier terme de la requête qui définira le type de requête
 	$type=explode(" ",$sql);
 	$type=strtoupper(array_shift($type));
 	
+	/* EXECUTION DE LA REQUETE */
+	
+	//On créer l'exécution en fonction du type de la requête
 	switch($type){
 		case 'SELECT':
 			$result=$cnx->query($sql);
@@ -122,13 +135,14 @@ function request($requete, $id0, $id1=0 ,$id2=0 , $id3=0){
 			return erreur(ERREUR_REQUETE);
 	}
 	
-	/* $result=$cnx->query($sql); */
+	//Affectation du résultat dans un tableau associatif
 	$tabRes=$result->fetchAll(PDO::FETCH_ASSOC);
-	die($tabRes[0]['libelleCursus']);
+	
+	//Si tout va bien on retourne sinon erreur
 	if($tabRes!=false){
 		return $tabRes;
 	} else {
-		erreur(ERREUR_REQUETE);
+		return erreur(ERREUR_REQUETE);
 	}
 }
 ?>
