@@ -85,14 +85,25 @@ function erreur($typeErreur){
 
 }
 
-function request($requete, $id){
+/**
+	*request prend comme argument l
+*/
+function request($requete, $id0, $id1=''){
 	//Connexion à la BDD
 	$cnx = cnxBase ();
 	// S'il y a un problème de connexion on renvoie l'erreur
 	if (is_string($cnx)) {
 		erreur(ERREUR_CONNEXION_BDD);
 	}
-	$sql=$requete.$id;
+	$tabRequete=explode('~',$requete);
+	
+	$sql='';
+	$c=count($tabRequete);
+	for($i=0; $i<$c; $i++){
+		$v='id'.$i;
+		$sql.=$tabRequete[$i].${$v};
+	}
+	/* $sql=eval("echo $sql"); */
 	$result=$cnx->query($sql);
 	$tabRes=$result->fetchAll(PDO::FETCH_ASSOC);
 	
