@@ -1,6 +1,6 @@
 <?php		   
-	$utilisateur = "root";
-	$motdepasse = "";
-	$hote = "127.0.0.1";
+	$utilisateur = "ENT";
+	$motdepasse = "ent";
+	$hote = "10.3.0.245";
 	$port = 3306;
-	$nomBase = "ent";?>
+	$nomBase = "ENT";?>

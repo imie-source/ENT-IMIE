@@ -52,35 +52,30 @@ function connexion() {
 				die('<script type="text/javascript" language="javascript">alert(\'Erreur lors de la connexion à la base de données.\');</script>');
 			}
 			
-			$sql = "SELECT login, mp FROM utilisateur WHERE login = '".$_POST["pseudo"]."' ";
+			$sql = "SELECT * FROM utilisateur_has_statut, utilisateur, statut WHERE idUtilisateur = utilisateur_idUtilisateur AND statut_idStatut = idStatut AND login = '".$_POST["pseudo"]."' ";
 			$result = $cnx->query($sql);
 			$tabRes = $result->fetchAll(PDO::FETCH_ASSOC);
-					
+			
+			/* On vérifie que l'exécution de la requête est OK */
+			if($tabRes!=false){
 				// Si le mot de passe entré est OK avec son login         
 				if($_POST["pass"] == $tabRes[0]["mp"]){
 							
-					$_SESSION["login"] = $_POST["pseudo"];
-					$_SESSION["pass"] = $_POST["pass"];
-					   
-					$sql = "SELECT nom, prenom, libelleStatut FROM utilisateur_has_statut, utilisateur, statut WHERE idUtilisateur = utilisateur_idUtilisateur AND statut_idStatut = idStatut AND login = '".$_POST["pseudo"]."' ";
-					$result = $cnx->query($sql);
-					$tabRes = $result->fetchAll(PDO::FETCH_ASSOC);
-
-					if($tabRes[0]["libelleStatut"])	{
-						// Charge les valeurs utiles dans $_SESSION	
-						$_SESSION['nom']=$tabRes[0]["nom"];
-						$_SESSION['prenom']=$tabRes[0]["prenom"];
-						$_SESSION['statut']=$tabRes[0]["libelleStatut"];
-						//Renvoie au menu
-						header('location: menu.php');
+					$_SESSION['id']=$tabRes[0]["idUtilisateur"];
+					$_SESSION["login"]=$_POST["pseudo"];
+					$_SESSION["pass"]=$_POST["pass"];
+					$_SESSION['nom']=$tabRes[0]["nom"];
+					$_SESSION['prenom']=$tabRes[0]["prenom"];
+					$_SESSION['statut']=$tabRes[0]["libelleStatut"];
+					//Renvoie au menu
+					header('location: menu.php');
 							
-					} else { //Si avec un statut inexistant
-						die('Qui êtes vous ??');
-					}
-				} else { // Sinon on lui affiche un message d'erreur.
-					echo '<script type="text/javascript" language="javascript">alert(\'Identifiant ou Mot de Passe incorrect\');</script>';
-			}
-		}
+					} 
+				} else {
+					// Sinon on lui affiche un message d'erreur.
+					echo '<script type="text/javascript" language="javascript">alert(\'Identifiant ou Mot de Passe incorrect\');</script>';	
+				}
+			}	
 	}
 }
    
