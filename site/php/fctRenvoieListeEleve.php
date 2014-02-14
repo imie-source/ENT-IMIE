@@ -2,20 +2,20 @@
 
 function renvoieListeEleve ($listeE) {
 
-		$db = mysql_connect("localhost", "root", "");
-		mysql_select_db("imie");
+		$db = mysql_connect("10.3.0.245/phpmyadmin", "root", "root");
+		mysql_select_db("ENT");
 
 		echo '<form action="bulletin.php" method=POST>';
 		echo '<select name="eleve">';
 
 		//Requète, exécution et création du jeu d'enregistrement
-		$requete = "SELECT idEleve, prenom, nom FROM eleve; ";
+		$requete = "SELECT idUtilisateur, prenom, nom FROM utilisateur; ";
 		$result  = mysql_query($requete,$db);
 		$listeEleve = mysql_fetch_array($result);
 			
 		//Boucle sur la liste
 		while ($listeEleve!=FALSE) {
-			$idEleve = $listeEleve['idEleve'];
+			$idEleve = $listeEleve[' idUtilisateur'];
 			$prenom = $listeEleve['nom'];
 			$nom = $listeEleve['prenom'];
 

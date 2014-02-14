@@ -22,12 +22,12 @@ function renvoieBulletin ($bulletin) {
 		$resultat3 = mysql_fetch_array($com);
 		
 		// Définition des requêtes pour récupérer les données dans la base de données
-		$moyenne = mysql_query ("SELECT ROUND(AVG(note),2) AS moyenne FROM devoir, note, matiere WHERE note.idDevoir = devoir.idDevoir AND note.idMatiere = matiere.idMatiere AND nomMatiere = '".$resultat1['nomMatiere']."' GROUP BY devoir.idDevoir ;");
-		$note = mysql_query ("SELECT note FROM matiere, note, devoir, eleve WHERE note.idDevoir = devoir.idDevoir AND note.idEleve = eleve.idEleve AND note.idMatiere = matiere.idMatiere AND nomMatiere = '".$resultat1['nomMatiere']."' AND eleve.idEleve =  '".$eleve."'; ");
-		$intitule = mysql_query ("SELECT intitule FROM devoir, note, matiere, eleve WHERE note.idDevoir = devoir.idDevoir AND note.idMatiere = matiere.idMatiere AND note.idEleve = eleve.idEleve AND eleve.idEleve = '".$eleve."' AND nomMatiere = '".$resultat1['nomMatiere']."' GROUP BY devoir.idDevoir ;");
-		$commentaire = mysql_query ("SELECT commentaire FROM devoir, note, matiere, eleve WHERE note.idDevoir = devoir.idDevoir AND note.idMatiere = matiere.idMatiere AND note.idEleve = eleve.idEleve AND eleve.idEleve = '".$eleve."' AND nomMatiere = '".$resultat1['nomMatiere']."' GROUP BY devoir.idDevoir ;");
-		$nbDevoir = mysql_query("SELECT intitule FROM matiere, devoir, eleve, note WHERE note.idMatiere = matiere.idMatiere AND note.idDevoir = devoir.idDevoir AND eleve.idEleve = '3' AND matiere.nomMatiere = '" . $resultat1['nomMatiere'] . "' ");
-		$nbMatiere = mysql_query("SELECT matiere.idMatiere FROM matiere, note, eleve WHERE matiere.idMatiere = note.idMatiere AND note.idEleve = eleve.idEleve AND eleve.idEleve = '".$eleve."' GROUP BY matiere.idMatiere");
+		$moyenne = mysql_query ("SELECT ROUND(AVG(note),2) AS moyenne FROM correctionDevoir, devoir, devoir_has_matiere, matiere WHERE correctionDevoir.devoir_idDevoir = devoir.idDevoir AND devoir.idDevoir = devoir_has_matiere.devoir_idDevoir AND devoir_has_matiere.matiere_idMatiere = matiere.idMatiere AND matiere.nomMatiere = '".$resultat1['nomMatiere']."' GROUP BY devoir.idDevoir ;");
+		$note = mysql_query ("SELECT note FROM matiere, utilisateur_has_matiere, utilisateur, devoir, correctionDevoir WHERE matiere.idMatiere = utilisateur_has_matiere.matiere_idMatiere AND utilisateur_has_matiere.utilisateur_idUtilisateur = utilisateur.idUtilisateur AND utilisateur.idUtilisateur = devoir.utilisateur_idUtilisateur AND devoir.idDevoir = correctionDevoir.devoir_idDevoir AND matiere.nomMatiere = '".$resultat1['nomMatiere']."' AND utilisateur.idUtilisateur =  '".$eleve."'; ");
+		$intitule = mysql_query ("SELECT intitule FROM matiere, utilisateur_has_matiere, utilisateur, devoir, correctionDevoir WHERE matiere.idMatiere = utilisateur_has_matiere.matiere_idMatiere AND utilisateur_has_matiere.utilisateur_idUtilisateur = utilisateur.idUtilisateur AND utilisateur.idUtilisateur = devoir.utilisateur_idUtilisateur AND devoir.idDevoir = correctionDevoir.devoir_idDevoir AND utilisateur.idUtilisateur = '".$eleve."' AND matiere.nomMatiere = '".$resultat1['nomMatiere']."' GROUP BY devoir.idDevoir ;");
+		$commentaire = mysql_query ("SELECT commentaire FROM matiere, utilisateur_has_matiere, utilisateur, devoir, correctionDevoir WHERE matiere.idMatiere = utilisateur_has_matiere.matiere_idMatiere AND utilisateur_has_matiere.utilisateur_idUtilisateur = utilisateur.idUtilisateur AND utilisateur.idUtilisateur = devoir.utilisateur_idUtilisateur AND devoir.idDevoir = correctionDevoir.devoir_idDevoir AND utilisateur.idUtilisateur = '".$eleve."' AND matiere.nomMatiere = '".$resultat1['nomMatiere']."' GROUP BY devoir.idDevoir ;");
+		$nbDevoir = mysql_query("SELECT devoir.idDevoir FROM matiere, utilisateur_has_matiere, utilisateur, devoir, correctionDevoir WHERE matiere.idMatiere = utilisateur_has_matiere.matiere_idMatiere AND utilisateur_has_matiere.utilisateur_idUtilisateur = utilisateur.idUtilisateur AND utilisateur.idUtilisateur = devoir.utilisateur_idUtilisateur AND devoir.idDevoir = correctionDevoir.devoir_idDevoir AND  utilisateur.idUtilisateur = '".$eleve."' AND matiere.nomMatiere = '" . $resultat1['nomMatiere'] . "' ");
+		$nbMatiere = mysql_query ("SELECT COUNT(*) FROM utilisateur, correctionDevoir, devoir, devoir_has_matiere, matiere  WHERE utilisateur.idUtilisateur = correctionDevoir.utilisateur_idUtilisateur AND correctionDevoir.devoir_idDevoir = devoir.idDevoir AND devoir.idDevoir = devoir_has_matiere.devoir_idDevoir AND devoir_has_matiere.matiere_idMatiere = matiere.idMatiere AND utilisateur.idUtilisateur = '" . $eleve . "' GROUP BY matiere.idMatiere; ");
 		
 		// Exécution des requêtes dans une variable
 		$resultat4 = mysql_fetch_array($moyenne);
@@ -74,24 +74,24 @@ function renvoieBulletin ($bulletin) {
 			
 			// Tant qu'il reste des lignes dans la requête nbMatiere qui affiche toutes les matières
 			while (mysql_fetch_array($nbMatiere) != NULL) {
-				// Exécution des requêtes dans une variable
-				$resultat1 = mysql_fetch_array($moyenneEleve);
-				$resultat2 = mysql_fetch_array($moyClasse);
-				$resultat3 = mysql_fetch_array($com);
-							
-				// Définition des requêtes pour récupérer les données dans la base de données
-				$moyenne = mysql_query ("SELECT ROUND(AVG(note),2) AS moyenne FROM devoir, note, matiere WHERE note.idDevoir = devoir.idDevoir AND note.idMatiere = matiere.idMatiere AND nomMatiere = '".$resultat1['nomMatiere']."' GROUP BY devoir.idDevoir ;");
-				$note = mysql_query ("SELECT note FROM matiere, note, devoir, eleve WHERE note.idDevoir = devoir.idDevoir AND note.idEleve = eleve.idEleve AND note.idMatiere = matiere.idMatiere AND nomMatiere = '".$resultat1['nomMatiere']."' AND eleve.idEleve =  '".$eleve."'; ");
-				$intitule = mysql_query ("SELECT intitule FROM devoir, note, matiere, eleve WHERE note.idDevoir = devoir.idDevoir AND note.idMatiere = matiere.idMatiere AND note.idEleve = eleve.idEleve AND eleve.idEleve = '".$eleve."' AND nomMatiere = '".$resultat1['nomMatiere']."' GROUP BY devoir.idDevoir ;");
-				$commentaire = mysql_query ("SELECT commentaire FROM devoir, note, matiere, eleve WHERE note.idDevoir = devoir.idDevoir AND note.idMatiere = matiere.idMatiere AND note.idEleve = eleve.idEleve AND eleve.idEleve = '".$eleve."' AND nomMatiere = '".$resultat1['nomMatiere']."' GROUP BY devoir.idDevoir ;");
-				$nbDevoir = mysql_query("SELECT intitule FROM matiere, devoir, eleve, note WHERE note.idMatiere = matiere.idMatiere AND note.idDevoir = devoir.idDevoir AND eleve.idEleve = '3' AND matiere.nomMatiere = '" . $resultat1['nomMatiere'] . "' ");
-				
-				// Exécution des requêtes dans une variable
-				$resultat4 = mysql_fetch_array($moyenne);
-				$resultat5 = mysql_fetch_array($note);
-				$resultat6 = mysql_fetch_array($intitule);
-				$resultat7 = mysql_fetch_array($commentaire);
-				$resultat8 = mysql_fetch_array($nbDevoir);
+		// Exécution des requêtes dans une variable
+		$resultat1 = mysql_fetch_array($moyenneEleve);
+		$resultat2 = mysql_fetch_array($moyClasse);
+		$resultat3 = mysql_fetch_array($com);
+		
+		// Définition des requêtes pour récupérer les données dans la base de données
+		$moyenne = mysql_query ("SELECT ROUND(AVG(note),2) AS moyenne FROM correctionDevoir, devoir, devoir_has_matiere, matiere WHERE correctionDevoir.devoir_idDevoir = devoir.idDevoir AND devoir.idDevoir = devoir_has_matiere.devoir_idDevoir AND devoir_has_matiere.matiere_idMatiere = matiere.idMatiere AND matiere.nomMatiere = '".$resultat1['nomMatiere']."' GROUP BY devoir.idDevoir ;");
+		$note = mysql_query ("SELECT note FROM matiere, utilisateur_has_matiere, utilisateur, devoir, correctionDevoir WHERE matiere.idMatiere = utilisateur_has_matiere.matiere_idMatiere AND utilisateur_has_matiere.utilisateur_idUtilisateur = utilisateur.idUtilisateur AND utilisateur.idUtilisateur = devoir.utilisateur_idUtilisateur AND devoir.idDevoir = correctionDevoir.devoir_idDevoir AND matiere.nomMatiere = '".$resultat1['nomMatiere']."' AND utilisateur.idUtilisateur =  '".$eleve."'; ");
+		$intitule = mysql_query ("SELECT intitule FROM matiere, utilisateur_has_matiere, utilisateur, devoir, correctionDevoir WHERE matiere.idMatiere = utilisateur_has_matiere.matiere_idMatiere AND utilisateur_has_matiere.utilisateur_idUtilisateur = utilisateur.idUtilisateur AND utilisateur.idUtilisateur = devoir.utilisateur_idUtilisateur AND devoir.idDevoir = correctionDevoir.devoir_idDevoir AND utilisateur.idUtilisateur = '".$eleve."' AND matiere.nomMatiere = '".$resultat1['nomMatiere']."' GROUP BY devoir.idDevoir ;");
+		$commentaire = mysql_query ("SELECT commentaire FROM matiere, utilisateur_has_matiere, utilisateur, devoir, correctionDevoir WHERE matiere.idMatiere = utilisateur_has_matiere.matiere_idMatiere AND utilisateur_has_matiere.utilisateur_idUtilisateur = utilisateur.idUtilisateur AND utilisateur.idUtilisateur = devoir.utilisateur_idUtilisateur AND devoir.idDevoir = correctionDevoir.devoir_idDevoir AND utilisateur.idUtilisateur = '".$eleve."' AND matiere.nomMatiere = '".$resultat1['nomMatiere']."' GROUP BY devoir.idDevoir ;");
+		$nbDevoir = mysql_query("SELECT devoir.idDevoir FROM matiere, utilisateur_has_matiere, utilisateur, devoir, correctionDevoir WHERE matiere.idMatiere = utilisateur_has_matiere.matiere_idMatiere AND utilisateur_has_matiere.utilisateur_idUtilisateur = utilisateur.idUtilisateur AND utilisateur.idUtilisateur = devoir.utilisateur_idUtilisateur AND devoir.idDevoir = correctionDevoir.devoir_idDevoir AND  utilisateur.idUtilisateur = '".$eleve."' AND matiere.nomMatiere = '" . $resultat1['nomMatiere'] . "' ");
+		
+		// Exécution des requêtes dans une variable
+		$resultat4 = mysql_fetch_array($moyenne);
+		$resultat5 = mysql_fetch_array($note);
+		$resultat6 = mysql_fetch_array($intitule);
+		$resultat7 = mysql_fetch_array($commentaire);
+		$resultat8 = mysql_fetch_array($nbDevoir);
 
 				// Affichage des lignes du tableau contenant les variables
 				echo "<tr><td><form id='matiere' action='matiere.php' method='post'>";
