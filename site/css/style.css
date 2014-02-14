@@ -147,10 +147,10 @@ margin-right : 30px;
     .custom-dropdown::after { /*  Affichage fleche  */
         content: "\25BC";		/* Affiche la fleche*/
         height: 20px;				/* hauteur */
-        font-size: 10px;			/* taille de la fleche */
+        font-size: 14px;			/* taille de la fleche */
         line-height: 1;				/* position par rapport a son petit carré*/
         right: 13px;				/* Position de la fleche par rapport au carré */
-        top: 50%;					/* centrer top */
+        top: 45%;					/* centrer top */
 		margin-top: -5px;		/* deplacer la fleche verticalement */
     }
 
@@ -170,9 +170,9 @@ margin-right : 30px;
 
     /* FF only temp fix */
     @-moz-document url-prefix() { /* Mozilla*/
-        .custom-dropdown__select              { padding-right: .6em }
+        .custom-dropdown__select              { padding-right: .8em }
         .custom-dropdown--large .custom-dropdown__select { padding-right: 1.3em }
-        .custom-dropdown--small .custom-dropdown__select { padding-right: .2em }
+        .custom-dropdown--small .custom-dropdown__select { padding-right: .5em }
     }
 }
 
@@ -200,11 +200,18 @@ border: 3px solid #CCD4D9;
 
 #border2 {
 border: 3px solid #7CBFF3;
+padding: 2px;
 }
 
-#moy {
-border-left: 3px solid #CCD4D9;
+#bold {
+font-weight: bold;
 }
+
+#lineheight {
+line-height: 1px;
+}
+
+/* moy { border-left: 3px solid #CCD4D9;} */
 
 ul {
 list-style-type: none; 
@@ -215,7 +222,7 @@ list-style-type: none;
 .white_content {
 		position : absolute ;
         display: none;
-        top: 22%;
+        top: 20%;
         border-radius: 4px;
         width: 250px;
         height: 120px;
