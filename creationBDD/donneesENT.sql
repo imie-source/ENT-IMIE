@@ -1,6 +1,5 @@
 /*Structure deuxieme partie de la table typeVoie*/
 
-
 INSERT INTO typeVoie (idTypeVoie, typeVoie) VALUES
 (1, 'Rue'),
 (2, 'Avenue'),
