@@ -399,6 +399,7 @@ source https://github.com/stubbornella/oocss/blob/master/core/spacing/space.css
 .mr1, .mrs { margin-right: 10px; }
 .mr2, .mrm { margin-right: 20px; }
 .mr3, .mrl { margin-right: 30px; }
+.mr4, .mrxl {margin-right: 80px;}
 .mb0, .mbn { margin-bottom: 0; }
 .mb1, .mbs { margin-bottom: 10px; }
 .mb2, .mbm { margin-bottom: 20px; }

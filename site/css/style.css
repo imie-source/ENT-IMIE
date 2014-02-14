@@ -10,10 +10,6 @@ a:hover {
 	text-decoration: none;
 }
 
-.bold {
-	font-weight:bold;
-}
-
 /* HEADER */
 
 #parametre {
@@ -191,8 +187,9 @@ margin-right : 30px;
 }
 
 #warning {
+font-weight: bold; 
 color: red;
-font-size: 1.3em;
+font-size: 20px;
 text-align: center;}
 
 /* MATIERE */
@@ -211,4 +208,26 @@ border-left: 3px solid #CCD4D9;
 
 ul {
 list-style-type: none; 
+}
+
+/* PARAMETRES DECONNEXION */
+
+.white_content {
+		position : absolute ;
+        display: none;
+        top: 22%;
+        border-radius: 4px;
+        width: 250px;
+        height: 120px;
+        padding: 16px;
+        border: none;
+        background-color: #D1E6F6;
+        z-index:1002;
+        overflow: auto;
+    }
+
+.croixexit {
+		padding-left : 120px ;
+		color : grey ;
+		font-weight : bold;
 }
