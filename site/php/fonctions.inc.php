@@ -86,9 +86,13 @@ function erreur($typeErreur){
 }
 
 /**
-	*request prend comme argument l
+	*request prend comme argument la constante qui définie sa requête ainsi que les id nécessaires à celle-ci
+	*
+	*Les requêtes sont stockées dans requetes.inc.php
+	*
+	*
 */
-function request($requete, $id0, $id1=''){
+function request($requete, $id0, $id1=0 ,$id2=0 , $id3=0){
 	//Connexion à la BDD
 	$cnx = cnxBase ();
 	// S'il y a un problème de connexion on renvoie l'erreur
@@ -98,7 +102,7 @@ function request($requete, $id0, $id1=''){
 	$tabRequete=explode('~',$requete);
 	
 	$sql='';
-	$c=count($tabRequete);
+	$c=count($tabRequete)-1;
 	for($i=0; $i<$c; $i++){
 		$v='id'.$i;
 		$sql.=$tabRequete[$i].${$v};
