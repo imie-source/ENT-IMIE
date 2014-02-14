@@ -1,165 +1,44 @@
-<!DOCTYPE html>
 <?php
-
 /* Connect to the MySQL database */
 $db = mysql_connect("localhost", "root", "");
 mysql_select_db("imie");
 
+$eleve = $_POST['eleve'];
+$nbMatiere = mysql_query ("SELECT COUNT(*) FROM matiere, note, eleve WHERE matiere.idMatiere = note.idMatiere AND note.idEleve = eleve.idEleve AND eleve.idEleve = '".$eleve."' GROUP BY matiere.idMatiere; ");
+$moyenneEleve =  mysql_query ("SELECT nomMatiere, ROUND(AVG(note),2) AS moyenne FROM matiere, note, eleve WHERE matiere.idMatiere = note.idMatiere AND note.idEleve = eleve.idEleve AND eleve.idEleve =  '".$eleve."' GROUP BY matiere.idMatiere ");
+$moyClasse = mysql_query ("SELECT matiere.nomMatiere, ROUND(AVG(note),2) AS moyenne FROM note, matiere, eleve, classe WHERE note.idMatiere = matiere.idMatiere AND note.idEleve = eleve.idEleve AND eleve.idClasse = classe.idClasse AND classe.idClasse =  '".$classe."' GROUP BY matiere.idMatiere ");
+$com = mysql_query ("SELECT appreciation FROM appreciation WHERE idEleve =  '".$eleve."' AND trimestre =  '".$trim."' ");
+$listeE = ""; // Définition de la variable listeE qui affiche la liste des élèves qui viens de la fonction fctRenvoieListeEleve
+$bulletin = "";
+$resultat1 = ""; $resultat2 = ""; $resultat3 = ""; $resultat4 = ""; $resultat5 = ""; $resultat6 = ""; $moyenne = ''; $nbLignes = ''; $note = '';
+
 ?>
-
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Bulletin 'ITSTART Rennes'</title> <!-- afficher le nom de la classe -->
-    <link rel="stylesheet" type="text/css" href="../../css/knacss.css">
-	<link rel="stylesheet" type="text/css" href="../../css/style.css">
-  </head>
-  <body>
-	  <div class="center mw960p">
-		<header class="line mbs">
-			<div>
-				<a href="menu.html"><img src="../img/logo.jpg" alt="retour au menu principal"/></a>
-			</div>
-			<!-- Les infos profs seront définies en php-->
-			<div>'Serge Dupond'</div> <!--Clic : menu pour déconnexion-->
-			<div>'Développement JAVA'</div>
-			<div>'Responsable pédagogique'</div>
-		</header>
-		<div id="main" >
-			
-			<div>
-				<a href="liste_classes02.html">Retour choix de la classe</a>
-			</div>
-			
-			<h1 class="h1-like ptl">'ITStart - Rennes'</h1> <!-- afficher la classe sélectionnée précédemment -->
-			<?php
-	//Requête, exécution et création du jeu d'enregistrement
-	$requete = "SELECT idMatiere, nomMatiere FROM matiere; ";
-
-	while($matiere = mysql_fetch_array($requete))
-
-	 {
-				?>
-					<tr>
-						<th><?php echo $matiere['nomMatiere'];?></th>
-					</tr>
-				<?php
-				} //fin de la boucle, le tableau contient toute la BDD
-				mysql_close(); //deconnection de mysql
-				?>
-			<!-- liste déroulante des élèves de la classe à valider-->
-			<form action="bulletin.html">
-				<select>
-					<option value="Michel Martin">Michel Martin</option>
-					<option value="Edmonde Gogote">Edmonde Gogote</option>
-					<option value="Gudule Durand">Gudule Durand</option>
-					<option value="Joséphine lacroix">Joséphine lacroix</option>
-					<option value="Michel Martin">Michel Martin</option>
-					<option value="Michel Martin">Michel Martin</option>
-					<option value="Michel Martin">Michel Martin</option>
-					<option value="Michel Martin">Michel Martin</option>
-					<option value="Michel Martin">Michel Martin</option>
-					<option value="Michel Martin">Michel Martin</option>
-					<option value="Michel Martin">Michel Martin</option>
-					<option value="Michel Martin">Michel Martin</option>
-					<option value="Michel Martin">Michel Martin</option>
-				</select>
-				<input class="bouton btnm" type="submit" value="Sélectionner" />
-			</form>
-			
-			<table class="mt3 table alternate">
-					<thead class="alternate">
-						<tr >
-							<th>Matière</th>
-							<th>Moy. élève</th>
-							<th>Devoir</th>
-							<th>Note</th>
-							<th>Moy. classe</th>
-							<th>Commentaire</th>
-						</tr>
-					</thead >
-					<tbody class="alternate">
-						<tr>
-							<th>Développpement</th> <!-- domaine -->
-							<th>15</th>
-							<th></th>
-							<th></th>
-							<th>10</th>
-							<th>Très assidu ce trimestre.</th>
-						</tr>
-						<tr class="alternate-vert">
-							<th>JAVA</th> <!-- matière -->
-							<th>12</th>
-							<th></th>
-							<th></th>
-							<th>15</th>
-							<th>Bon devoir</th>
-						</tr>
-						<tr>
-							<th></th>
-							<th></th>
-							<th>programme #1</th>
-							<th>15</th>
-							<th>13</th>
-							<th>Quelques erreurs.</th>
-						</tr>
-						
-						<tr class="alternate-vert">
-							<th></th>
-							<th></th>
-							<th>programme #2</th>
-							<th>15</th>
-							<th>13</th>
-							<th>Quelques erreurs.</th>
-						</tr>
-						
-						<tr>
-							<th>C++</th> <!-- matière -->
-							<th>12</th>
-							<th></th>
-							<th></th>
-							<th>13</th>
-							<th>Des oublis</th>
-						</tr>
-						
-						<tr class="alternate-vert">
-							<th></th>
-							<th></th>
-							<th>nom du devoir</th>
-							<th>12</th>
-							<th>16</th>
-							<th>Très assidu ce trimestre.</th>
-						</tr>
-						<tr>
-							<th>Windows</th> <!-- matière -->
-							<th>14</th>
-							<th></th>
-							<th></th>
-							<th>15</th>
-							<th>Bon devoir</th>
-						</tr>
-						<tr class="alternate-vert">
-							<th></th>
-							<th></th>
-							<th>devoir 2</th>
-							<th>15</th>
-							<th>14</th>
-							<th>Quelques erreurs.</th>
-						</tr>
-						
-						<tr>
-							<th></th>
-							<th></th>
-							<th>truc</th>
-							<th>12.7</th>
-							<th>14</th>
-							<th>Des oublis</th>
-						</tr>
-					
-					</tbody>			
-				</table>
-			
+	<div>
+		
+		<div>
+			<a href="liste_classes02.html">Retour choix de la classe</a>
 		</div>
+		
+		<h1>'ITStart - Rennes'</h1> <!-- afficher la classe sélectionnée précédemment -->
+		</br>
+		<center><?php renvoieListeEleve($listeE); ?></center>
+		</br>
+		<table class="mt3 table striped alternate">
+			<thead  class="alternate">
+					<tr>
+						<th>Matière</th>
+						<th>Moy. élève</th>
+						<th>Devoir</th>
+						<th>Note</th>
+						<th>Moy. classe</th>
+						<th>Commentaire</th>
+					</tr>
+					
+			</thead>
+			<tbody>
+				<?php renvoieBulletin($bulletin); ?>
+			</tbody>
+        </table>
+		
+		
 	</div>
-  </body>
-</html>
