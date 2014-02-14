@@ -238,3 +238,10 @@ list-style-type: none;
 		color : grey ;
 		font-weight : bold;
 }
+/* BULLETIN */ 
+
+.lienbulletin {
+	border : 0;
+	padding : none;
+	background-color : transparent;
+}
