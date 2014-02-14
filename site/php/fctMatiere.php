@@ -1,13 +1,29 @@
 <?php
 function renvoieMatiere()	{
-
+include ("connexion.inc.php");
+$cnx = cnxBase ();
+$sql = 	"SELECT correctionDevoir.note, correctionDevoir.commentaire, devoir.moyenne, devoir.intitule
+		FROM matiere, domaine, utilisateur_has_matiere, utilisateur, devoir_has_matiere, correctionDevoir, devoir
+		WHERE matiere.idMatiere = devoir_has_matiere.devoir_idDevoir
+		AND matiere.idMatiere = domaine.idDomaine
+		AND matiere.idMatiere = utilisateur_has_matiere.utilisateur_idUtilisateur
+		AND utilisateur.idUtilisateur = correctionDevoir.utilisateur_idUtilisateur
+		AND utilisateur_has_matiere.utilisateur_idUtilisateur = utilisateur.idUtilisateur
+		AND devoir_has_matiere.devoir_idDevoir = devoir.idDevoir
+		AND devoir.idDevoir = correctionDevoir.devoir_idDevoir
+		AND utilisateur.idUtilisateur = devoir.utilisateur_idUtilisateur
+		AND 'Gudule' = utilisateur.idUtilisateur
+		AND  'java' = matiere.nomMatiere;";
+			$result = $cnx->query($sql);
+			$tabRes = $result->fetchAll(PDO::FETCH_ASSOC);
+			
 $lesMatieres = "";
-	$devoir =array("QCM","CMQ", "LOS");
-	$noteDevoir= array("13","14","15");
-	$moyenneDevoir=array ("2","5","4") ;
-	$commentaireDevoir=array("toujours aussi nul", "azerty", "qwerty");
+	$devoir =  $tabRes[0]["devoir.intitule"];
+	$noteDevoir = $tabRes[0] ["correctionDevoir.note"];
+	$moyenneDevoir=$tabRes[0] ["devoir.moyenne"];
+	$commentaireDevoir= $tabRes[0]["correctionDevoir.commentaire"];
 	$c = count($devoir);
-	for($i = 0; $i < $c; $i++) {
+	foreach  ($conn->query($sql) as $row)	{
 		$lesMatieres .=	"<div class='grid3 line row pa1 mb2' id='border'> 
 							<div id='bold' class='line clear row'> Devoir " .  $devoir[$i]  .  " 
 								<form action='../media/corrige.pdf'>
