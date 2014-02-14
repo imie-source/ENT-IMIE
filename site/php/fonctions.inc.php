@@ -8,6 +8,7 @@ include('connexion.inc.php');
 
 /* Inclusion des constantes utiles aux fonctions */
 include('constantes.inc.php');
+include('requetes.inc.php');
 
 /**
 	*renvoieUneListe renvoie une liste html
@@ -75,9 +76,30 @@ function erreur($typeErreur){
 			break;
 		case 3:
 			$erreur='Erreur lors de l\'envoi du formulaire, veuillez ressaisir les données.';
-			break;			
+			break;
+		case 4:
+			$erreur='Erreur lors de la requête dans la base de donnée';
+			break;
 	}
 	return '<script type="text/javascript" language="javascript">alert(\''.$erreur.'\');</script>';
 
+}
+
+function request($requete, $id){
+	//Connexion à la BDD
+	$cnx = cnxBase ();
+	// S'il y a un problème de connexion on renvoie l'erreur
+	if (is_string($cnx)) {
+		erreur(ERREUR_CONNEXION_BDD);
+	}
+	$sql=$requete.$id;
+	$result=$cnx->query($sql);
+	$tabRes=$result->fetchAll(PDO::FETCH_ASSOC);
+	
+	if($tabRes!=false){
+		return $tabRes;
+	} else {
+		erreur(ERREUR_REQUETE);
+	}
 }
 ?>
