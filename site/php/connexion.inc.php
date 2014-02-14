@@ -41,10 +41,7 @@ function connexion() {
 	// On regarde si l'utilisateur a bien utilisé le module de connexion pour traiter les données.
 	if(isset($_POST["formCo"])){
 	   
-	   // Si un champ n'est pas rempli, on lui affiche un message d'erreur.   
-		if(empty($_POST['pseudo']) || empty($_POST['pass'])) {
-			echo '<script type="text/javascript" language="javascript">alert(\'Merci de renseigner les champs.\');</script>';
-		} else {  // Sinon si tout les champs sont remplis, on vérifie si le login et le mp sont Ok.	  	
+	     // Sinon si tout les champs sont remplis, on vérifie si le login et le mp sont Ok.	  	
 			//Connexion à la BDD
 			$cnx = cnxBase ();
 			// S'il y a un problème de connexion on renvoie l'erreur
@@ -75,7 +72,6 @@ function connexion() {
 					// Sinon on lui affiche un message d'erreur.
 					echo '<script type="text/javascript" language="javascript">alert(\'Identifiant ou Mot de Passe incorrect\');</script>';	
 				}
-			}	
 	}
 }
    

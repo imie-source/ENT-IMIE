@@ -1,5 +1,5 @@
 <?php
-	include('/fonctions/fonctions.inc.php');
+	include('fonctions.inc.php');
 	autorisationPage('formateur');
 	
 	$classe=$_GET['classe'];

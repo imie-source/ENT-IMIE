@@ -2,7 +2,8 @@
 	<head>
 		<meta charset="UTF-8">
 			<link rel="stylesheet" type="text/css" href="../css/style.css" />
-			<link rel="stylesheet" href="../css/knacss.css" media="all" />	
+			<link rel="stylesheet" href="../css/knacss.css" media="all" />
+			<script type="text/javascript" language="javascript" src="../js/fonctions.inc.js"></script>
 		<title>Login</title>
 
 	</head>
@@ -13,15 +14,15 @@
 			<img src="../media/img/logo.jpg" />
 		</header>
 		
-		<form class= "w33 center txtcenter bigger ptl pbl" id="main" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"> 
+		<form class= "w33 center txtcenter bigger ptl pbl" id="main" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" onsubmit="return champsVides()"> 
 		
 			<div class="mbs">Identifiant</div>
 			
-			<input class="center" style="display:block" type="text" name="pseudo" />
+			<input class="center" style="display:block" type="text" name="pseudo" id="id" />
 			<br / >
 			<div class="mbs">Mot de passe</div>
 			
-			<input class="center" style="display:block" type="password" name="pass" />
+			<input class="center" style="display:block" type="password" name="pass"  id="mp"/>
 			<br / >
 			<input class= "bouton btnl"style="display:block" type="submit" value="Connexion" name="formCo" />
 			

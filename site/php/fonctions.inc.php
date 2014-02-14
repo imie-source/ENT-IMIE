@@ -6,6 +6,9 @@ header( 'content-type: text/html; charset=utf-8' );
 /* Inclusion des fonctions utiles à la connexion à la base de donnée */
 include('connexion.inc.php');
 
+/* Inclusion des constantes utiles aux fonctions */
+include('constantes.inc.php');
+
 /**
 	*renvoieUneListe renvoie une liste html
 	*
@@ -55,4 +58,26 @@ function listeOption ($tableau) {
 	}
 	return $result;
 	}
+	
+/**
+	*erreur prend pour argument un type d'erreur et renvoie un string contenant du code HTML pour afficher l'erreur
+	*
+	*@param constant $typeErreur Type d'erreur définies dans constantes.inc.php
+	*@return string Code HTML pour afficher l'erreur sous forme de pop-up javascript
+*/
+function erreur($typeErreur){
+	switch($typeErreur){
+		case 1:
+			$erreur='Problème de connexion à la base de données.';
+			break;
+		case 2:
+			$erreur='Mauvais identifiant ou mot de passe.';
+			break;
+		case 3:
+			$erreur='Erreur lors de l\'envoi du formulaire, veuillez ressaisir les données.';
+			break;			
+	}
+	return '<script type="text/javascript" language="javascript">alert(\''.$erreur.'\');</script>';
+
+}
 ?>

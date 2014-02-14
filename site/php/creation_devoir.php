@@ -1,5 +1,5 @@
 <?php
-	include('fonctions/fonctions.inc.php');
+	include('fonctions.inc.php');
 	autorisationPage('formateur');
 	
 	$classes=['ITStart','CDPN','DL'];
