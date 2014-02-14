@@ -39,14 +39,12 @@ function cnxBase() {
 function connexion() {
 
 	// On regarde si l'utilisateur a bien utilisé le module de connexion pour traiter les données.
-	if(isset($_POST["formCo"])){
-	   
-	     // Sinon si tout les champs sont remplis, on vérifie si le login et le mp sont Ok.	  	
+	if(isset($_POST["formCo"])){	
 			//Connexion à la BDD
 			$cnx = cnxBase ();
 			// S'il y a un problème de connexion on renvoie l'erreur
 			if (is_string($cnx)) {
-				die('<script type="text/javascript" language="javascript">alert(\'Erreur lors de la connexion à la base de données.\');</script>');
+				erreur(ERREUR_CONNEXION_BDD);
 			}
 			
 			$sql = "SELECT * FROM utilisateur_has_statut, utilisateur, statut WHERE idUtilisateur = utilisateur_idUtilisateur AND statut_idStatut = idStatut AND login = '".$_POST["pseudo"]."' ";
@@ -70,9 +68,11 @@ function connexion() {
 					} 
 				} else {
 					// Sinon on lui affiche un message d'erreur.
-					echo '<script type="text/javascript" language="javascript">alert(\'Identifiant ou Mot de Passe incorrect\');</script>';	
+					erreur(ERREUR_ID);	
 				}
 	}
+	//si le POST n'esxiste pas
+	erreur(ERREUR_POST);
 }
    
 /**
