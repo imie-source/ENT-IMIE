@@ -172,7 +172,7 @@ margin-right : 30px;
     @-moz-document url-prefix() { /* Mozilla*/
         .custom-dropdown__select              { padding-right: .6em }
         .custom-dropdown--large .custom-dropdown__select { padding-right: 1.3em }
-        .custom-dropdown--small .custom-dropdown__select { padding-right: .2em }
+        .custom-dropdown--small .custom-dropdown__select { padding-right: .5em }
     }
 }
 
@@ -200,11 +200,18 @@ border: 3px solid #CCD4D9;
 
 #border2 {
 border: 3px solid #7CBFF3;
+padding: 2px;
 }
 
-#moy {
-border-left: 3px solid #CCD4D9;
+#bold {
+font-weight: bold;
 }
+
+#lineheight {
+line-height: 1px;
+}
+
+/* moy { border-left: 3px solid #CCD4D9;} */
 
 ul {
 list-style-type: none; 
