@@ -21,10 +21,10 @@ define('GET_MATIERE_UTILISATEUR', 'SELECT nomMatiere
 								AND matiere_idMatiere=idMatiere
 								AND idUtilisateur =~');
 								
-define('GET_UTILISATEUR', 'SELECT *
-							FROM utilisateur_has_statut, utilisateur, statut
-							WHERE idUtilisateur = utilisateur_idUtilisateur
-							AND statut_idStatut = idStatut
+define('GET_UTILISATEUR', 'SELECT * 
+							FROM utilisateur_has_statut, utilisateur, statut 
+							WHERE idUtilisateur = utilisateur_idUtilisateur 
+							AND statut_idStatut = idStatut 
 							AND login = ~');
 
 /* SERIE DES INSERT */
