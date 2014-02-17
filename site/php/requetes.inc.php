@@ -7,7 +7,7 @@
 
 /* SERIE DES SELECT */
 
-define('GET_CLASSE_UTILISATEUR','SELECT session, libelleCursus, centreFormation
+define('GET_CLASSE_UTILISATEUR','SELECT libelleCursus, centreFormation, session
 								FROM classe, cursus, centreFormation, utilisateur, utilisateur_has_classe
 								WHERE idUtilisateur=utilisateur_idUtilisateur
 								AND classe_idClasse=idClasse
@@ -25,7 +25,7 @@ define('GET_UTILISATEUR', 'SELECT *
 							FROM utilisateur_has_statut, utilisateur, statut 
 							WHERE idUtilisateur = utilisateur_idUtilisateur 
 							AND statut_idStatut = idStatut 
-							AND login =\'~\'~'); //Ajout d'un id fictif pour insérer l'apostrophe nécessaire (requête avec string)
+							AND login =\'~\'~');
 
 /* SERIE DES INSERT */
 
