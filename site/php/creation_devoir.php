@@ -3,9 +3,8 @@
 	autorisationPage('formateur');
 	
 	$tabClasses=request(GET_CLASSE_UTILISATEUR, $_SESSION['id']);
+	$tabMatieres=request(GET_MATIERE_UTILISATEUR, $_SESSION['id']);
 	
-	
-	$matieres=['JAVA','PHP','SQL'];
 	
 	$titrePage="Creation de Devoir";
 	/*$listeMatieres=listeOption($matieres);*/

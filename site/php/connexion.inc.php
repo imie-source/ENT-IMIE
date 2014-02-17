@@ -39,38 +39,23 @@ function cnxBase() {
 function connexion() {
 
 	// On regarde si l'utilisateur a bien utilisé le module de connexion pour traiter les données.
-	if(isset($_POST["formCo"])){	
-			//Connexion à la BDD
-			$cnx = cnxBase ();
-			// S'il y a un problème de connexion on renvoie l'erreur
-			if (is_string($cnx)) {
-				erreur(ERREUR_CONNEXION_BDD);
-			}
+	if(isset($_POST["formCo"])){
+			//On récupère les infos utilisateur
+			$tabRes=request(GET_UTILISATEUR);
 			
-			$sql = "SELECT * FROM utilisateur_has_statut, utilisateur, statut WHERE idUtilisateur = utilisateur_idUtilisateur AND statut_idStatut = idStatut AND login = '".$_POST["pseudo"]."' ";
-			$result = $cnx->query($sql);
-			$tabRes = $result->fetchAll(PDO::FETCH_ASSOC);
-			
-			/* On vérifie que l'exécution de la requête est OK */
-			if($tabRes!=false){
-				// Si le mot de passe entré est OK avec son login         
-				if($_POST["pass"] == $tabRes[0]["mp"]){
-							
-					$_SESSION['id']=$tabRes[0]["idUtilisateur"];
-					$_SESSION["login"]=$_POST["pseudo"];
-					$_SESSION["pass"]=$_POST["pass"];
-					$_SESSION['nom']=$tabRes[0]["nom"];
-					$_SESSION['prenom']=$tabRes[0]["prenom"];
-					$_SESSION['statut']=$tabRes[0]["libelleStatut"];
-					//Renvoie au menu
-					header('location: menu.php');
-							
-					} 
-				} else {
-					// Sinon on lui affiche un message d'erreur.
-					erreur(ERREUR_ID);	
-				}
-	}
+			// Si le mot de passe entré est OK avec son login         
+			if($_POST["pass"] == $tabRes[0]["mp"]){
+						
+				$_SESSION['id']=$tabRes[0]["idUtilisateur"];
+				$_SESSION["login"]=$_POST["pseudo"];
+				$_SESSION["pass"]=$_POST["pass"];
+				$_SESSION['nom']=$tabRes[0]["nom"];
+				$_SESSION['prenom']=$tabRes[0]["prenom"];
+				$_SESSION['statut']=$tabRes[0]["libelleStatut"];
+				//Renvoie au menu
+				header('location: menu.php');
+						
+				} 
 	//si le POST n'esxiste pas
 	erreur(ERREUR_POST);
 }
