@@ -35,6 +35,8 @@ function cnxBase() {
 	*
 	*Après authentification, la fonction permet de charger les informations utilisateur utiles
 	*à l'application dans $_SESSION
+	*
+	*@return void Affiche le menu si tout est OK sinon un message d'erreur
 */	
 function connexion() {
 
@@ -64,6 +66,7 @@ function connexion() {
 	*autorisationPage permet de définir si un utilisateur à le doit de charger la page. Si l'utilisateur n'a le droit de charger la page, un message lui indique.
 	*
 	*@param string $statutAutorise Définie le statut que doit posséder l'utilisateur pour accéder à la page
+	*@return void Affiche un message d'erreur via un die
 */
 function autorisationPage($statutAutorise) {
 	
