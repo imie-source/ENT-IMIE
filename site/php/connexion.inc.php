@@ -43,7 +43,7 @@ function connexion() {
 	// On regarde si l'utilisateur a bien utilisé le module de connexion pour traiter les données.
 	if(isset($_POST["formCo"])){
 			//On récupère les infos utilisateur
-			$tabRes=request(GET_UTILISATEUR);
+			$tabRes=request(GET_UTILISATEUR,$_POST["pseudo"]);
 			
 			// Si le mot de passe entré est OK avec son login         
 			if($_POST["pass"] == $tabRes[0]["mp"]){
@@ -57,7 +57,8 @@ function connexion() {
 				//Renvoie au menu
 				header('location: menu.php');
 						
-				} 
+				}
+	}
 	//si le POST n'esxiste pas
 	erreur(ERREUR_POST);
 }
@@ -85,4 +86,3 @@ function autorisationPage($statutAutorise) {
 }
 
 ?>
-

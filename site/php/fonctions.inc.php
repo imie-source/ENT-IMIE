@@ -101,7 +101,7 @@ function request($requete, $id0, $id1=0 ,$id2=0 , $id3=0){
 	$cnx = cnxBase ();
 	// S'il y a un problème de connexion on renvoie l'erreur
 	if (is_string($cnx)) {
-		erreur(ERREUR_CONNEXION_BDD);
+		die(erreur(ERREUR_CONNEXION_BDD));
 	}
 	
 	/* PREPARATION DE LA REQUETE */
@@ -132,17 +132,19 @@ function request($requete, $id0, $id1=0 ,$id2=0 , $id3=0){
 			$result=$cnx->exec($sql);
 			break;
 		default:
-			return erreur(ERREUR_REQUETE);
+			die(erreur(ERREUR_REQUETE));
 	}
 	
-	//Affectation du résultat dans un tableau associatif
-	$tabRes=$result->fetchAll(PDO::FETCH_ASSOC);
-	
-	//Si tout va bien on retourne sinon erreur
-	if($tabRes!=false){
-		return $tabRes;
-	} else {
-		return erreur(ERREUR_REQUETE);
+	if($result!=false){
+		//Affectation du résultat dans un tableau associatif
+		$tabRes=$result->fetchAll(PDO::FETCH_ASSOC);
+		
+		//Si tout va bien on retourne sinon erreur
+		if($tabRes!=false){
+			return $tabRes;
+		}
 	}
+	die(erreur(ERREUR_REQUETE));
+	
 }
 ?>
