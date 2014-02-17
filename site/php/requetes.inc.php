@@ -25,7 +25,7 @@ define('GET_UTILISATEUR', 'SELECT *
 							FROM utilisateur_has_statut, utilisateur, statut 
 							WHERE idUtilisateur = utilisateur_idUtilisateur 
 							AND statut_idStatut = idStatut 
-							AND login = ~');
+							AND login =\'~\'~'); //Ajout d'un id fictif pour insérer l'apostrophe nécessaire (requête avec string)
 
 /* SERIE DES INSERT */
 
