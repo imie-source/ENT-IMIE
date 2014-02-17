@@ -43,7 +43,7 @@ function connexion() {
 	// On regarde si l'utilisateur a bien utilisé le module de connexion pour traiter les données.
 	if(isset($_POST["formCo"])){
 			//On récupère les infos utilisateur
-			$tabRes=request(GET_UTILISATEUR,$_POST["pseudo"]);
+			$tabRes=request(GET_UTILISATEUR,$_POST["pseudo"],''); //ajout d'un id vide pour pouvoir passée la requête (string)
 			
 			// Si le mot de passe entré est OK avec son login         
 			if($_POST["pass"] == $tabRes[0]["mp"]){

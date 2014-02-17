@@ -134,7 +134,6 @@ function request($requete, $id0, $id1=0 ,$id2=0 , $id3=0){
 		default:
 			die(erreur(ERREUR_REQUETE));
 	}
-	
 	if($result!=false){
 		//Affectation du résultat dans un tableau associatif
 		$tabRes=$result->fetchAll(PDO::FETCH_ASSOC);
@@ -146,5 +145,19 @@ function request($requete, $id0, $id1=0 ,$id2=0 , $id3=0){
 	}
 	die(erreur(ERREUR_REQUETE));
 	
+}
+
+/**
+	*arrayToString prend une ligne d'un tableau de chaînes de caractères et renvoie une chaîne de caractère où sont concaténés le contenu du tableau
+	*
+	*@param array Tableau contenant des chaînes de caractères
+	*@return string
+*/
+function arrayToString($tableau){
+	$string='';
+	foreach($tableau as $value){
+		$string.=$value.' ';
+	}
+	return $string;
 }
 ?>
