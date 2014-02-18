@@ -1,14 +1,14 @@
 <?php
-/* Connect to the MySQL database */
-$db = mysql_connect("localhost", "root", "");
-mysql_select_db("imie");
+		// Connexion à la base de donnée
+		$db = mysql_connect("10.3.0.245", "ENT", "ent");
+		mysql_select_db("ENT");
 
-$eleve = $_POST['eleve'];
-$nbMatiere = mysql_query ("SELECT COUNT(*) FROM matiere, note, eleve WHERE matiere.idMatiere = note.idMatiere AND note.idEleve = eleve.idEleve AND eleve.idEleve = '".$eleve."' GROUP BY matiere.idMatiere; ");
-$moyenneEleve =  mysql_query ("SELECT nomMatiere, ROUND(AVG(note),2) AS moyenne FROM matiere, note, eleve WHERE matiere.idMatiere = note.idMatiere AND note.idEleve = eleve.idEleve AND eleve.idEleve =  '".$eleve."' GROUP BY matiere.idMatiere ");
-$moyClasse = mysql_query ("SELECT matiere.nomMatiere, ROUND(AVG(note),2) AS moyenne FROM note, matiere, eleve, classe WHERE note.idMatiere = matiere.idMatiere AND note.idEleve = eleve.idEleve AND eleve.idClasse = classe.idClasse AND classe.idClasse =  '".$classe."' GROUP BY matiere.idMatiere ");
-$com = mysql_query ("SELECT appreciation FROM appreciation WHERE idEleve =  '".$eleve."' AND trimestre =  '".$trim."' ");
-$listeE = ""; // Définition de la variable listeE qui affiche la liste des élèves qui viens de la fonction fctRenvoieListeEleve
+@$eleve = $_POST['eleve'];
+$nbMatiere = mysql_query ("SELECT COUNT(*) FROM utilisateur, correctionDevoir, devoir, devoir_has_matiere, matiere  WHERE utilisateur.idUtilisateur = correctionDevoir.utilisateur_idUtilisateur AND correctionDevoir.devoir_idDevoir = devoir.idDevoir AND devoir.idDevoir = devoir_has_matiere.devoir_idDevoir AND devoir_has_matiere.matiere_idMatiere = matiere.idMatiere AND utilisateur.idUtilisateur = '" . $eleve . "' GROUP BY matiere.idMatiere; ");
+$moyenneEleve =  mysql_query ("SELECT nomMatiere, ROUND(AVG(note),2) AS moyenne FROM correctionDevoir, utilisateur, utilisateur_has_matiere, matiere WHERE  correctionDevoir.utilisateur_idUtilisateur = utilisateur.idUtilisateur AND utilisateur.idUtilisateur = utilisateur_has_matiere.utilisateur_idUtilisateur AND utilisateur_has_matiere.matiere_idMatiere = matiere.idMatiere AND utilisateur.idUtilisateur =  '".$eleve."' GROUP BY matiere.idMatiere;");
+$moyClasse = mysql_query ("SELECT matiere.nomMatiere, ROUND(AVG(note),2) AS moyenne FROM classe, utilisateur_has_classe, utilisateur, correctionDevoir, utilisateur_has_matiere,  matiere  WHERE classe.idClasse = utilisateur_has_classe.classe_idClasse AND utilisateur_has_classe.utilisateur_idUtilisateur = utilisateur.idUtilisateur AND utilisateur.idUtilisateur = correctionDevoir.utilisateur_idUtilisateur AND utilisateur.idUtilisateur = utilisateur_has_matiere.utilisateur_idUtilisateur AND utilisateur_has_matiere.matiere_idMatiere = matiere.idMatiere AND classe.idClasse =  '".$classe."' GROUP BY matiere.idMatiere ");
+$com = mysql_query ("SELECT appreciation FROM trimestre, appreciation, utilisateur_has_statut, utilisateur WHERE utilisateur.idUtilisateur =  '".$eleve."' AND trimestre.idtrimestre =  '".$trim."' ");
+$listeE = "";
 $bulletin = "";
 $resultat1 = ""; $resultat2 = ""; $resultat3 = ""; $resultat4 = ""; $resultat5 = ""; $resultat6 = ""; $moyenne = ''; $nbLignes = ''; $note = '';
 
