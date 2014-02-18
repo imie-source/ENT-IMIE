@@ -25,7 +25,7 @@ define('GET_UTILISATEUR', 'SELECT *
 							FROM utilisateur_has_statut, utilisateur, statut 
 							WHERE idUtilisateur = utilisateur_idUtilisateur 
 							AND statut_idStatut = idStatut 
-							AND login =\'~\'~');
+							AND login =~');
 
 /* SERIE DES INSERT */
 
