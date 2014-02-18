@@ -35,40 +35,28 @@ function cnxBase() {
 	*
 	*Après authentification, la fonction permet de charger les informations utilisateur utiles
 	*à l'application dans $_SESSION
+	*
+	*@return void Affiche le menu si tout est OK sinon un message d'erreur
 */	
 function connexion() {
 
 	// On regarde si l'utilisateur a bien utilisé le module de connexion pour traiter les données.
-	if(isset($_POST["formCo"])){	
-			//Connexion à la BDD
-			$cnx = cnxBase ();
-			// S'il y a un problème de connexion on renvoie l'erreur
-			if (is_string($cnx)) {
-				erreur(ERREUR_CONNEXION_BDD);
-			}
+	if(isset($_POST["formCo"])){
+			//On récupère les infos utilisateur
+			$tabRes=request(GET_UTILISATEUR,"'".$_POST["pseudo"]."'"); //ajout de quotes pour que la requête passe (string)
 			
-			$sql = "SELECT * FROM utilisateur_has_statut, utilisateur, statut WHERE idUtilisateur = utilisateur_idUtilisateur AND statut_idStatut = idStatut AND login = '".$_POST["pseudo"]."' ";
-			$result = $cnx->query($sql);
-			$tabRes = $result->fetchAll(PDO::FETCH_ASSOC);
-			
-			/* On vérifie que l'exécution de la requête est OK */
-			if($tabRes!=false){
-				// Si le mot de passe entré est OK avec son login         
-				if($_POST["pass"] == $tabRes[0]["mp"]){
-							
-					$_SESSION['id']=$tabRes[0]["idUtilisateur"];
-					$_SESSION["login"]=$_POST["pseudo"];
-					$_SESSION["pass"]=$_POST["pass"];
-					$_SESSION['nom']=$tabRes[0]["nom"];
-					$_SESSION['prenom']=$tabRes[0]["prenom"];
-					$_SESSION['statut']=$tabRes[0]["libelleStatut"];
-					//Renvoie au menu
-					header('location: menu.php');
-							
-					} 
-				} else {
-					// Sinon on lui affiche un message d'erreur.
-					erreur(ERREUR_ID);	
+			// Si le mot de passe entré est OK avec son login         
+			if($_POST["pass"] == $tabRes[0]["mp"]){
+						
+				$_SESSION['id']=$tabRes[0]["idUtilisateur"];
+				$_SESSION["login"]=$_POST["pseudo"];
+				$_SESSION["pass"]=$_POST["pass"];
+				$_SESSION['nom']=$tabRes[0]["nom"];
+				$_SESSION['prenom']=$tabRes[0]["prenom"];
+				$_SESSION['statut']=$tabRes[0]["libelleStatut"];
+				//Renvoie au menu
+				header('location: menu.php');
+						
 				}
 	}
 	//si le POST n'esxiste pas
@@ -79,6 +67,7 @@ function connexion() {
 	*autorisationPage permet de définir si un utilisateur à le doit de charger la page. Si l'utilisateur n'a le droit de charger la page, un message lui indique.
 	*
 	*@param string $statutAutorise Définie le statut que doit posséder l'utilisateur pour accéder à la page
+	*@return void Affiche un message d'erreur via un die
 */
 function autorisationPage($statutAutorise) {
 	
@@ -97,4 +86,3 @@ function autorisationPage($statutAutorise) {
 }
 
 ?>
-

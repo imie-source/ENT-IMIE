@@ -3,6 +3,9 @@
 	autorisationPage('formateur');
 	
 	$titrePage="Sélection de la classe";
+	
+	$tabClasses=request(GET_CLASSE_UTILISATEUR,$_SESSION['idUtilisateur']);
+	
 	$tabClasses=["ITStart Rennes 01","CDPN Rennes","DL-ITS Rennes"];
 	$listeClasses=renvoieUneListe($tabClasses, 'bulletin.php?classe=');
 	

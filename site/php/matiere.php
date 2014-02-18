@@ -1,9 +1,7 @@
 <?php
-	include('fonctions.inc.php');
-	autorisationPage('stagiaire');
 	
 	include ("../html/header.html");
-	include("../php/fonctions/fctMatiere.php");
+	include("fctMatiere.php");
 
 	$titreMatiere = choixMatiere();
 	$lesMatieres = renvoieMatiere();

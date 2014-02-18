@@ -2,7 +2,8 @@
 
 function renvoieListeEleve ($listeE) {
 
-		$db = mysql_connect("10.3.0.245/phpmyadmin", "root", "root");
+		// Connexion à la base de donnée
+		$db = mysql_connect("10.3.0.245", "ENT", "ent");
 		mysql_select_db("ENT");
 
 		echo '<form action="bulletin.php" method=POST>';
@@ -15,11 +16,11 @@ function renvoieListeEleve ($listeE) {
 			
 		//Boucle sur la liste
 		while ($listeEleve!=FALSE) {
-			$idEleve = $listeEleve[' idUtilisateur'];
+			$idEleve = $listeEleve['idUtilisateur'];
 			$prenom = $listeEleve['nom'];
 			$nom = $listeEleve['prenom'];
 
-			echo '<OPTION VALUE="';
+			echo '<OPTION selected="selected" VALUE="';
 			echo $idEleve; 
 			echo '">';
 			echo $prenom;
