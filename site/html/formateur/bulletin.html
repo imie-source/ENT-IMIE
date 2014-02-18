@@ -1,16 +1,11 @@
 <?php
-/* Connect to the MySQL database */
-$db = mysql_connect("localhost", "root", "");
-mysql_select_db("imie");
+		// Connexion à la base de donnée
+		$db = mysql_connect("10.3.0.245", "ENT", "ent");
+		mysql_select_db("ENT");
 
-$eleve = $_POST['eleve'];
-$nbMatiere = mysql_query ("SELECT COUNT(*) FROM matiere, note, eleve WHERE matiere.idMatiere = note.idMatiere AND note.idEleve = eleve.idEleve AND eleve.idEleve = '".$eleve."' GROUP BY matiere.idMatiere; ");
-$moyenneEleve =  mysql_query ("SELECT nomMatiere, ROUND(AVG(note),2) AS moyenne FROM matiere, note, eleve WHERE matiere.idMatiere = note.idMatiere AND note.idEleve = eleve.idEleve AND eleve.idEleve =  '".$eleve."' GROUP BY matiere.idMatiere ");
-$moyClasse = mysql_query ("SELECT matiere.nomMatiere, ROUND(AVG(note),2) AS moyenne FROM note, matiere, eleve, classe WHERE note.idMatiere = matiere.idMatiere AND note.idEleve = eleve.idEleve AND eleve.idClasse = classe.idClasse AND classe.idClasse =  '".$classe."' GROUP BY matiere.idMatiere ");
-$com = mysql_query ("SELECT appreciation FROM appreciation WHERE idEleve =  '".$eleve."' AND trimestre =  '".$trim."' ");
-$listeE = ""; // Définition de la variable listeE qui affiche la liste des élèves qui viens de la fonction fctRenvoieListeEleve
+@$eleve = $_POST['eleve'];
+$listeE = "";
 $bulletin = "";
-$resultat1 = ""; $resultat2 = ""; $resultat3 = ""; $resultat4 = ""; $resultat5 = ""; $resultat6 = ""; $moyenne = ''; $nbLignes = ''; $note = '';
 
 ?>
 	<div>

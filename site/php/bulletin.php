@@ -1,9 +1,10 @@
 <?php
-
+	$titrePage = "Bulletin";
 	
 	include("../html/header.html");
 
-	$classe = '5';
+	$eleve = '1';
+	$classe = '1';
 	$trim = '1';
 	
 	include("fctRenvoieListeEleve.php");
