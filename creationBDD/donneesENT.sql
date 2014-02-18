@@ -43,6 +43,8 @@ INSERT INTO statut (libelleStatut) VALUES
 
 
 
+partie supérireur est valide.
+
 
 
 /* Création de la table centreFormation */
@@ -71,14 +73,13 @@ CREATE TABLE cursus (
 );
 
 /*Structure deuxieme partie de la table cursus */
-INSERT INTO cursus, domaine (nomMatiere, domaine_idDomaine) VALUES
+INSERT INTO cursus, classe (libelleCursus, cursus_idCursus) VALUES
 ('IT START',),
 ('T2SI'),
 ('Développeur Logiciel'),
 ('R.I.S.R'),
 ('WM&D'),
-('Chef de Projet Numérique'),
-WHERE domaine_idDomaine=idDomaine;
+('Chef de Projet Numérique');
 
 
 
