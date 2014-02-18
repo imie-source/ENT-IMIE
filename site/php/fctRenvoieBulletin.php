@@ -1,7 +1,5 @@
 <?php
 
-include('fonctions.inc.php');
-
 // $com = request(GET_APPRECIATION, 1, 1);
 // die ($com[0]['appreciation']);
 
@@ -18,7 +16,7 @@ function renvoieBulletin ($bulletin) {
 		@$eleve = $_POST['eleve'];
 		
 		// Définition des requêtes pour récupérer les données dans la base de données
-		$moyenneEleve =  mysql_query ("SELECT nomMatiere, ROUND(AVG(note),2) AS moyenne FROM correctionDevoir, utilisateur, utilisateur_has_matiere, matiere WHERE  correctionDevoir.utilisateur_idUtilisateur = utilisateur.idUtilisateur AND utilisateur.idUtilisateur = utilisateur_has_matiere.utilisateur_idUtilisateur AND utilisateur_has_matiere.matiere_idMatiere = matiere.idMatiere AND utilisateur.idUtilisateur =  '".$eleve."' GROUP BY matiere.idMatiere;");
+		$moyenneEleve =  request(GET_MOYENNE_ELEVE, $eleve);
 		$moyClasse = mysql_query ("SELECT matiere.nomMatiere, ROUND(AVG(note),2) AS moyenne FROM classe, utilisateur_has_classe, utilisateur, correctionDevoir, utilisateur_has_matiere,  matiere  WHERE classe.idClasse = utilisateur_has_classe.classe_idClasse AND utilisateur_has_classe.utilisateur_idUtilisateur = utilisateur.idUtilisateur AND utilisateur.idUtilisateur = correctionDevoir.utilisateur_idUtilisateur AND utilisateur.idUtilisateur = utilisateur_has_matiere.utilisateur_idUtilisateur AND utilisateur_has_matiere.matiere_idMatiere = matiere.idMatiere AND classe.idClasse =  '".$classe."' GROUP BY matiere.idMatiere ");
 		$com = mysql_query ("SELECT appreciation FROM trimestre, appreciation, utilisateur_has_statut, utilisateur WHERE utilisateur.idUtilisateur =  '".$eleve."' AND trimestre.idtrimestre =  '".$trim."' ");
 

@@ -1,43 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 3.5.8.1
--- http://www.phpmyadmin.net
---
--- Client: localhost
--- Généré le: Ven 14 Février 2014 à 10:32
--- Version du serveur: 5.6.11-log
--- Version de PHP: 5.4.14
-
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
---
--- Base de données: `base villes`
---
-
--- --------------------------------------------------------
-
---
--- Structure de la table `villes_france`
---
-
-CREATE TABLE IF NOT EXISTS `villes_france` (
-  `idVille` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
-  `nomVille` varchar(45) DEFAULT NULL,
-  `codePostal` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`idVille`),
-  KEY `ville_nom_reel` (`nomVille`),
-  KEY `ville_code_postal` (`codePostal`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36569 ;
-
---
--- Contenu de la table `villes_france`
---
 
 INSERT INTO `villes_france` (`idVille`, `nomVille`, `codePostal`) VALUES
 (1, 'Ozan', '01190'),
@@ -36632,6 +36592,3 @@ INSERT INTO `villes_france` (`idVille`, `nomVille`, `codePostal`) VALUES
 (36567, 'Polveroso', '20229'),
 (36568, 'Scata', '20213');
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

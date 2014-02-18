@@ -1,12 +1,14 @@
 <?php
-	$titrePage = "Bulletin";
-	
-	include("../html/header.html");
 
+	include('fonctions.inc.php');
+	autorisationPage('formateur');
+	
+	$titrePage = "Bulletin";
 	$eleve = '1';
 	$classe = '1';
 	$trim = '1';
 	
+	include("../html/header.html");
 	include("fctRenvoieListeEleve.php");
 	include("fctRenvoieBulletin.php");
 	include("../html/formateur/bulletin.html");
