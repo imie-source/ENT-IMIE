@@ -110,6 +110,28 @@ define('GET_LISTE_MATIERE','SELECT matiere.idMatiere
 								AND devoir_has_matiere.matiere_idMatiere = matiere.idMatiere 
 								AND utilisateur.idUtilisateur = ~ GROUP BY matiere.idMatiere');
 								
+define('GET_ID_DEVOIR', 'SELECT idDevoir
+								FROM devoir
+								WHERE intitule=~
+								AND date=~');
+								
+define ('GET_MATIERE_UTILISATEUR',	'SELECT note, commentaire, moyenne, intitule
+									FROM matiere, utilisateur, devoir_has_matiere, correctionDevoir, devoir
+									WHERE idUtilisateur = devoir.utilisateur_idUtilisateur
+									AND idUtilisateur = correctionDevoir.utilisateur_idUtilisateur
+									AND idDevoir = correctionDevoir.devoir_idDevoir
+									AND idDevoir = devoir_has_matiere.devoir_idDevoir
+									AND idMatiere = devoir_has_matiere.matiere_idMatiere
+									AND idUtilisateur = ~
+									AND nomMatiere =  ~');	
+
+define('GET_MOYENNE_ELEVE','SELECT nomMatiere, ROUND(AVG(note),2) AS moyenne 
+								FROM correctionDevoir, utilisateur, utilisateur_has_matiere, matiere 
+								WHERE  correctionDevoir.utilisateur_idUtilisateur = idUtilisateur  	
+								AND utilisateur_has_matiere.matiere_idMatiere = idMatiere 
+								AND idUtilisateur =  ~
+								GROUP BY idMatiere;');
+								
 
 /* SERIE DES INSERT */
 

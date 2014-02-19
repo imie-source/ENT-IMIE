@@ -30,6 +30,16 @@
 			case 'saisie_notes.php':
 				//Détermine le nombre de $_POST['ideleve**'] existants
 				$c=$_POST['countEleves'];
+				
+				//upload du corrigé et du sujet
+				$idDevoir=request('SELECT LAST_INSERT_ID() FROM devoir', '');
+				$idDevoir=$idDevoir[0]['LAST_INSERT_ID()'];
+				
+				$uploadfile = '../data/sujet/test01.txt';
+				die($_FILES['sujet']['name']);
+				$resultat = move_uploaded_file($_FILES['sujet']['tmp_name'],$uploadfile);
+				if ($resultat) echo "Transfert réussi";
+				
 				//renvoyer les notes dans la table notes
 				for($i=0; $i<$c; ++$i){
 					$notes[]=[$_POST['ideleve'.$i], $_POST['note'.$i], $_POST['com'.$i]];

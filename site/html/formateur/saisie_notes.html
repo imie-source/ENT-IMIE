@@ -6,18 +6,22 @@
 					<?php echo $date; ?>
 					</div>
 					
+					<form enctype="multipart/form-data" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 					<div class="mlm txtcenter bold"> <!-- nécessaire pour grid cf. knacss -->		
 						<div>
 						Télécharger le sujet
 						</div>
-						<input style="display:block" type="file"/>
+						<input type="hidden" name="MAX_FILE_SIZE" value="3000" />
+						<input style="display:block" type="file" name="sujet"/>
 					</div>
+					</form>
 					
 					<div class="mlm txtcenter bold"> <!-- bloc télécharger le corriger -->
 						<div>
 						Télécharger le corriger
 						</div>
-						<input style="display:block" type="file"/>
+						<input type="hidden" name="MAX_FILE_SIZE" value="3000" />
+						<input style="display:block" type="file" name="corrige"/>
 					</div>
 				
 				<div  id="titreDevoir" class="mlm">
