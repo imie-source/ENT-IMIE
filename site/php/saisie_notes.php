@@ -2,13 +2,6 @@
 	include('fonctions.inc.php');
 	autorisationPage('formateur');
 
-	/*
-		notesTab(idEleve,note,commentaire) prend 3 arguments et renvoie un
-		tableau qui les lie entre eux
-	
-	function notesTab(idEleve, note,commentaire){
-	}
-	*/
 	
 	//défini l'appelle de la page
 	if(isset($_SERVER["HTTP_REFERER"])) {			//si vient d'une autre page 
@@ -31,6 +24,7 @@
 				//Détermine le nombre de $_POST['ideleve**'] existants
 				$c=$_POST['countEleves'];
 				
+				/* Non Fonctionnel
 				//upload du corrigé et du sujet
 				$idDevoir=request('SELECT LAST_INSERT_ID() FROM devoir', '');
 				$idDevoir=$idDevoir[0]['LAST_INSERT_ID()'];
@@ -38,7 +32,7 @@
 				$uploadfile = '../data/sujet/test01.txt';
 				die($_FILES['sujet']['name']);
 				$resultat = move_uploaded_file($_FILES['sujet']['tmp_name'],$uploadfile);
-				if ($resultat) echo "Transfert réussi";
+				if ($resultat) echo "Transfert réussi"; */
 				
 				//renvoyer les notes dans la table notes
 				for($i=0; $i<$c; ++$i){
@@ -46,13 +40,7 @@
 				}
 				//ouvre le menu
 				header('Location: menu.php');
-				
-				/* //affichage pour test (commenter la ligne précédente
-				for($i=0; $i<$c; ++$i){
-					echo 'id : '.$notes[$i][0].'<br />';
-					echo 'note : '.$notes[$i][1].'<br />';
-					echo 'commentaire : '.$notes[$i][2].'<br />';
-				} */		
+						
 				break;
 				
 			case 'liste_devoirs_classe.php':

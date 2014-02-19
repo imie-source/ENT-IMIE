@@ -30,6 +30,7 @@ INSERT INTO utilisateur_has_classe (utilisateur_idUtilisateur, classe_idClasse)
 VALUES (1,1),
 	(2,1),
 	(3,1),
+	(3,2),
 	(4,1),
 	(5,1),
 	(6,1),

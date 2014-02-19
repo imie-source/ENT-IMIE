@@ -21,17 +21,16 @@ include('requetes.inc.php');
 	*@param string $urlQuery Chaîne de caractères qui est une url avec le début d'une query string
 	*@return string Liste en HTML de type ul avec des liens gros et centrés, nécessite knacss
 */
-function renvoieUneListe ($tableauBDD, $urlQuery) {
+function renvoieUneListe ($tableauBDD, $urlQuery, $keyId, $keyV) {
 		//Créé la liste
 		$result='<ul class = "unstyled ">'."\n";
 		//Boucle pour dérouler tous les éléments du tableau
-		/* $nbElements=count($tableauBDD);
-		for ($i=0; $i<$nbElements; $i++){ */
-		foreach ($tableauBDD as $value) {
+		$c=count($tableauBDD);
+		for ($i=0; $i<$c; $i++){
 			//un élément de la liste
 			$result.="\t<li class = \"bigger mbm txtcenter\">\n";
 			//renvoie quelque chose comme : <a href="../php/page?classe=test"</a>
-			$result.="\t\t<a href=\"".$urlQuery.$value."\">".$value."</a>\n";
+			$result.="\t\t<a href=\"".$urlQuery.$tableauBDD[$i][$keyId]."\">".$tableauBDD[$i][$keyV]."</a>\n";
 			$result.="\t</li>\n";
 		
 		}
@@ -87,6 +86,34 @@ function erreur($typeErreur){
 	return '<script type="text/javascript" language="javascript">alert(\''.$erreur.'\');</script>';
 
 }
+
+/**
+		*arrayToString prend un tableau de chaînes de caractères et renvoie un tableau où sont concaténés les strings de chaque ligne
+		*
+		*Il prend en entré un tableau de type associatif et renvoie un tableau avec index numérique.
+		*La première cellule de chaque ligne du tableau est un id
+		*
+		*@param array $tableau Tableau associatif contenant pour chaque ligne un id en première cellule et  des chaînes de caractères sur les 3 suivantes
+		*@param integer $keyId Clef du champ d'identification
+		*@param string $keyV1 Première chaîne de caractères
+		*@param string $keyV2 Deuxième chaîne de caractères, optionnel
+		*@param string $keyV3 Troisième chaîne de caractères, optionnel
+		*@return array Tableau avec index numérique ou la première cellule de chaque ligne est un id et la seconde une chaôine de caractères
+	*/
+	function arrayToString($tableau, $keyId, $keyV1, $keyV2=false, $keyV3=false){
+		$c=count($tableau);
+		for($i=0; $i<$c; $i++){
+			$result[$i][0]=$tableau[$i][$keyId];
+			$result[$i][1]=$tableau[$i][$keyV1];
+			if($keyV2!=false){
+				$result[$i][1].=' '.$tableau[$i][$keyV2];
+				if($keyV3!=false){
+					$result[$i][1].=' '.$tableau[$i][$keyV3];	
+				}
+			}
+		}
+		return $result;
+	}
 
 /**
 	*request prend comme argument la constante qui définie sa requête ainsi que les id nécessaires à celle-ci
