@@ -17,17 +17,14 @@
 		switch ($origin[4]) {							//test par rapport au nom de la page d'origine
 			case 'creation_devoir.php':
 				//renvoyer les posts dans la BDD
-				$devoir['date']=$_POST['date'];
-				$devoir['matiere']=$_POST['matiere'];
-				$devoir['classe']=$_POST['classe'];
-				$devoir['devoir']=$_POST['devoir'];
-				$eleves= array (
-					1=>"Michel",
-					2=>"francis",
-					3=>"marion",
-					4=>"éric",
-					5=>"Gudule"
-				);
+				request(INSERT_DEVOIR,"'".$_POST['date']."'",$_POST['classe'], "'".$_POST['devoir']."'", $_SESSION['id']);
+				
+				//On charge les élèves de la classe dans un tableau
+				$eleves=request(GET_STAGIAIRES_CLASSE,$_POST['classe']);
+				
+				$intitule=$_POST['devoir'];
+				$date=$_POST['date'];
+				
 				break;
 				
 			case 'saisie_notes.php':
@@ -74,18 +71,17 @@
 		et deux cellules de saisie de texte.
 	*/
 	function tableauSaisie($tableauEleve){
-		$cpt=0;
+		$c=count($tableauEleve);
 		$result='';
-		foreach ($tableauEleve as $key=>$value){
+		for($i=0; $i<$c; $i++){
 			$result.= "<tr>\n";
-			$result.="\t<th>" . $value . "</th>\n";
-			$result.="\t<input name=\"ideleve".$cpt."\" type=\"hidden\" value=\"".$key."\"/>\n";
-			$result.= "\t<th><input type=\"text\" class=\"note\" name=\"note".$cpt."\" required/></th>\n";
-			$result.= "\t<th><input type=\"text\" name=\"com".$cpt."\" /></th>\n";
+			$result.="\t<th>" . $tableauEleve[$i]['prenom'].' '.$tableauEleve[$i]['nom']. "</th>\n";
+			$result.="\t<input name=\"ideleve".$i."\" type=\"hidden\" value=\"".$tableauEleve[$i]['idUtilisateur']."\"/>\n";
+			$result.= "\t<th><input type=\"text\" class=\"note\" name=\"note".$i."\" required/></th>\n";
+			$result.= "\t<th><input type=\"text\" name=\"com".$i."\" /></th>\n";
 			$result.= "</tr>\n";
-			$cpt++;
 		}
-		$result.= "\t<input name=\"countEleves\" type=\"hidden\" value=\"".$cpt."\"/>\n";
+		$result.= "\t<input name=\"countEleves\" type=\"hidden\" value=\"".$i."\"/>\n";
 		return $result;
 	}
 	

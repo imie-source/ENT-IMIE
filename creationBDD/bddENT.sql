@@ -1,3 +1,7 @@
+/* Création de la base de donnée */
+
+CREATE DATABASE ENT DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
 /* Utilisation de la base ENT */
 
 USE ENT;
@@ -13,13 +17,31 @@ CREATE TABLE utilisateur (
 	PRIMARY KEY (idUtilisateur)
 );
 
+/* Création de la table cursus */
+CREATE TABLE cursus (
+	idCursus INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	libelleCursus VARCHAR(45) NOT NULL,
+	PRIMARY KEY (idCursus)
+);
+
+/* Création de la table centreFormation */
+CREATE TABLE centreFormation (
+	idCentreFormation INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+	centreFormation VARCHAR(45) NOT NULL,
+	PRIMARY KEY (idCentreFormation)
+);
+
 /* Création de la table classe */
 CREATE TABLE classe (
 	idClasse INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-	cursus VARCHAR(45) NOT NULL,
-	session INTEGER NOT NULL,
-	centreFormation VARCHAR(45) NOT NULL,
-	PRIMARY KEY (idClasse)
+	session VARCHAR(45) NOT NULL,
+	anneeDebut INTEGER NOT NULL,
+	anneeFin INTEGER NOT NULL,
+	cursus_idCursus INTEGER UNSIGNED NOT NULL,
+	centreFormation_idCentreFormation INTEGER UNSIGNED NOT NULL,
+	PRIMARY KEY (idClasse),
+	FOREIGN KEY (cursus_idCursus) REFERENCES cursus (idCursus),
+	FOREIGN KEY (centreFormation_idCentreFormation) REFERENCES centreFormation (idCentreFormation)
 );
 
 /* Création de la table utilisateur_has_classe */
@@ -100,20 +122,13 @@ CREATE TABLE typeVoie (
 	PRIMARY KEY (idTypeVoie)
 );
 
-/* Création de la table codePostal */
-CREATE TABLE codePostal (
-	idCodePostal INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-	codePostal INTEGER NOT NULL,
-	PRIMARY KEY (idCodePostal)
-);
 
 /* Création de la table ville */
 CREATE TABLE ville (
-	idVille INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
-	nomVille VARCHAR(45) NOT NULL,
-	codePostal_idCodePostal INTEGER UNSIGNED NOT NULL,
-	PRIMARY KEY (idVille),
-	FOREIGN KEY (codePostal_idCodePostal) REFERENCES codePostal (idCodePostal)
+	idVille SMALLINT(5) UNSIGNED NOT NULL AUTO_INCREMENT,
+	nomVille VARCHAR(45) NULL,
+	codePostal VARCHAR(255) NULL,
+	PRIMARY KEY (idVille)
 );
 
 /* Création de la table adresse */
@@ -121,7 +136,7 @@ CREATE TABLE adresse (
 	idAdresse INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
 	utilisateur_idUtilisateur INTEGER UNSIGNED NOT NULL,
 	typeVoie_idTypeVoie INTEGER UNSIGNED NOT NULL,
-	ville_idVille INTEGER UNSIGNED NOT NULL,
+	ville_idVille SMALLINT(5) UNSIGNED NOT NULL,
 	numero VARCHAR(20) NOT NULL,
 	voie VARCHAR(255) NOT NULL,
 	complement VARCHAR(255) NOT NULL,
@@ -165,4 +180,3 @@ CREATE TABLE correctionDevoir (
 	FOREIGN KEY (utilisateur_idUtilisateur) REFERENCES utilisateur (idUtilisateur),
 	FOREIGN KEY (devoir_idDevoir) REFERENCES devoir (idDevoir)
 );
-	
