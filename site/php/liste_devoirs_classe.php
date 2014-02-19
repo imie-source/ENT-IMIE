@@ -14,7 +14,7 @@
 	//On charge les devoirs de la classe dans un tableau
 	$tabDevoirs=request(GET_DEVOIRS_CLASSE, $_GET['classe']);
 	//On renvoie une liste des devoirs de la classe en HTML
-	$listeDevoirs=renvoieUneListe($tabDevoirs, 'saisie_notes.php?devoir=', 'idDevoir', 'intitule');
+	$listeDevoirs=renvoieUneListe($tabDevoirs, 'saisie_notes.php?from=liste_devoirs_classe&devoir=', 'idDevoir', 'intitule');
 	
 	include("../html/header.html");
 	include("../html/formateur/liste_devoirs_classe.html");

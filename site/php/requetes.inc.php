@@ -152,4 +152,11 @@ define('INSERT_DEVOIR','INSERT INTO devoir (date, classe_idClasse, intitule, uti
 						
 define('INSERT_CORRECTION', 'INSERT INTO correctionDevoir (utilisateur_idUtilisateur, devoir_idDevoir, note, commentaire)
 						VALUES (~, ~, ~, ~)');
+						
+/* SERIE DES UPDATE */
+
+define('UPDATE_CORRECTION','UPDATE correctionDevoir
+							SET note=~, commentaire=~
+							WHERE utilisateur_idUtilisateur=~
+							AND devoir_idDevoir=~');
 ?>

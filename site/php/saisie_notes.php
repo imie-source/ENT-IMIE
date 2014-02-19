@@ -4,11 +4,10 @@
 
 	
 	//défini l'appelle de la page
-	if(isset($_SERVER["HTTP_REFERER"])) {			//si vient d'une autre page 
-		$origin=explode('?',$_SERVER["HTTP_REFERER"]);
-		$origin=explode('/',$origin[0]);
-		switch ($origin[4]) {							//test par rapport au nom de la page d'origine
-			case 'creation_devoir.php':
+	if(isset($_POST['from']) || isset($_GET['from'])) {//si vient d'une autre page 
+		$origin=isset($_POST['from'])?$_POST['from']:$_GET['from'];
+		switch ($origin) {//test par rapport au nom de la page d'origine
+			case 'creation_devoir':
 				//renvoyer les posts dans la BDD
 				$idDevoir=request(INSERT_DEVOIR,"'".$_POST['date']."'",$_POST['classe'], "'".$_POST['devoir']."'", $_SESSION['id']);
 				
@@ -18,9 +17,11 @@
 				$intitule=$_POST['devoir'];
 				$date=$_POST['date'];
 				
+				$from='saisie_notes';
+				
 				break;
 				
-			case 'saisie_notes.php':
+			case 'saisie_notes':
 				//Détermine le nombre de $_POST['ideleve**'] existants
 				$c=$_POST['countEleves'];
 				
@@ -43,7 +44,7 @@
 						
 				break;
 				
-			case 'liste_devoirs_classe.php':
+			case 'liste_devoirs_classe':
 				$idDevoir=$_GET['devoir'];
 				
 				//On récupère l'intitulé du devoir et sa date
@@ -52,6 +53,18 @@
 				$date=$tabDevoir[0]['date'];
 				//On récupère les corrections du devoir
 				$eleves=request(GET_CORRECTION_DEVOIR, $_GET['devoir']);
+				
+				$from='update';
+				break;
+				
+			case 'update':
+				$c=$_POST['countEleves'];
+				//Mise à jour des notes et commentaires dans la BDD
+				for($i=0; $i<$c; ++$i){
+					request(UPDATE_CORRECTION, $_POST['note'.$i], "'".$_POST['com'.$i]."'", $_POST['ideleve'.$i], $_POST['devoir']);
+				}
+				//ouvre le menu
+				header('Location: menu.php');
 				break;
 				
 			default:
@@ -61,10 +74,12 @@
 		die ('Vous venez d\'où au juste ?');
 	}
 	
-	/*
-		Fonction qui prend un tableau en entrée et renvoie une ligne
-		de tableau html avec une cellule qui est l'élément du tableau
-		et deux cellules de saisie de texte.
+	/**
+		*Fonction qui prend un tableau et un id de devoir en entrée et renvoie un tableau en HTML avec les notes et les commentaires par élève
+		*
+		*@param array $tableauEleve Tableau contenant la liste des élèves et éventuellement leurs notes et commentaires pour le devoir
+		*@param integer $idDevoir Id du devoir pour lequel on génère le tableau
+		*@return string Tableau sous forme de code HTMl
 	*/
 	function tableauSaisie($tableauEleve, $idDevoir){
 		$c=count($tableauEleve);

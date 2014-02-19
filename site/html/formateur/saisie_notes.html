@@ -33,7 +33,7 @@
 		
 		<div id="warning">!! Pour élève absent au devoir, indiquer abs comme note !!</div>
 		
-		<form action="#" onsubmit="return verificationNotes()" method="post">
+		<form action="#" onsubmit="return verificationNotes()" method="post"> <!-- lance la vérification de la validité des notes -->
 		<table class="mt3 table striped alternate" summary="">
 			<thead class="alternate"> <!-- en-tête du tableau (première ligne) -->
 				<tr>
@@ -54,9 +54,9 @@
 		<div>
 			<!-- supprimer le devoir de la base de donnée avec les notes et commentaires afférants -->
 			<input style="display:block" type="submit" value="Supprimer le devoir" class="bouton left btnxl"/>
-			<!-- vérifier que toutes les notes sont renseignées avant de valider, vérifier qu'il
-			n'y a pas de caractères interdits -->
+	
 			<input style="display:block" type="submit" value="Valider" class="bouton right btnl"/>
 		</div>
+		<input name="from" type="hidden" value="<?php echo $from; ?>" />
 		</form>
 		

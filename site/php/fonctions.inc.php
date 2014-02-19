@@ -167,7 +167,7 @@ function request($requete, $id0, $id1='' ,$id2='' , $id3='', $id4='', $id5=''){
 				}
 			}
 			break;
-		case 'INSERT':
+		case 'INSERT' || 'UPDATE':
 			$result=$cnx->exec($sql);
 				if ($result===false){
 					die(erreur(ERREUR_REQUETE));
