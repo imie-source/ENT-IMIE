@@ -9,7 +9,7 @@ function renvoieListeEleve ($listeE) {
 		echo '<form action="bulletin.php" method=POST>';
 		echo '<select name="eleve">';
 
-		//Requète, exécution et création du jeu d'enregistrement
+		//Requète, exécution et création du jeu d'enregistrement contenant la liste des élèves
 		$requete = "SELECT idUtilisateur, prenom, nom FROM utilisateur; ";
 		$result  = mysql_query($requete,$db);
 		$listeEleve = mysql_fetch_array($result);
