@@ -159,4 +159,12 @@ define('UPDATE_CORRECTION','UPDATE correctionDevoir
 							SET note=~, commentaire=~
 							WHERE utilisateur_idUtilisateur=~
 							AND devoir_idDevoir=~');
+							
+/* SERIE DES DELETE */
+
+define('DELETE_DEVOIR_HAS_MATIERE_BY_DEVOIR','DELETE FROM devoir_has_matiere
+							WHERE devoir_idDevoir=~');
+							
+define('DELETE_DEVOIR_BY_ID','DELETE FROM devoir
+							WHERE idDevoir=~');
 ?>

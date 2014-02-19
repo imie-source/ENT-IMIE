@@ -25,6 +25,11 @@
 				//Détermine le nombre de $_POST['ideleve**'] existants
 				$c=$_POST['countEleves'];
 				
+				if($_POST['suppr']){
+					request(DELETE_DEVOIR_HAS_MATIERE_BY_DEVOIR,$_POST['devoir']);
+					request(DELETE_DEVOIR_BY_ID,$_POST['devoir']);
+					header('Location: menu.php');
+				}				
 				/* Non Fonctionnel
 				//upload du corrigé et du sujet
 				$idDevoir=request('SELECT LAST_INSERT_ID() FROM devoir', '');
@@ -58,6 +63,11 @@
 				break;
 				
 			case 'update':
+				if($_POST['suppr']){
+					request(DELETE_DEVOIR_HAS_MATIERE_BY_DEVOIR,$_POST['devoir']);
+					request(DELETE_DEVOIR_BY_ID,$_POST['devoir']);
+					header('Location: menu.php');
+				}
 				$c=$_POST['countEleves'];
 				//Mise à jour des notes et commentaires dans la BDD
 				for($i=0; $i<$c; ++$i){
