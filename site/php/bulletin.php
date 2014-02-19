@@ -10,7 +10,7 @@
 	include("../html/header.html");
 	include("fctRenvoieListeEleve.php");
 	include("fctRenvoieBulletin.php");
-	include("../html/formateur/bulletin.html");
+	include("../html/stagiaire/bulletin.html");
 	include("../html/footer.html");
 
 
