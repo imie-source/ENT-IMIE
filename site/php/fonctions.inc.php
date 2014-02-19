@@ -98,7 +98,7 @@ function erreur($typeErreur){
 	*@param integer $id0 Un id
 	*@return mixed Retourne un tableau associatif si tout va bien
 */
-function request($requete, $id0, $id1=0 ,$id2=0 , $id3=0, $id4=0, $id5=0){
+function request($requete, $id0, $id1='' ,$id2='' , $id3='', $id4='', $id5=''){
 	
 	//Connexion à la BDD
 	$cnx = cnxBase ();
@@ -114,7 +114,7 @@ function request($requete, $id0, $id1=0 ,$id2=0 , $id3=0, $id4=0, $id5=0){
 	
 	//Insertion des ID dans la requête
 	$sql='';
-	$c=count($tabRequete)-1;
+	$c=count($tabRequete);
 	for($i=0; $i<$c; $i++){
 		$v='id'.$i;
 		$sql.=$tabRequete[$i].${$v};

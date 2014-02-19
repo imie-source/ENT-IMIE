@@ -102,13 +102,8 @@ define('GET_LISTE_MATIERE','SELECT matiere.idMatiere
 
 /* SERIE DES INSERT */
 
-define('INSERT_DEVOIR','INSERT INTO devoir, devoir_has_matiere, matiere, classe, utilisateur (date, matiere, classe_idClasse, intitule, utilisateur_idUtilisateur)
-						VALUES (~,~,~,~,~)
-						WHERE utilisateur_idUtilisateur=idUtilisateur
-						AND classe_idClasse=idClasse
-						AND devoir_idDevoir=idDevoir
-						AND matiere_idMatiere=idMatiere
-						AND idUtilisateur=~');
+define('INSERT_DEVOIR','INSERT INTO devoir (date, classe_idClasse, intitule, utilisateur_idUtilisateur)
+						VALUES (~, ~, ~, ~)');
 						
 
 ?>
