@@ -35,6 +35,7 @@ VALUES (1,1),
 	(6,1),
 	(7,1),
 	(8,1);
-	
+
+INSERT INTO utilisateur_has_matiere (utilisateur_idUtilisateur, matiere_idMatiere) VALUES (3,1), (3,2), (3,3), (3,4);
 	
 	
