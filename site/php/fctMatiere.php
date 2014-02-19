@@ -2,7 +2,7 @@
 include ("fonctions.inc.php");
 function renvoieMatiere()	{
 
-	$tabRes=request(GET_MATIERE_UTILISATEUR, $_SESSION["id"],"'JAVA'");
+	$tabRes=request(GET_DEVOIR_MATIERE_UTILISATEUR, $_SESSION["id"],"'JAVA'");
 
 			
 $lesMatieres = "";

@@ -13,6 +13,7 @@
 	toute les données dans les tableaux sur la page matiere.php 
 	*/
 	$lesMatieres = renvoieMatiere();
+	$moyenne = moyenneEleve();
 	// Structure HTML de la page
 	include ("../html/stagiaire/matiere.html");
 	// Inclusion de la fonction de création du radar
