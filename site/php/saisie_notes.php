@@ -17,10 +17,7 @@
 		switch ($origin[4]) {							//test par rapport au nom de la page d'origine
 			case 'creation_devoir.php':
 				//renvoyer les posts dans la BDD
-				$devoir['date']=$_POST['date'];
-				$devoir['matiere']=$_POST['matiere'];
-				$devoir['classe']=$_POST['classe'];
-				$devoir['devoir']=$_POST['devoir'];
+				$devoir=request(INSERT_DEVOIR,"'".$_POST['date']."'",$_POST['classe'], "'".$_POST['devoir']."'", $_SESSION['id']);
 				$eleves= array (
 					1=>"Michel",
 					2=>"francis",
