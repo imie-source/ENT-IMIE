@@ -139,7 +139,7 @@ define('GET_MOYENNE_ELEVE','SELECT nomMatiere, ROUND(AVG(note),2) AS moyenne
 								AND idUtilisateur =  ~
 								GROUP BY idMatiere;');
 
-define('GET_CORRECTION_DEVOIR', 'SELECT prenom, nom, note, commentaire
+define('GET_CORRECTION_DEVOIR', 'SELECT prenom, nom, note, commentaire, idUtilisateur
 								FROM utilisateur, correctionDevoir, devoir
 								WHERE correctionDevoir.utilisateur_idUtilisateur=idUtilisateur
 								AND devoir_idDevoir=idDevoir
@@ -150,5 +150,6 @@ define('GET_CORRECTION_DEVOIR', 'SELECT prenom, nom, note, commentaire
 define('INSERT_DEVOIR','INSERT INTO devoir (date, classe_idClasse, intitule, utilisateur_idUtilisateur)
 						VALUES (~, ~, ~, ~)');
 						
-
+define('INSERT_CORRECTION', 'INSERT INTO correctionDevoir (utilisateur_idUtilisateur, devoir_idDevoir, note, commentaire)
+						VALUES (~, ~, ~, ~)');
 ?>

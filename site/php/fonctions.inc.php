@@ -123,7 +123,7 @@ function erreur($typeErreur){
 	*
 	*@param string $requete Constante définie dans requetes.inc.php
 	*@param integer $id0 Un id
-	*@return mixed Retourne un tableau associatif si tout va bien
+	*@return mixed Retourne un tableau associatif dans le cas d'un select et l'id de l'insertion en cas d'insertion
 */
 function request($requete, $id0, $id1='' ,$id2='' , $id3='', $id4='', $id5=''){
 	
@@ -169,9 +169,10 @@ function request($requete, $id0, $id1='' ,$id2='' , $id3='', $id4='', $id5=''){
 			break;
 		case 'INSERT':
 			$result=$cnx->exec($sql);
-				if ($result==false){
+				if ($result===false){
 					die(erreur(ERREUR_REQUETE));
 				}
+			return $cnx->lastInsertId();
 			break;
 		default:
 			die(erreur(ERREUR_REQUETE));
