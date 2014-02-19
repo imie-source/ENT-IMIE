@@ -1,7 +1,6 @@
 <?php
 
 	include('fonctions.inc.php');
-	autorisationPage('formateur');
 	
 	$titrePage = "Bulletin";
 	$eleve = '1';
