@@ -10,11 +10,11 @@ include("Library/class/pImage.class.php");
 $MyData = new pData();  
 
 /* Connect to the MySQL database */
-$db = mysql_connect("localhost", "root", "");
-mysql_select_db("imie");
+$db = mysql_connect("10.3.0.245", "ENT", "ent");
+mysql_select_db("ENT");
  
  /* Build the query that will returns the data to graph */
-$requete = "SELECT moyenne FROM moyenneeleve WHERE matiere='matiere1' AND eleve='eleve1'";
+$requete = "SELECT moyenne FROM devoir WHERE matiere='matiere1' AND eleve='eleve1'";
 $result  = mysql_query($requete,$db) or die (mysql_error());
 $moyenne1="";
 

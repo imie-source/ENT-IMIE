@@ -8,16 +8,19 @@
 							<div class="grid2 mb2">
 								<div>
 									<!-- retourne le bulletin de la période en cours -->
-									<a href="bulletin.html">Revenir au bulletin</a>
+									<a href="../php/bulletin.php">Revenir au bulletin</a>
 								</div>
 							
 							<!-- menu déroulant à générer en fonction du nombre de sessions qu'à connu l'élève 
 							renvoie à la même page avec les infos de la session choisie -->
 								<div>
-									<ul class = "unstyled right">
-										<li><a href="matiere.html">Session 2013/2014</a></li>
-										<li><a href="matiere.html">Session 2012/2013</a></li>
-										<li><a href="matiere.html">Session 2011/2012</a></li>
+									<ul class = "right">
+										<select onchange="location.href=this.value">
+										<option value ="#"> </option>
+										<option value ="#">Session 2013/2014</option>
+										<option value ="#">Session 2012/2013</option>
+										<option value ="#">Session 2011/2012</option>
+										</select>
 									</ul>
 								</div>
 							</div>
@@ -28,6 +31,7 @@
 			 
 					<?php echo $lesMatieres; ?>
 			</div>
+			<div> <?php echo $moyenne; ?> </div>
 			
 			<div class="right">
 				<img src="../php/graph/drawradar.png" />

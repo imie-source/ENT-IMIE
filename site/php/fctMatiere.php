@@ -1,54 +1,57 @@
 <?php
+include ("fonctions.inc.php");
 function renvoieMatiere()	{
-include ("connexion.inc.php");
-$cnx = cnxBase ();
-$sql = 	"SELECT correctionDevoir.note, correctionDevoir.commentaire, devoir.moyenne, devoir.intitule
-		FROM matiere, domaine, utilisateur_has_matiere, utilisateur, devoir_has_matiere, correctionDevoir, devoir
-		WHERE matiere.idMatiere = devoir_has_matiere.devoir_idDevoir
-		AND matiere.idMatiere = domaine.idDomaine
-		AND matiere.idMatiere = utilisateur_has_matiere.utilisateur_idUtilisateur
-		AND utilisateur.idUtilisateur = correctionDevoir.utilisateur_idUtilisateur
-		AND utilisateur_has_matiere.utilisateur_idUtilisateur = utilisateur.idUtilisateur
-		AND devoir_has_matiere.devoir_idDevoir = devoir.idDevoir
-		AND devoir.idDevoir = correctionDevoir.devoir_idDevoir
-		AND utilisateur.idUtilisateur = devoir.utilisateur_idUtilisateur
-		AND 'Gudule' = utilisateur.idUtilisateur
-		AND  'java' = matiere.nomMatiere;";
-			$result = $cnx->query($sql);
-			$tabRes = $result->fetchAll(PDO::FETCH_ASSOC);
+
+	$tabRes=request(GET_MATIERE_UTILISATEUR, $_SESSION["id"],"'JAVA'");
+
 			
 $lesMatieres = "";
-	$devoir =  $tabRes[0]["devoir.intitule"];
-	$noteDevoir = $tabRes[0] ["correctionDevoir.note"];
-	$moyenneDevoir=$tabRes[0] ["devoir.moyenne"];
-	$commentaireDevoir= $tabRes[0]["correctionDevoir.commentaire"];
-	$c = count($devoir);
-	foreach  ($conn->query($sql) as $row)	{
-		$lesMatieres .=	"<div class='grid3 line row pa1 mb2' id='border'> 
-							<div id='bold' class='line clear row'> Devoir " .  $devoir[$i]  .  " 
+	$i = 0;
+
+	
+	foreach  ($tabRes as $c )	{
+	
+			$devoir[] =  $tabRes[$i]["intitule"];
+			$noteDevoir[] = $tabRes[$i] ["note"];
+			$moyenneDevoir[]=$tabRes[$i] ["moyenne"];
+			$commentaireDevoir[]= $tabRes[$i]["commentaire"];
+			$c = count($devoir);
+		$lesMatieres .=	"<div class='container pa1 mb2' id='border'> 
+							<div id='bold' class='txtcenter'> " .  $devoir[$i]  .  " 
 								<form action='../media/corrige.pdf'>
-									<input type='submit' value='Correction' />
+									<input type='submit' class=\"mbs mts\" value='Correction' />
 								</form> 
 								<form action='../media/sujet.pdf'>
 									<input type='submit' value='Sujet' />
 								</form>
 							</div> 
 							<div>
-								<div id='bold'> Note </div>
-								<div> " . $noteDevoir[$i] ."\n </div>	
-								<div id='bold' > Moyenne </div>
-								<div> " . $moyenneDevoir[$i] . "\n </div> 
+								<div id='bold' class='ligne'> Note 
+								<div class='mts'> " . $noteDevoir[$i] ."\n </div> </div>	
+								<div id='bold' class='ligne' > Moyenne 
+								<div class='mts'> " . $moyenneDevoir[$i] . "\n </div> </div>
+								<div style='clear:both'> </div>
 							</div>
 							<div> 
-								<div> Commentaire : <p id='border2'> "  . $commentaireDevoir[$i].  "\n </p> </div>
+								<p id='border2' class=\"pcasser mt0 pas\"> "  . $commentaireDevoir[$i].  "\n </p> 
 							</div>		
-						</div>";
+						</div>"
+						;
+						$i++;
 	}
 	return $lesMatieres;
+
+}
+ function choixMatiere()	{
+	$titreMatiere = "fuck";/*$_POST["matiere"];*/
+	return $titreMatiere;
+} 	
+ function moyenneEleve()	{
+	$tabRes=request(GET_MOYENNE_ELEVE, $_SESSION["id"]);
 	
-}
-function choixMatiere()	{
-$titreMatiere = ("Linux");
-return $titreMatiere;
-}
+		$moyenne=$tabRes[0]["moyenne"];
+		
+	return $moyenne;
+	}
+
 ?>
