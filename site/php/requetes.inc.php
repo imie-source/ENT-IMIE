@@ -15,6 +15,14 @@ define('GET_CLASSE_UTILISATEUR','SELECT idClasse, libelleCursus, centreFormation
 								AND centreFormation_idCentreFormation=idCentreFormation
 								AND idUtilisateur =~');
 								
+define('GET_CLASSE_BY_ID','SELECT idClasse, libelleCursus, centreFormation, session
+								FROM classe, cursus, centreFormation, utilisateur, utilisateur_has_classe
+								WHERE idUtilisateur=utilisateur_idUtilisateur
+								AND classe_idClasse=idClasse
+								AND cursus_idCursus=idCursus
+								AND centreFormation_idCentreFormation=idCentreFormation
+								AND idClasse =~');
+								
 define('GET_MATIERE_UTILISATEUR', 'SELECT idMatiere, nomMatiere
 								FROM matiere, utilisateur, utilisateur_has_matiere
 								WHERE idUtilisateur=utilisateur_idUtilisateur
@@ -113,7 +121,12 @@ define ('GET_DEVOIR_MATIERE_UTILISATEUR',	'SELECT note, commentaire, moyenne, in
 									AND idDevoir = devoir_has_matiere.devoir_idDevoir
 									AND idMatiere = devoir_has_matiere.matiere_idMatiere
 									AND idUtilisateur = ~
-									AND nomMatiere =  ~');	
+									AND nomMatiere =  ~');
+									
+define ('GET_DEVOIRS_CLASSE', 'SELECT idDevoir, intitule
+								FROM devoir, classe
+								WHERE classe_idClasse=idClasse
+								AND idClasse=~');
 
 define('GET_MOYENNE_ELEVE','SELECT nomMatiere, ROUND(AVG(note),2) AS moyenne 
 								FROM correctionDevoir, utilisateur, utilisateur_has_matiere, matiere 

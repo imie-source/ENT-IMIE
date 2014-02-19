@@ -146,7 +146,7 @@ function request($requete, $id0, $id1='' ,$id2='' , $id3='', $id4='', $id5=''){
 		$v='id'.$i;
 		$sql.=$tabRequete[$i].${$v};
 	}
-
+	/*die($sql);//Renvoie la requête pour test */
 	//Récupération du premier terme de la requête qui définira le type de requête
 	$type=explode(" ",$sql);
 	$type=strtoupper(array_shift($type));

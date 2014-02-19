@@ -4,10 +4,11 @@
 	
 	$titrePage="Sélection de la classe";
 	
+	//On charge les infos utiles our identifier les classes du formateur
 	$tabClasses=request(GET_CLASSE_UTILISATEUR,$_SESSION['id']);
-	
+	//Retourne un tableau avec un id et une chaîne de caractères qui concatène les infos des classes
 	$tabClasses=arrayToString($tabClasses, 'idClasse', 'libelleCursus', 'centreFormation', 'session');
-	
+	//renvoie une liste déroulante avec les classes
 	$listeClasses=renvoieUneListe($tabClasses, 'liste_devoirs_classe.php?classe=', 0, 1);
 	
 	
