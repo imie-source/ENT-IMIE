@@ -26,6 +26,16 @@ define('GET_UTILISATEUR', 'SELECT *
 							WHERE idUtilisateur = utilisateur_idUtilisateur 
 							AND statut_idStatut = idStatut 
 							AND login =~');
+							
+define('GET_STAGIAIRES_CLASSE', 'SELECT idUtilisateur, prenom, nom
+						FROM utilisateur, classe, utilisateur_has_classe, statut, utilisateur_has_statut
+						WHERE utilisateur_has_classe.utilisateur_idUtilisateur=idUtilisateur
+						AND utilisateur_has_statut.utilisateur_idUtilisateur=idUtilisateur
+						AND statut_idStatut=idStatut
+						AND classe_idClasse=idClasse
+						AND idStatut=2
+						AND idClasse=~');
+						
 
 define('GET_MOYENNE_ELEVE','SELECT matiere.nomMatiere, ROUND(AVG(note),2) AS moyenne 
 								FROM classe, utilisateur_has_classe, utilisateur, correctionDevoir, utilisateur_has_matiere,  matiere  
@@ -99,6 +109,7 @@ define('GET_LISTE_MATIERE','SELECT matiere.idMatiere
 								AND devoir.idDevoir = devoir_has_matiere.devoir_idDevoir 
 								AND devoir_has_matiere.matiere_idMatiere = matiere.idMatiere 
 								AND utilisateur.idUtilisateur = ~ GROUP BY matiere.idMatiere');
+								
 
 /* SERIE DES INSERT */
 

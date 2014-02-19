@@ -130,24 +130,26 @@ function request($requete, $id0, $id1='' ,$id2='' , $id3='', $id4='', $id5=''){
 	switch($type){
 		case 'SELECT':
 			$result=$cnx->query($sql);
+			if($result!=false){
+				//Affectation du résultat dans un tableau associatif
+				$tabRes=$result->fetchAll(PDO::FETCH_ASSOC);
+				
+				//Si tout va bien on retourne sinon erreur
+				if($tabRes!=false){
+					return $tabRes;
+				}
+			}
 			break;
 		case 'INSERT':
 			$result=$cnx->exec($sql);
+				if ($result==false){
+					die(erreur(ERREUR_REQUETE));
+				}
 			break;
 		default:
 			die(erreur(ERREUR_REQUETE));
 	}
-	if($result!=false){
-		//Affectation du résultat dans un tableau associatif
-		$tabRes=$result->fetchAll(PDO::FETCH_ASSOC);
-		
-		//Si tout va bien on retourne sinon erreur
-		if($tabRes!=false){
-			return $tabRes;
-		}
-	}
-	die(erreur(ERREUR_REQUETE));
-	
+
 }
 
 

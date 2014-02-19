@@ -1,3 +1,7 @@
+/* Création de la base de donnée */
+
+CREATE DATABASE ENT DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
 /* Utilisation de la base ENT */
 
 USE ENT;
