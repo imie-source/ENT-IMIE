@@ -45,15 +45,10 @@
 				
 			case 'liste_devoirs_classe.php':
 				//charger la BDD
-				$devoir['date']='2014-07-14';
-				$devoir['devoir']='QCM Linux';
-				$eleves= array (
-					1=>"Michel",
-					2=>"francis",
-					3=>"marion",
-					4=>"el niño",
-					5=>"Gudule"
-				);
+				$tabDevoir=request(GET_DEVOIR_BY_ID, $_GET['devoir']);
+				$intitule=$tabDevoir[0]['intitule'];
+				$date=$tabDevoir[0]['date'];
+				$eleves=request(GET_CORRECTION_DEVOIR, $_GET['devoir']);
 				break;
 				
 			default:

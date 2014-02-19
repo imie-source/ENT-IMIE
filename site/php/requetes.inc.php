@@ -113,20 +113,24 @@ define('GET_ID_DEVOIR', 'SELECT idDevoir
 								WHERE intitule=~
 								AND date=~');
 								
-define ('GET_DEVOIR_MATIERE_UTILISATEUR',	'SELECT note, commentaire, moyenne, intitule
-									FROM matiere, utilisateur, devoir_has_matiere, correctionDevoir, devoir
-									WHERE idUtilisateur = devoir.utilisateur_idUtilisateur
-									AND idUtilisateur = correctionDevoir.utilisateur_idUtilisateur
-									AND idDevoir = correctionDevoir.devoir_idDevoir
-									AND idDevoir = devoir_has_matiere.devoir_idDevoir
-									AND idMatiere = devoir_has_matiere.matiere_idMatiere
-									AND idUtilisateur = ~
-									AND nomMatiere =  ~');
+define ('GET_DEVOIR_MATIERE_UTILISATEUR', 'SELECT note, commentaire, moyenne, intitule
+								FROM matiere, utilisateur, devoir_has_matiere, correctionDevoir, devoir
+								WHERE idUtilisateur = devoir.utilisateur_idUtilisateur
+								AND idUtilisateur = correctionDevoir.utilisateur_idUtilisateur
+								AND idDevoir = correctionDevoir.devoir_idDevoir
+								AND idDevoir = devoir_has_matiere.devoir_idDevoir
+								AND idMatiere = devoir_has_matiere.matiere_idMatiere
+								AND idUtilisateur = ~
+								AND nomMatiere =  ~');
 									
 define ('GET_DEVOIRS_CLASSE', 'SELECT idDevoir, intitule
 								FROM devoir, classe
 								WHERE classe_idClasse=idClasse
 								AND idClasse=~');
+								
+define('GET_DEVOIR_BY_ID', 'SELECT idDevoir, utilisateur_idUtilisateur, classe_idClasse, intitule, date, moyenne
+								FROM devoir
+								WHERE idDevoir=~');
 
 define('GET_MOYENNE_ELEVE','SELECT nomMatiere, ROUND(AVG(note),2) AS moyenne 
 								FROM correctionDevoir, utilisateur, utilisateur_has_matiere, matiere 
@@ -134,7 +138,12 @@ define('GET_MOYENNE_ELEVE','SELECT nomMatiere, ROUND(AVG(note),2) AS moyenne
 								AND utilisateur_has_matiere.matiere_idMatiere = idMatiere 
 								AND idUtilisateur =  ~
 								GROUP BY idMatiere;');
-								
+
+define('GET_CORRECTION_DEVOIR', 'SELECT prenom, nom, note, commentaire
+								FROM utilisateur, correctionDevoir, devoir
+								WHERE correctionDevoir.utilisateur_idUtilisateur=idUtilisateur
+								AND devoir_idDevoir=idDevoir
+								AND idDevoir=~');
 
 /* SERIE DES INSERT */
 
