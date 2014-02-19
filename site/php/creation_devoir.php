@@ -17,9 +17,9 @@
 	*/
 	function arrayToString($tableau, $keyId, $keyV1, $keyV2, $keyV3){
 		$c=count($tableau);
-		for($i=0; $i<$c; i++){
-			$result[$i][0]=$keyId;
-			$result[$i][1]=$keyV1.' '.$keyV2.' '.$keyV3;
+		for($i=0; $i<$c; $i++){
+			$result[$i][0]=$tableau[$i][$keyId];
+			$result[$i][1]=$tableau[$i][$keyV1].' '.$tableau[$i][$keyV2].' '.$tableau[$i][$keyV3];
 		}
 		return $result;
 	}
@@ -30,14 +30,12 @@
 	
 	/* Création de la liste des matières de l'utilisateur */
 	$tabMatieres=request(GET_MATIERE_UTILISATEUR, $_SESSION['id']);
-	
-	$listeMatieres=tableauListe($tabMatieres);
-	$listeMatieres=listeOption($listeMatieres);
+	$listeMatieres=listeOption($tabMatieres,'idMatiere', 'nomMatiere');
 	
 	/* Création de la liste des classes de l'utilisateur */
 	$tabClasses=request(GET_CLASSE_UTILISATEUR, $_SESSION['id']);
-	$listeClasses=tableauListe($tabClasses);
-	$listeClasses=listeOption($listeClasses);
+	$tabClasses=arrayToString($tabClasses, 'idClasse', 'libelleCursus', 'centreFormation', 'session');
+	$listeClasses=listeOption($tabClasses, 0, 1);
 	
 	include("../html/header.html");
 	include("../html/formateur/creation_devoir.html");

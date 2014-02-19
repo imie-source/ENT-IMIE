@@ -7,7 +7,7 @@
 
 /* SERIE DES SELECT */
 
-define('GET_CLASSE_UTILISATEUR','SELECT libelleCursus, centreFormation, session
+define('GET_CLASSE_UTILISATEUR','SELECT idClasse, libelleCursus, centreFormation, session
 								FROM classe, cursus, centreFormation, utilisateur, utilisateur_has_classe
 								WHERE idUtilisateur=utilisateur_idUtilisateur
 								AND classe_idClasse=idClasse

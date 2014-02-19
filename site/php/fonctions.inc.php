@@ -55,6 +55,7 @@ function renvoieUneListe ($tableauBDD, $urlQuery) {
 	*@return string Suite d'instructions en HTLM de type <option>
 */
 function listeOption ($tableau, $keyId, $keyValue) {
+	$result='';
 	$c=count($tableau);
 	for($i=0; $i<$c; $i++){
 		$result.='<option value="'.$tableau[$i][$keyId].'">'.$tableau[$i][$keyValue]."</option>\n";
