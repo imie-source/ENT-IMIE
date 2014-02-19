@@ -43,7 +43,7 @@ $lesMatieres = "";
 
 }
  function choixMatiere()	{
-	$titreMatiere = "fuck";/*$_POST["matiere"];*/
+	$titreMatiere = "Java" /*$_POST["matiere"]; Version finale pour définir le titre de la page.*/ ;
 	return $titreMatiere;
 } 	
  function moyenneEleve()	{

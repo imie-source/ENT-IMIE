@@ -9,11 +9,10 @@
 	le titre de la page matière suivant la matière selectionné dans le bulletin avec un $_POST
 	*/
 	$titreMatiere = choixMatiere();
-	/* On associe le resultat des fonctions renvoieMatiere, moyenneEleve, moyenneClasse pour afficher 
+	/* On associe le resultat de la fonction renvoieMatiere pour afficher 
 	toute les données dans les tableaux sur la page matiere.php 
 	*/
 	$lesMatieres = renvoieMatiere();
-	$moyenne = moyenneEleve();
 	// Structure HTML de la page
 	include ("../html/stagiaire/matiere.html");
 	// Inclusion de la fonction de création du radar
