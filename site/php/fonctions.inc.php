@@ -42,20 +42,22 @@ function renvoieUneListe ($tableauBDD, $urlQuery) {
 /**
 	*listeOption renvoie une suite d'<option> en HTML
 	*
-	*listeOption prend pour argument un tableau et renvoie les éléments
-	*de ce tableau dans une suite de '<option>' avec pour value l'élément du
+	*listeOption prend pour argument un tableau associatif avec un champ contenant l'id de la donnée et un aute champ sa valeur
+	*Elle renvoie les éléments de ce tableau dans une suite de '<option>' avec pour value l'id et affiche la valeur
 	*tableau
-	*		ex : listeOption($tableau);
-	*		--> <option value="valeur01">Valeur 01</option>
-	*			<option value="valeur02">Valeur 02</option>
+	*		ex : listeOption($tableau, $keyId, $keyValue);
+	*		--> <option value="1">Valeur 01</option>
+	*			<option value="2">Valeur 02</option>
 	*
 	*@param array $tableau
+	*@param string $keyId Clef du champ de l'identifiant de la donnée à afficher
+	*@param string $keyValue Clef du champ de la valeur de la donnée à afficher
 	*@return string Suite d'instructions en HTLM de type <option>
 */
-function listeOption ($tableau) {
-	$result='';
-	foreach($tableau as $value){
-		$result.='<option value="'.$value.'">'.$value."</option>\n";
+function listeOption ($tableau, $keyId, $keyValue) {
+	$c=count($tableau);
+	for($i=0; $i<$c; $i++){
+		$result.='<option value="'.$tableau[$i][$keyId].'">'.$tableau[$i][$keyValue]."</option>\n";
 	}
 	return $result;
 	}
@@ -95,7 +97,7 @@ function erreur($typeErreur){
 	*@param integer $id0 Un id
 	*@return mixed Retourne un tableau associatif si tout va bien
 */
-function request($requete, $id0, $id1=0 ,$id2=0 , $id3=0){
+function request($requete, $id0, $id1=0 ,$id2=0 , $id3=0, $id4=0, $id5=0){
 	
 	//Connexion à la BDD
 	$cnx = cnxBase ();
@@ -147,17 +149,5 @@ function request($requete, $id0, $id1=0 ,$id2=0 , $id3=0){
 	
 }
 
-/**
-	*arrayToString prend une ligne d'un tableau de chaînes de caractères et renvoie une chaîne de caractère où sont concaténés le contenu du tableau
-	*
-	*@param array Tableau contenant des chaînes de caractères
-	*@return string
-*/
-function arrayToString($tableau){
-	$string='';
-	foreach($tableau as $value){
-		$string.=$value.' ';
-	}
-	return $string;
-}
+
 ?>
