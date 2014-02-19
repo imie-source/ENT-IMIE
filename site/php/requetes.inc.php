@@ -35,16 +35,6 @@ define('GET_STAGIAIRES_CLASSE', 'SELECT idUtilisateur, prenom, nom
 						AND classe_idClasse=idClasse
 						AND idStatut=2
 						AND idClasse=~');
-						
-
-define('GET_MOYENNE_ELEVE','SELECT matiere.nomMatiere, ROUND(AVG(note),2) AS moyenne 
-								FROM classe, utilisateur_has_classe, utilisateur, correctionDevoir, utilisateur_has_matiere,  matiere  
-								WHERE classe.idClasse = utilisateur_has_classe.classe_idClasse 
-								AND utilisateur_has_classe.utilisateur_idUtilisateur = utilisateur.idUtilisateur 
-								AND utilisateur.idUtilisateur = correctionDevoir.utilisateur_idUtilisateur 
-								AND utilisateur.idUtilisateur = utilisateur_has_matiere.utilisateur_idUtilisateur 
-								AND utilisateur_has_matiere.matiere_idMatiere = matiere.idMatiere 
-								AND classe.idClasse = ~ GROUP BY matiere.idMatiere');
 
 define('GET_MOYENNE_CLASSE','SELECT appreciation 
 								FROM trimestre, appreciation, utilisateur_has_statut, utilisateur								
@@ -115,7 +105,7 @@ define('GET_ID_DEVOIR', 'SELECT idDevoir
 								WHERE intitule=~
 								AND date=~');
 								
-define ('GET_MATIERE_UTILISATEUR',	'SELECT note, commentaire, moyenne, intitule
+define ('GET_DEVOIR_MATIERE_UTILISATEUR',	'SELECT note, commentaire, moyenne, intitule
 									FROM matiere, utilisateur, devoir_has_matiere, correctionDevoir, devoir
 									WHERE idUtilisateur = devoir.utilisateur_idUtilisateur
 									AND idUtilisateur = correctionDevoir.utilisateur_idUtilisateur
